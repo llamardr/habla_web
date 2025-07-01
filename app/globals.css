@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Show burst only on hover */
+.hands-hero-svg g > path:first-child {
+  opacity: 0;
+  pointer-events: all;
+  transition: opacity 0.1s;
+  cursor: pointer;
+}
+.hands-hero-svg g > path:first-child:hover {
+  opacity: 1;
+}
