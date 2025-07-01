@@ -5,8 +5,8 @@ import "./globals.css";
 const workSans = Work_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "HABLA LATAM",
-  description: "Un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica",
+  title: "Habla - Basado en datos",
+  description: "Consultora de estrategia basada en investigación",
 };
 
 export default function RootLayout({ children }) {
