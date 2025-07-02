@@ -8,7 +8,7 @@ const teamMembers = [
   { name: "Patricio Yrigoyen", title: "Partner | Operations & Data", linkedin: "https://www.linkedin.com/in/patricio-yrigoyen/", profile_pic: '/team/Patricio.png'},
   { name: "Aldo Román", title: "Collaborator | Software", linkedin: "https://www.linkedin.com/in/aldoroman/", profile_pic: '/team/Aldo.png' },
   { name: "Lady Vargas", title: "Collaborator | Design and Research", linkedin: "https://www.linkedin.com/in/lady-vargas-9ba74913a/", profile_pic: '/team/Lady.png' },
-  { name: "Maria Jose Tola", title: "Collaborator | Marketing and GenZ", linkedin: "https://www.linkedin.com/in/maria-jose-tola-dourojeanni-2674a5202/", profile_pic: '/team/Lady.png' },
+  { name: "Maria Jose Tola", title: "Collaborator | Marketing", linkedin: "https://www.linkedin.com/in/maria-jose-tola-dourojeanni-2674a5202/", profile_pic: '/team/Majo.png' },
   { name: "Sheila Acuña", title: "Collaborator | UX Research", linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/", profile_pic: '/team/Shey.png'},
   { name: "Milagros Freitas", title: "Advisor | Market Research", linkedin: "https://www.linkedin.com/in/milagros-freitas-2930a451/" , profile_pic: '/team/Mili.png'},
   { name: "Silvia Angulo", title: "Collaborator | UX Research", linkedin: "https://www.linkedin.com/in/silviaangulogamero/", profile_pic: '/team/Silv.png' },
