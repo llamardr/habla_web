@@ -16,7 +16,7 @@ const teamMembers = [
 
 
 const Chip = ({ name, title, linkedin, profile_pic }) => (
-  <div className="flex items-center gap-6 bg-white border border-gray-200 rounded-full px-10 py-4 shadow-sm w-full transition-transform duration-300 hover:scale-105">
+  <div className="flex items-center gap-6 bg-white border border-gray-200 rounded-2xl px-10 py-4 shadow-sm w-full transition-transform duration-300 hover:scale-105">
     <img
       src={profile_pic}
       alt={name}
@@ -30,14 +30,36 @@ const Chip = ({ name, title, linkedin, profile_pic }) => (
       href={linkedin}
       target="_blank"
       rel="noopener noreferrer"
-      className="icon flex items-center gap-1"
+      className="icon flex items-center gap-1 group"
       aria-label={`LinkedIn de ${name}`}
     >
-      <svg width="25" height="26" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M28.2416 2.1001H3.76156C2.56156 2.1001 1.60156 3.0601 1.60156 4.1801V28.8201C1.60156 29.9401 2.56156 30.9001 3.76156 30.9001H28.3216C29.5216 30.9001 30.4816 29.9401 30.4816 28.8201V4.1801C30.4016 3.0601 29.4416 2.1001 28.2416 2.1001ZM10.1616 26.6601H5.84156V12.9001H10.0816V26.6601H10.1616ZM8.00156 10.9801C6.64156 10.9801 5.52156 9.8601 5.52156 8.5001C5.52156 7.1401 6.64156 6.1001 8.00156 6.1001C9.36156 6.1001 10.4816 7.2201 10.4816 8.5801C10.4816 9.9401 9.36156 10.9801 8.00156 10.9801ZM26.1616 26.6601H21.9216V19.9401C21.9216 18.3401 21.9216 16.2601 19.6816 16.2601C17.4416 16.2601 17.1216 18.0201 17.1216 19.7801V26.5801H12.8016V12.9001H16.8816V14.7401H16.9616C17.5216 13.6201 18.9616 12.5001 21.0416 12.5001C25.3616 12.5001 26.1616 15.3801 26.1616 19.0601V26.6601Z" fill="#262626"></path>
+      <svg
+        width="25"
+        height="26"
+        viewBox="0 0 32 33"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="transition-colors duration-200"
+      >
+        <path
+          d="M28.2416 2.1001H3.76156C2.56156 2.1001 1.60156 3.0601 1.60156 4.1801V28.8201C1.60156 29.9401 2.56156 30.9001 3.76156 30.9001H28.3216C29.5216 30.9001 30.4816 29.9401 30.4816 28.8201V4.1801C30.4016 3.0601 29.4416 2.1001 28.2416 2.1001ZM10.1616 26.6601H5.84156V12.9001H10.0816V26.6601H10.1616ZM8.00156 10.9801C6.64156 10.9801 5.52156 9.8601 5.52156 8.5001C5.52156 7.1401 6.64156 6.1001 8.00156 6.1001C9.36156 6.1001 10.4816 7.2201 10.4816 8.5801C10.4816 9.9401 9.36156 10.9801 8.00156 10.9801ZM26.1616 26.6601H21.9216V19.9401C21.9216 18.3401 21.9216 16.2601 19.6816 16.2601C17.4416 16.2601 17.1216 18.0201 17.1216 19.7801V26.5801H12.8016V12.9001H16.8816V14.7401H16.9616C17.5216 13.6201 18.9616 12.5001 21.0416 12.5001C25.3616 12.5001 26.1616 15.3801 26.1616 19.0601V26.6601Z"
+          fill="#262626"
+          className="transition-colors duration-200 group-hover:fill-[#0e76a8]"
+        ></path>
       </svg>
-      <svg width="5" height="5" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.10066 2.11189L0.899458 2.10575L0.897684 0.602072L8.66669 0.61124L8.67586 8.38025L7.17218 8.37847L7.16604 3.17554L1.42093 8.92069L0.356419 7.85617L6.10066 2.11189Z" fill="#262626"></path>
+      <svg
+        width="5"
+        height="5"
+        viewBox="0 0 9 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="transition-colors duration-200"
+      >
+        <path
+          d="M6.10066 2.11189L0.899458 2.10575L0.897684 0.602072L8.66669 0.61124L8.67586 8.38025L7.17218 8.37847L7.16604 3.17554L1.42093 8.92069L0.356419 7.85617L6.10066 2.11189Z"
+          fill="#262626"
+          className="transition-colors duration-200 group-hover:fill-[#0e76a8]"
+        ></path>
       </svg>
     </a>
   </div>

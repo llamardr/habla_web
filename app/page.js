@@ -5,7 +5,6 @@ import UsSection from "./components_habla/UsSection";
 import Partners from "./components_habla/Partners";
 import Team from "./components_habla/Team";
 import SuccessCases from "./components_habla/SuccessCases";
-// import ProcessSection from "./components_habla/ProcessSection";
 
 async function Home() {
   
@@ -16,7 +15,6 @@ async function Home() {
       <Navbar></Navbar>
       <HeroSection></HeroSection>
       <UsSection></UsSection>
-      {/* <ProcessSection /> */}
       <Partners></Partners>
       <Team></Team>
       <SuccessCases></SuccessCases>

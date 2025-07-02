@@ -70,7 +70,7 @@ const UsSection = () => {
           marcas a entrar a mercados, evolucionar con propósito, escalar con impacto.
         </p>
         <div className="w-40 mb-20 sm:mb-0 md:mb-20">
-          <ButtonContacto />
+          <ButtonContacto backgroundColor="#006aef" color="#ffffff" />
         </div>
       </div>
     </section>
