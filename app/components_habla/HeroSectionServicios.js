@@ -37,9 +37,9 @@ const HeroSectionServicios = () => {
 
   return (
     <>
-      <section className="relative isolate flex items-end min-h-screen w-full bg-[#EB8FFE] overflow-hidden px-10">
+      <section className="relative isolate flex items-end min-h-screen w-full bg-[#EB8FFE] overflow-hidden px-4">
         {/* —— Texto principal —— */}
-        <h1 className="font-bold text-black leading-[89%] max-w-[20ch] text-[clamp(3rem,10vw,6rem)] z-10 pb-16 pt-8">
+        <h1 className="font-bold text-black leading-[89%] max-w-[20ch] text-[32px] sm:text-[clamp(3rem,10vw,6rem)] z-10 pb-16 pt-8">
           Para los que<br />
           quieren crecer<br />
           <span className="font-normal italic">

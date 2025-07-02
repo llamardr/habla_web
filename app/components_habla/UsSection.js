@@ -53,7 +53,7 @@ const UsSection = () => {
     <section
       id="us"
       ref={sectionRef}
-      className="w-full bg-white flex flex-col md:flex-row items-stretch px-4 md:px-0"
+      className="w-full bg-white flex flex-col md:flex-row items-stretch px-4 md:px-0 mt-10"
     >
       
       <div className="md:w-2/5 flex items-center justify-center">

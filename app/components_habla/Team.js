@@ -73,7 +73,7 @@ const Team = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center px-4 md:px-0">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
           {visibleMembers.map((member, idx) => (
             <Chip key={idx} {...member} />

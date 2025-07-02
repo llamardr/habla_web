@@ -59,7 +59,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
             <p className="text-white text-2xl md:text-3xl mt-4">{subtitle}</p>
           ) : (
             <img
-              src="/basado_en_datos.svg"
+              src="/basado_en_datos.png"
               alt="Basado en datos. Impulsado por humanos."
               style={{
                 width: "50%",
@@ -71,7 +71,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
           )}
         </div>
       </div>
-      {/* ——— Casos de éxito (segunda fila) ——— */}
+      {/* Desktop: grid of cases */}
       <div className="relative z-10 w-full flex-wrap justify-center md:justify-end gap-12 pb-8 pr-0 md:pr-16 lg:pr-32 hidden md:flex">
         {cases.map((c) => (
           <div key={c.id} className="w-[150px] sm:w-[200px] md:w-[240px] lg:w-[300px]">
@@ -79,8 +79,20 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
           </div>
         ))}
       </div>
+      {/* Mobile: horizontal scroll of cases */}
+      <div className="relative z-10 w-full flex md:hidden overflow-x-auto whitespace-nowrap gap-4 pb-8 pr-0">
+        {cases.map((c) => (
+          <div
+            key={c.id}
+            className="inline-block align-top w-[220px] mx-2"
+            style={{ minWidth: 220, maxWidth: 240 }}
+          >
+            <SuccessCaseCard {...c} />
+          </div>
+        ))}
+      </div>
       {/* —— Corte visual: fondo blanco que cubre la parte baja del Hero —— */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[20%] bg-white"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[20%] bg-white hidden md:block"></div>
     </section>
   );
 };
