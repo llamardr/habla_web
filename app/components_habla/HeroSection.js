@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SuccessCaseCard from './SuccessCaseCard';
+import MiniSuccessCaseCard from './MiniSuccessCaseCard';
 
 const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) => {
   // ⚠️ Temporal: dataset de casos. Reemplázalo por fetch o props más adelante
@@ -33,11 +33,11 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
   ];
   return (
     <section
-      className="relative w-full min-h-[100vh] bg-[url('/background.svg')] bg-cover bg-center flex flex-col items-stretch px-4 pt-24 gap-12 overflow-visible"
+      className="relative w-full min-h-[100vh] bg-[url('/background.svg')] bg-cover bg-center flex flex-col items-stretch  pt-24 gap-12 overflow-visible"
       style={{ backgroundColor: backgroundColor || "#006aef" }}
     >
       {/* Main logo and content at the top (columna izquierda) */}
-      <div className="relative z-10 w-full flex flex-col space-y-4 mt-16 px-10">
+      <div className="relative z-10 w-full flex flex-col space-y-4 mt-16 px-14">
         <div>
           {title ? (
             <h1 className="text-white text-7xl md:text-8xl font-bold leading-tight">{title}</h1>
@@ -75,7 +75,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
       <div className="relative z-10 w-full flex-wrap justify-center md:justify-end gap-12 pb-8 pr-0 md:pr-16 lg:pr-32 hidden md:flex">
         {cases.map((c) => (
           <div key={c.id} className="w-[150px] sm:w-[200px] md:w-[240px] lg:w-[300px]">
-            <SuccessCaseCard {...c} />
+            <MiniSuccessCaseCard {...c} />
           </div>
         ))}
       </div>
@@ -87,7 +87,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
             className="inline-block align-top w-[220px] mx-2"
             style={{ minWidth: 220, maxWidth: 240 }}
           >
-            <SuccessCaseCard {...c} />
+            <MiniSuccessCaseCard {...c} />
           </div>
         ))}
       </div>

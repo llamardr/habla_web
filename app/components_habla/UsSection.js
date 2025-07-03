@@ -11,8 +11,6 @@ const UsSection = () => {
   // Scroll progress from 0 → 1 as the section enters/leaves viewport
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    // Start progress when the top of the section hits the middle of the viewport
-    // and finish when the bottom reaches the top.
     offset: ["start end", "end end"]
   });
 
@@ -23,14 +21,9 @@ const UsSection = () => {
       console.warn('Compass SVG not found in UsSection');
       return;
     }
-    console.log('Compass SVG element found:', svg);
 
-    // SVGR scopes class names (e.g., "CompassBursts_svg__burst-3"), so match any class containing "burst"
     const bursts = Array.from(svg.querySelectorAll('[class*="burst"]'));
-    // The DOM order is 7,6,…1; reverse so we get 1 → 7 when scrolling down
     bursts.reverse();
-    console.log(`Found ${bursts.length} burst groups:`, bursts);
-    // Ensure they start hidden
     bursts.forEach(el => {
       el.style.opacity = 0;
       el.style.transition = 'opacity 0.1s ease';
@@ -38,9 +31,8 @@ const UsSection = () => {
 
     const unsubscribe = scrollYProgress.on('change', (v) => {
       // Show the first burst almost immediately (as soon as progress > 0)
-      let visibleCount = Math.ceil(v * bursts.length); // 3x faster
+      let visibleCount = Math.ceil(v * bursts.length); 
       visibleCount = Math.min(Math.max(visibleCount, 0), bursts.length);
-      console.log('scroll progress', v.toFixed(3), '→ visibleCount', visibleCount);
       bursts.forEach((el, idx) => {
         el.style.opacity = idx < visibleCount ? 1 : 0;
       });
@@ -53,7 +45,7 @@ const UsSection = () => {
     <section
       id="us"
       ref={sectionRef}
-      className="w-full bg-white flex flex-col md:flex-row items-stretch px-4 md:px-0 mt-10"
+      className="w-full bg-white flex flex-col md:flex-row items-stretch md:px-0 mt-10"
     >
       
       <div className="md:w-2/5 flex items-center justify-center">
@@ -61,7 +53,7 @@ const UsSection = () => {
       </div>
 
       {/* Text block */}
-      <div className="lg:pr-32 w-full md:w-3/5 flex flex-col">
+      <div className="lg:pr-32 w-full md:w-3/5 flex px-4 flex-col">
         <h1 className="text-black text-4xl sm:text-5xl md:text-6xl">
           Somos una consultora de estrategia basada en investigación
         </h1>
