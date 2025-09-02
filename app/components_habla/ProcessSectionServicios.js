@@ -49,7 +49,7 @@ const ProcessSectionServicios = () => {
         </div>
         <div className="md:w-1/2 md:pl-12 flex items-center">
           <p className="text-black text-base opacity-80">
-            Durante los primeros dos meses nos encargamos de levantar toda la información posible del mercado y tus clientes para definir que problemas solucionar y como. Durante el tercer mes ejecutamos experimentos que ayuden a validar que es el camino correcto. Si deseas, podemos trabajar juntos por más tiempo liderando las actividades que queden por hacer. 
+            Durante los primeros dos meses nos encargamos de levantar toda la información posible del mercado y tus clientes para definir qué problemas solucionar y cómo. Durante el tercer mes ejecutamos experimentos que ayuden a validar que es el camino correcto. Si deseas, podemos trabajar juntos por más tiempo liderando las actividades que queden por hacer. 
           </p>
         </div>
       </div>

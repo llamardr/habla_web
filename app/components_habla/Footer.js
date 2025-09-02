@@ -27,7 +27,7 @@ const Footer = () => {
     <nav>
       <h3 className="footer-title">Legal</h3>
       <a className="link link-hover" onClick={() => window.open("https://docs.google.com/document/d/1rdoQGLYoBwZbu6Amga5cVC34AU6xfwmhQpQo3S3XRT4/edit?tab=t.0", "_blank")} style={{cursor: 'pointer'}}>Política de privacidad</a>
-      <a className="link link-hover" onClick={() => window.open("https://docs.google.com/document/d/1cABUK1ozAwzBLrNOh1mhlE5taRmkpwnPDoe7bYC3lhY/edit?tab=t.0#heading=h.v572f46y7ns2", "_blank")} style={{cursor: 'pointer'}}>Terminos y condiciones</a>
+      <a className="link link-hover" onClick={() => window.open("https://docs.google.com/document/d/1cABUK1ozAwzBLrNOh1mhlE5taRmkpwnPDoe7bYC3lhY/edit?tab=t.0#heading=h.v572f46y7ns2", "_blank")} style={{cursor: 'pointer'}}>Términos y condiciones</a>
     </nav>
     <nav>
       <h3 className="footer-title">Libro de reclamaciones</h3>

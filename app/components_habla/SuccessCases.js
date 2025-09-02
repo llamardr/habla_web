@@ -35,7 +35,7 @@ const cases = [
     id: 3,
     title: 'Ayudando a Alicorp a lanzar nuevas salsas',
     services: 'GTM Analysis',
-    description: 'Recorrimos el Perú ayudando a Alicorp a definir si sus nuevas salsas tenian product-market-fit y alistamos el lanzamiento al mercado.',
+    description: 'Recorrimos el Perú ayudando a Alicorp a definir si sus nuevas salsas tenían product-market-fit y alistamos el lanzamiento al mercado.',
     imageUrl: '/case_studies/alicorp.png',
     borderColor: 'border-[#eaff7e]',
     aspectRatio: 'aspect-[3/4]',
