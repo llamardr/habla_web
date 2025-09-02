@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 
 const teamMembers = [
@@ -17,9 +18,11 @@ const teamMembers = [
 
 const Chip = ({ name, title, linkedin, profile_pic }) => (
   <div className="flex items-center gap-6 bg-white border border-gray-200 rounded-2xl px-10 py-4 shadow-sm w-full transition-transform duration-300 hover:scale-105">
-    <img
+    <Image
       src={profile_pic}
-      alt={name}
+      alt={`Foto de ${name}`}
+      width={64}
+      height={64}
       className="w-16 h-16 rounded-full object-cover"
     />
     <div className="flex-1">

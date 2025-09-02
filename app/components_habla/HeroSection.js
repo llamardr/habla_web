@@ -33,7 +33,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
   ];
   return (
     <section
-      className="relative w-full min-h-[100vh] bg-[url('/background.svg')] bg-cover bg-center flex flex-col items-stretch  pt-24 gap-12 overflow-visible"
+      className="relative w-full min-h-[100vh] bg-cover bg-center flex flex-col items-stretch  pt-24 gap-12 overflow-visible"
       style={{ backgroundColor: backgroundColor || "#006aef" }}
     >
       {/* Main logo and content at the top (columna izquierda) */}
@@ -42,15 +42,13 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
           {title ? (
             <h1 className="text-white text-7xl md:text-8xl font-bold leading-tight">{title}</h1>
           ) : (
-            <img
+            <Image
               src="/main_logo.svg"
-              alt="Main Logo"
-              style={{
-                width: "100%",
-                height: "auto",
-              }}
+              alt="Logo de Habla"
+              width={800}
+              height={200}
+              priority
               className="lg:max-w-[80%] sm:max-w-[100%] w-full"
-              loading="eager"
             />
           )}
         </div>
@@ -58,15 +56,13 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
           {subtitle ? (
             <p className="text-white text-2xl md:text-3xl mt-4">{subtitle}</p>
           ) : (
-            <img
+            <Image
               src="/basado_en_datos.png"
-              alt="Basado en datos. Impulsado por humanos."
-              style={{
-                width: "50%",
-                height: "auto",
-              }}
+              alt="Basado en datos. Impulsado por humanos - Filosofía de Habla"
+              width={400}
+              height={100}
+              priority
               className="lg:max-w-[25%] sm:max-w-[20%] md:max-w-[30%] w-full"
-              loading="eager"
             />
           )}
         </div>

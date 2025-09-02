@@ -32,7 +32,7 @@ const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex justify-start pl-4">
             <Link href="/">
-              <Image src={scrolledOrMenuOpen ? "/isotipo_blue.png" : "/isotipo.png"} alt="Logo" width={30} height={30}/>
+              <Image src={scrolledOrMenuOpen ? "/isotipo_blue.png" : "/isotipo.png"} alt="Logo de Habla - Ir al Inicio" width={30} height={30}/>
             </Link>
           </div>
           {/* Desktop Menu */}

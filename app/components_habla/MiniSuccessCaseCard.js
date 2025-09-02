@@ -20,8 +20,8 @@ const MiniSuccessCaseCard = ({
     <div className={`absolute inset-0 border-8 ${borderColor} rounded-xl z-40 pointer-events-none`}></div>
     <Image
       src={imageUrl}
-      alt={title}
-      layout="fill"
+      alt={`Caso de éxito: ${title} - ${location}`}
+      fill
       className="object-cover rounded-xl"
     />
     {/* Overlay on hover */}
@@ -32,7 +32,7 @@ const MiniSuccessCaseCard = ({
         <div className="flex-1 mx-3 border-t border-white h-0.5" />
         {logo && (
           <div className="w-16 h-10 flex items-center justify-end">
-            <Image src={logo} alt="logo" width={64} height={40} className="object-contain" />
+            <Image src={logo} alt={`Partner: ${title} - Cliente de Habla`} width={64} height={40} className="object-contain" />
           </div>
         )}
       </div>

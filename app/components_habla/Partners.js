@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const logos = [
   { name: "alicorp", src: "/partners/alicorp.png" },
@@ -75,10 +76,12 @@ const Partners = () => {
               data-idx={idx}
               className="flex items-center justify-center h-12 w-20 sm:h-20 sm:w-32"
             >
-              <img
+              <Image
                 src={logo.src}
-                alt={logo.name}
-                className={`object-contain h-full w-full grayscale transition-opacity duration-700 ${visible[idx] ? 'opacity-100' : 'opacity-0'}`}
+                alt={`Partner: ${logo.name} - Cliente de Habla`}
+                width={128}
+                height={80}
+                className={`object-contain grayscale transition-opacity duration-700 ${visible[idx] ? 'opacity-100' : 'opacity-0'}`}
               />
             </div>
           ))}
