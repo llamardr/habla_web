@@ -99,7 +99,7 @@ const SuccessCases = () => {
   const visibleCases = isMediumOrBelow && !showAll ? cases.slice(0, 3) : cases;
 
   return (
-    <section id="successcases" className="py-10 px-4 sm:px-6 lg:px-8">
+    <section id="successcases" className="pt-28 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl mt-8 mb-10 px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start pb-4 mb-12">
             <div className="md:w-1/2">

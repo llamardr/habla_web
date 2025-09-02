@@ -37,9 +37,9 @@ const Navbar = () => {
           </div>
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 text-base font-normal">
-            <Link href="/#us" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >CONSULTORA</Link>
-            <Link href="/#partners" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>CLIENTES</Link>
             <Link href="/#team" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>EQUIPO</Link>
+            <Link href="/#partners" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>CLIENTES</Link>
+            <Link href="/#successcases" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >COMUNIDAD</Link>
           </div>
           {/* Contact Button (desktop) */}
           <div className="hidden md:flex">
@@ -57,9 +57,9 @@ const Navbar = () => {
       {menuOpen && (
         <div className={`md:hidden flex flex-col shadow-lg pb-6 px-6 mt-2 ${scrolledOrMenuOpen ? "bg-[rgba(255,255,255,0)]" : "bg-white"}`}>
           <div className="flex flex-col space-y-4 text-black font-medium text-lg py-4">
-            <Link href="/#us" className="hover:underline">CONSULTORA</Link>
-            <Link href="/#partners" className="hover:underline">CLIENTES</Link>
             <Link href="/#team" className="hover:underline">EQUIPO</Link>
+            <Link href="/#partners" className="hover:underline">CLIENTES</Link>
+            <Link href="/#successcases" className="hover:underline">COMUNIDAD</Link>
           </div>
           <ButtonContacto />
         </div>

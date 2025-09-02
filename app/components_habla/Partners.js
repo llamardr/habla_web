@@ -50,7 +50,7 @@ const Partners = () => {
   }, []);
 
   return (
-    <section id="partners" className="bg-black py-28 w-full">
+    <section id="partners" className="bg-black pt-32 pb-28 w-full">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">
