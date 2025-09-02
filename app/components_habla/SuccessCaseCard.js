@@ -13,7 +13,7 @@ const SuccessCaseCard = ({
   transformClass = '',
   borderColor = ''
 }) => (
-  <div key={id} className={`group relative overflow-hidden rounded-2xl cursor-pointer break-inside-avoid mb-8 ${aspectRatio} ${marginClass} ${transformClass} transition-transform duration-300`}>
+  <div key={id} className={`group relative overflow-hidden rounded-2xl cursor-pointer break-inside-avoid mb-8 ${aspectRatio} ${marginClass} ${transformClass} transition-transform duration-300 z-50`}>
     <div className={`absolute inset-0 border-8 ${borderColor} rounded-2xl z-30 pointer-events-none`}></div>
     <Image
       src={imageUrl}
