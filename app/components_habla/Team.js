@@ -1,25 +1,73 @@
-'use client';
-import React, { useState, useEffect } from "react";
-
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const teamMembers = [
-  { name: "Anais Freitas", title: "Partner | UX & Storytelling", linkedin: "https://www.linkedin.com/in/anais-freitas-el%C3%A9spuru-54375073/", profile_pic: '/team/Anais.png' },
-  { name: "Santiago Burga", title: "Partner | Product & Technology", linkedin: "https://www.linkedin.com/in/santiagoburgabenavides/", profile_pic: '/team/Santiago.png' },
-  { name: "Patricio Yrigoyen", title: "Partner | Operations & Data", linkedin: "https://www.linkedin.com/in/patricio-yrigoyen/", profile_pic: '/team/Patricio.png'},
-  { name: "Aldo Román", title: "Collaborator | Software", linkedin: "https://www.linkedin.com/in/aldoroman/", profile_pic: '/team/Aldo.png' },
-  { name: "Lady Vargas", title: "Collaborator | Design and Research", linkedin: "https://www.linkedin.com/in/lady-vargas-9ba74913a/", profile_pic: '/team/Lady.png' },
-  { name: "Maria Jose Tola", title: "Collaborator | Marketing", linkedin: "https://www.linkedin.com/in/maria-jose-tola-dourojeanni-2674a5202/", profile_pic: '/team/Majo.png' },
-  { name: "Sheila Acuña", title: "Collaborator | UX Research", linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/", profile_pic: '/team/Shey.png'},
-  { name: "Milagros Freitas", title: "Advisor | Market Research", linkedin: "https://www.linkedin.com/in/milagros-freitas-2930a451/" , profile_pic: '/team/Mili.png'},
-  { name: "Silvia Angulo", title: "Collaborator | UX Research", linkedin: "https://www.linkedin.com/in/silviaangulogamero/", profile_pic: '/team/Silv.png' },
+  {
+    name: "Anais Freitas",
+    title: "Partner | UX & Storytelling",
+    linkedin:
+      "https://www.linkedin.com/in/anais-freitas-el%C3%A9spuru-54375073/",
+    profile_pic: "/team/Anais.png",
+  },
+  {
+    name: "Santiago Burga",
+    title: "Partner | Product & Technology",
+    linkedin: "https://www.linkedin.com/in/santiagoburgabenavides/",
+    profile_pic: "/team/Santiago.png",
+  },
+  {
+    name: "Patricio Yrigoyen",
+    title: "Partner | Operations & Data",
+    linkedin: "https://www.linkedin.com/in/patricio-yrigoyen/",
+    profile_pic: "/team/Patricio.png",
+  },
+  {
+    name: "Aldo Román",
+    title: "Collaborator | Software",
+    linkedin: "https://www.linkedin.com/in/aldoroman/",
+    profile_pic: "/team/Aldo.png",
+  },
+  {
+    name: "Lady Vargas",
+    title: "Collaborator | Design and Research",
+    linkedin: "https://www.linkedin.com/in/lady-vargas-9ba74913a/",
+    profile_pic: "/team/Lady.png",
+  },
+  {
+    name: "Maria Jose Tola",
+    title: "Collaborator | Marketing",
+    linkedin:
+      "https://www.linkedin.com/in/maria-jose-tola-dourojeanni-2674a5202/",
+    profile_pic: "/team/Majo.png",
+  },
+  {
+    name: "Sheila Acuña",
+    title: "Collaborator | UX Research",
+    linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/",
+    profile_pic: "/team/Shey.png",
+  },
+  {
+    name: "Milagros Freitas",
+    title: "Advisor | Market Research",
+    linkedin: "https://www.linkedin.com/in/milagros-freitas-2930a451/",
+    profile_pic: "/team/Mili.png",
+  },
+  {
+    name: "Silvia Angulo",
+    title: "Collaborator | UX Research",
+    linkedin: "https://www.linkedin.com/in/silviaangulogamero/",
+    profile_pic: "/team/Silv.png",
+  },
 ];
-
 
 const Chip = ({ name, title, linkedin, profile_pic }) => (
   <div className="flex items-center gap-6 bg-white border border-gray-200 rounded-2xl px-10 py-4 shadow-sm w-full transition-transform duration-300 hover:scale-105">
-    <img
+    <Image
       src={profile_pic}
-      alt={name}
+      alt={`Foto de ${name}`}
+      width={64}
+      height={64}
       className="w-16 h-16 rounded-full object-cover"
     />
     <div className="flex-1">
@@ -73,14 +121,15 @@ const Team = () => {
     // Function to check if the screen is medium or below
     const checkScreen = () => setIsMediumOrBelow(window.innerWidth < 1024);
     checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const visibleMembers = isMediumOrBelow && !showAll ? teamMembers.slice(0, 3) : teamMembers;
+  const visibleMembers =
+    isMediumOrBelow && !showAll ? teamMembers.slice(0, 3) : teamMembers;
 
   return (
-    <section id="team" className="py-10 mb-10">
+    <section id="team" className="mb-10 pt-28 pb-12">
       <div className="mx-auto max-w-6xl mt-8 mb-10 px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">
@@ -89,8 +138,10 @@ const Team = () => {
             </h2>
           </div>
           <div className="md:w-1/2 md:pl-12 flex items-center">
-            <p className="text-[#006aef] text-base opacity-80">
-              Durante la investigación te acompaña nuestro equipo de 5 researchers con más de 10 años de experiencia. Cuando llega el momento de ejecutar la estrategia nuestro equipo de Subject Matter Experts se encargará de ayudarte.
+            <p className="text-[#006aef] text-xl opacity-80">
+              Somos un grupo de profesionales que traduce data de usuarios,
+              negocios, mercados, redes y demás para traer claridad que
+              funciona.
             </p>
           </div>
         </div>
@@ -109,8 +160,13 @@ const Team = () => {
             className="text-[#006aef] text-sm mb-4 inline-block opacity-80 relative group px-6 py-2 rounded-full bg-white transition-colors"
             onClick={() => setShowAll((prev) => !prev)}
           >
-            <span className="relative z-10">{showAll ? 'Ver menos' : 'Ver a todo el equipo'}</span>
-            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#006aef] opacity-80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" aria-hidden="true"/>
+            <span className="relative z-10">
+              {showAll ? "Ver menos" : "Ver a todo el equipo"}
+            </span>
+            <span
+              className="absolute left-0 bottom-0 w-full h-[2px] bg-[#006aef] opacity-80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+              aria-hidden="true"
+            />
           </button>
         )}
       </div>
