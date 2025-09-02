@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Sitemap: https://habla.pe/sitemap.xml
+Sitemap: https://hablalatam.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
