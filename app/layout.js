@@ -64,9 +64,49 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Habla LATAM',
+    description: 'Consultora líder en estrategia empresarial basada en investigación y datos',
+    url: 'https://habla.pe',
+    logo: 'https://habla.pe/main_logo.svg',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+51 934 132 700',
+      areaServed: ['PE', 'MX', 'LATAM'],
+      availableLanguage: ['Spanish', 'English']
+    },
+    address: [
+      {
+        '@type': 'PostalAddress',
+        addressCountry: 'PE',
+        addressRegion: 'Lima',
+        addressLocality: 'Lima'
+      },
+      {
+        '@type': 'PostalAddress',
+        addressCountry: 'MX',
+        addressRegion: 'Ciudad de México',
+        addressLocality: 'Ciudad de México'
+      }
+    ],
+    services: [
+      'Strategic Innovation',
+      'Service Design', 
+      'Operational Excellence',
+      'GTM Strategy',
+      'MVP Development'
+    ]
+  };
+
   return (
     <html lang="es" data-theme="light" className="scroll-smooth">
       <body className={workSans.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <div>
           <Toaster />
         </div>
