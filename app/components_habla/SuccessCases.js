@@ -16,7 +16,7 @@ const cases = [
     marginClass: "mt-10",
     transformClass: "hover:scale-105 transform -translate-x-2",
     location: "Lima",
-    // logo: '/partners/nicolle.png',
+    logo: '/partners/nicolle_chang.png',
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ const cases = [
     marginClass: "mt-8",
     transformClass: "hover:scale-105 transform translate-x-1",
     location: "Perú",
-    logo: "/partners/fissionlab.png",
+    logo: "/partners/fission.png",
   },
   {
     id: 4,
@@ -87,7 +87,7 @@ const cases = [
     marginClass: "mt-8",
     transformClass: "hover:scale-105 transform -translate-x-2",
     location: "Lima",
-    // logo: '/partners/silvestre.png',
+    logo: '/partners/silvestre.png',
   },
   {
     id: 7,
@@ -128,7 +128,7 @@ const cases = [
     marginClass: "mt-15",
     transformClass: "hover:scale-105 transform translate-x-2",
     location: "Lima",
-    // logo: '/partners/bcrp.png',
+    logo: '/partners/bcrp.png',
   },
   {
     id: 10,
