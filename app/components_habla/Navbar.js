@@ -40,7 +40,6 @@ const Navbar = () => {
             <Link href="/#us" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >CONSULTORA</Link>
             <Link href="/#partners" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>CLIENTES</Link>
             <Link href="/#team" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>EQUIPO</Link>
-            <Link href="/servicios" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>SERVICIOS</Link>
           </div>
           {/* Contact Button (desktop) */}
           <div className="hidden md:flex">
@@ -61,7 +60,6 @@ const Navbar = () => {
             <Link href="/#us" className="hover:underline">CONSULTORA</Link>
             <Link href="/#partners" className="hover:underline">CLIENTES</Link>
             <Link href="/#team" className="hover:underline">EQUIPO</Link>
-            <Link href="/servicios" className="hover:underline">SERVICIOS</Link>
           </div>
           <ButtonContacto />
         </div>

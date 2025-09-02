@@ -2,7 +2,7 @@ export default async function sitemap() {
   const baseUrl = 'https://habla.pe';
   
   // Static pages
-  const routes = ['/', '/servicios'].map((route) => ({
+  const routes = ['/'].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
