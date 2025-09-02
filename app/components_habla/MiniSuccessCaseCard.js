@@ -21,8 +21,8 @@ const MiniSuccessCaseCard = ({
     <Image
       src={imageUrl}
       alt={`Caso de éxito: ${title} - ${location}`}
-      width={900}
-      height={1200}
+      width={300}
+      height={400}
       className="object-cover rounded-xl"
     />
     {/* Overlay on hover */}
