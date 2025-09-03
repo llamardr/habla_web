@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Apply Stacion font to all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-stacion), sans-serif;
+}
+
 /* Show burst only on hover */
 .hands-hero-svg g > path:first-child {
   opacity: 0;
