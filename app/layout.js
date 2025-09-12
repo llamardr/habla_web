@@ -1,4 +1,5 @@
 import { Work_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
@@ -6,6 +7,33 @@ const workSans = Work_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-work-sans",
+});
+
+const stacion = localFont({
+  src: [
+    {
+      path: "./fonts/stacion/Stacion Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/stacion/Stacion Light Italic.woff2",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "./fonts/stacion/Stacion Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/stacion/Stacion Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  display: "swap",
+  variable: "--font-stacion",
 });
 
 export const metadata = {
@@ -115,7 +143,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es" data-theme="light" className="scroll-smooth">
-      <body className={workSans.className}>
+      <body className={`${workSans.className} ${stacion.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

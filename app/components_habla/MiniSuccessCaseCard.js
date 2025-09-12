@@ -23,7 +23,7 @@ const MiniSuccessCaseCard = ({
       alt={`Caso de éxito: ${title} - ${location}`}
       width={900}
       height={1200}
-      className="object-cover rounded-xl"
+      className="object-cover rounded-xl w-full h-full"
     />
     {/* Overlay on hover */}
     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between z-30">

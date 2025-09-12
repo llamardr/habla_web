@@ -11,7 +11,7 @@ const cases = [
     description:
       "Ayudamos a Nicolle a explorar oportunidades en el mercado de salud y belleza, evaluando qué negocios podían alinearse con su marca personal y potenciando su crecimiento más allá del contenido digital.",
     imageUrl: "/case_studies/Nicolle C. .png",
-    borderColor: "border-[#EB8FFE]",
+    borderColor: "border-[#eaff7e]",
     aspectRatio: "aspect-square",
     marginClass: "mt-10",
     transformClass: "hover:scale-105 transform -translate-x-2",
@@ -25,7 +25,7 @@ const cases = [
     description:
       "Evaluamos la experiencia AVA en Lima y Arequipa y medimos la percepción de la marca frente a sus competidores.",
     imageUrl: "/case_studies/AVA.MARCO.1.png",
-    borderColor: "border-[#eaff7e]",
+    borderColor: "border-[#EB8FFE]",
     aspectRatio: "aspect-[3/4]",
     marginClass: "mt-5",
     transformClass: "hover:scale-105 transform translate-x-2",
@@ -39,7 +39,7 @@ const cases = [
     description:
       "Determinamos la estrategia más efectiva para aumentar la participación de mercado de los productos propios de Fission Lab.",
     imageUrl: "/case_studies/Fission.Web.png",
-    borderColor: "border-[#EB8FFE]",
+    borderColor: "border-[#eaff7e]",
     aspectRatio: "aspect-square",
     marginClass: "mt-8",
     transformClass: "hover:scale-105 transform translate-x-1",
@@ -67,7 +67,7 @@ const cases = [
     description:
       "Recorrimos el Perú ayudando a Alicorp a definir sus nuevas salsas. Tenían product-market-fit y alistamos el lanzamiento al mercado.",
     imageUrl: "/case_studies/ALI.MARCO.1.png",
-    borderColor: "border-[#EB8FFE]",
+    borderColor: "border-[#eaff7e]",
     aspectRatio: "aspect-square",
     marginClass: "mt-10",
     transformClass: "hover:scale-105 transform translate-x-2",
@@ -82,7 +82,7 @@ const cases = [
     description:
       "Analizamos posicionamiento y propuesta de valor para el mercado ideal de la marca.",
     imageUrl: "/case_studies/SILV.MARCO.1.png",
-    borderColor: "border-[#eaff7e]",
+    borderColor: "border-[#EB8FFE]",
     aspectRatio: "aspect-[3/4]",
     marginClass: "mt-8",
     transformClass: "hover:scale-105 transform -translate-x-2",
@@ -110,7 +110,7 @@ const cases = [
     description:
       "Desarrollamos estrategias de contenido para optimizar el crecimiento orgánico y la conexión con dermolíderes. Experimentamos con pauta y con un plan de para redes sociales, aumentamos el contenido UGC de la marca.",
     imageUrl: "/case_studies/FISS.MARCO.1.png",
-    borderColor: "border-[#eaff7e]",
+    borderColor: "border-[#EB8FFE]",
     aspectRatio: "aspect-[3/4]",
     marginClass: "mt-6",
     transformClass: "hover:scale-105 transform -translate-x-1",
@@ -123,7 +123,7 @@ const cases = [
     services: "Activación: Talleres y Capacitaciones",
     description: "Para desarrollar capacidades y la escucha con propósito.",
     imageUrl: "/case_studies/BCRP.MARCO.1.png",
-    borderColor: "border-[#EB8FFE]",
+    borderColor: "border-[#eaff7e]",
     aspectRatio: "aspect-square",
     marginClass: "mt-15",
     transformClass: "hover:scale-105 transform translate-x-2",
