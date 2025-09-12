@@ -129,7 +129,7 @@ const Team = () => {
     isMediumOrBelow && !showAll ? teamMembers.slice(0, 3) : teamMembers;
 
   return (
-    <section id="team" className="mb-10 pt-28 pb-12">
+    <section id="team" className="mb-10 pt-32 pb-32">
       <div className="mx-auto max-w-6xl mt-8 mb-10 px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">
