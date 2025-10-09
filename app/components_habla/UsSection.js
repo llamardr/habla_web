@@ -1,7 +1,7 @@
 "use client";
 
+import CompassSVG from "@/public/CompassBursts.svg"; // SVGR inline SVG
 import { useScroll } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import ButtonContacto from "./ButtonContacto";
 
@@ -45,25 +45,21 @@ const UsSection = () => {
     <section
       id="us"
       ref={sectionRef}
-      className="w-full bg-white flex flex-col md:flex-row items-stretch md:px-0 mt-10"
+      className="w-full bg-white flex flex-col md:flex-row items-stretch md:px-0 -mt-16 pt-24 md:-mt-48 md:pt-52"
     >
-      <div className="md:w-2/5 flex items-center justify-center">
-        <Image
-          src="/CompassBursts.svg"
-          width={1920}
-          height={1728}
-          alt="Imagen de una brújula"
-        />
+      <div className="md:w-2/5 flex items-center justify-center order-1 md:order-none">
+        <CompassSVG className="w-full h-full pointer-events-none" />
       </div>
 
       {/* Text block */}
       <div className="lg:pr-32 w-full md:w-3/5 flex px-4 flex-col">
         <h1 className="text-black text-4xl sm:text-5xl md:text-6xl">
-          HABLA Latam es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica
+          HABLA Latam es un estudio especializado en el lanzamiento de nuevos
+          productos en Latinoamérica
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-black mt-8 mb-8 max-w-2xl">
-          Nuestro objetivo es construir oportunidades reales en el
-          contexto en el que se encuentra tu negocio.
+          Nuestro objetivo es construir oportunidades reales en el contexto en
+          el que se encuentra tu negocio.
         </p>
         <div className="w-40 mb-20 sm:mb-0 md:mb-20">
           <ButtonContacto backgroundColor="#006aef" color="#ffffff" />

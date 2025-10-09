@@ -39,11 +39,11 @@ const stacion = localFont({
 export const metadata = {
   metadataBase: new URL("https://hablalatam.com"),
   title: {
-    default: "Habla - Consultora de Estrategia Basada en Datos",
+    default: "Habla - Diseñamos rutas de éxito para ti",
     template: "%s | Habla",
   },
   description:
-    "Consultora líder en estrategia empresarial basada en investigación y datos. Servicios de innovación estratégica, diseño de servicios y desarrollo de productos en Latinoamérica.",
+    "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
   keywords: [
     "consultora estrategia",
     "investigación de mercado",
@@ -61,9 +61,9 @@ export const metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Habla - Consultora de Estrategia Basada en Datos",
+    title: "Habla - Diseñamos rutas de éxito para ti",
     description:
-      "Transformamos negocios con estrategias basadas en investigación y análisis de datos",
+      "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
     url: "https://hablalatam.com",
     siteName: "Habla",
     images: [
@@ -79,9 +79,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Habla - Consultora de Estrategia Basada en Datos",
+    title: "Habla - Diseñamos rutas de éxito para ti",
     description:
-      "Transformamos negocios con estrategias basadas en investigación",
+      "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
     images: ["/isotipo_blue.png"],
   },
   robots: {
@@ -107,9 +107,9 @@ export default function RootLayout({ children }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Habla LATAM",
+    name: "Habla - Estudio especializado",
     description:
-      "Consultora líder en estrategia empresarial basada en investigación y datos",
+      "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
     url: "https://hablalatam.com",
     logo: "https://hablalatam.com/main_logo.svg",
     contactPoint: {
