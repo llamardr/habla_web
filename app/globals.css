@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 /* Apply Stacion font to all headings */
-h1 {
+h1,
+h2 {
   font-family: var(--font-stacion), sans-serif;
 }
 

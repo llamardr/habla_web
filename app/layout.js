@@ -43,7 +43,7 @@ export const metadata = {
     template: "%s | Habla",
   },
   description:
-    "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
+    "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona.",
   keywords: [
     "consultora estrategia",
     "investigación de mercado",
@@ -63,7 +63,7 @@ export const metadata = {
   openGraph: {
     title: "Habla - Diseñamos rutas de éxito para ti",
     description:
-      "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
+      "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona.",
     url: "https://hablalatam.com",
     siteName: "Habla",
     images: [
@@ -81,7 +81,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Habla - Diseñamos rutas de éxito para ti",
     description:
-      "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
+      "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona.",
     images: ["/isotipo_blue.png"],
   },
   robots: {
@@ -109,7 +109,7 @@ export default function RootLayout({ children }) {
     "@type": "Organization",
     name: "Habla - Estudio especializado",
     description:
-      "Reconfiguramos la manera en la que se toman decisiones en los negocios en Latinoamérica.",
+      "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona. ",
     url: "https://hablalatam.com",
     logo: "https://hablalatam.com/main_logo.svg",
     contactPoint: {

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Community = () => {
   return (
-    <section id="community" className="pt-32 w-full">
+    <section id="community" className="pt-32 pb-24 md:pb-36 w-full">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">

@@ -15,8 +15,8 @@ async function Home() {
       <UsSection></UsSection>
       <Team></Team>
       <Partners></Partners>
-      <Community></Community>
       <SuccessCases></SuccessCases>
+      <Community></Community>
       <Footer></Footer>
     </main>
   );

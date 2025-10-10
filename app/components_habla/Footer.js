@@ -17,7 +17,7 @@ const Footer = () => {
       <p className="mt-3">
         <strong>Habla LATAM</strong>
         <br />
-        Diseñando Rutas de éxito para ti
+        Diseñando rutas de éxito para ti
       </p>
     </aside>
     <nav>
