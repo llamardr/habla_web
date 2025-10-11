@@ -48,7 +48,7 @@ const teamMembers = [
     profile_pic: "/team/Shey.png",
   },
   {
-    name: "Nicolle Hazzard",
+    name: "Nicolle Hazard",
     title: "Consultant | Design",
     linkedin: "https://www.linkedin.com/in/nicollehazard/",
     profile_pic: "/team/Nicolle.png",
