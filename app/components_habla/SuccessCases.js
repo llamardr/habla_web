@@ -164,7 +164,7 @@ const SuccessCases = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start pb-4 mb-12">
           <div className="md:w-1/2">
             <h2 className="text-black text-5xl md:text-6xl leading-tight">
-              Casos de estudio
+              Casos de éxito
             </h2>
           </div>
         </div>

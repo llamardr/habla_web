@@ -1,6 +1,7 @@
 import Footer from "@/app/components_habla/Footer";
 import HeroSection from "@/app/components_habla/HeroSection";
 import Navbar from "@/app/components_habla/Navbar";
+import Community from "./components_habla/Community";
 import Partners from "./components_habla/Partners";
 import SuccessCases from "./components_habla/SuccessCases";
 import Team from "./components_habla/Team";
@@ -15,6 +16,7 @@ async function Home() {
       <Team></Team>
       <Partners></Partners>
       <SuccessCases></SuccessCases>
+      <Community></Community>
       <Footer></Footer>
     </main>
   );

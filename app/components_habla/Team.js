@@ -5,47 +5,53 @@ import { useEffect, useState } from "react";
 const teamMembers = [
   {
     name: "Anais Freitas",
-    title: "Partner | UX & Storytelling",
+    title: "Managing Partner | Strategy & Research",
     linkedin:
       "https://www.linkedin.com/in/anais-freitas-el%C3%A9spuru-54375073/",
     profile_pic: "/team/Anais.png",
   },
   {
     name: "Santiago Burga",
-    title: "Partner | Product & Technology",
+    title: "Partner | Strategy & Data",
     linkedin: "https://www.linkedin.com/in/santiagoburgabenavides/",
     profile_pic: "/team/Santiago.png",
   },
   {
     name: "Patricio Yrigoyen",
-    title: "Partner | Operations & Data",
+    title: "Partner | Strategy & Data",
     linkedin: "https://www.linkedin.com/in/patricio-yrigoyen/",
     profile_pic: "/team/Patricio.png",
   },
   {
     name: "Aldo Román",
-    title: "Collaborator | Software",
+    title: "Consultant | Software",
     linkedin: "https://www.linkedin.com/in/aldoroman/",
     profile_pic: "/team/Aldo.png",
   },
   {
     name: "Lady Vargas",
-    title: "Collaborator | Design and Research",
+    title: "Research & Content Designer",
     linkedin: "https://www.linkedin.com/in/lady-vargas-9ba74913a/",
     profile_pic: "/team/Lady.png",
   },
   {
     name: "Maria Jose Tola",
-    title: "Collaborator | Marketing",
+    title: "Brand Manager | Social Media",
     linkedin:
       "https://www.linkedin.com/in/maria-jose-tola-dourojeanni-2674a5202/",
     profile_pic: "/team/Majo.png",
   },
   {
     name: "Sheila Acuña",
-    title: "Collaborator | UX Research",
+    title: "Consultant | Research",
     linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/",
     profile_pic: "/team/Shey.png",
+  },
+  {
+    name: "Nicolle Hazard",
+    title: "Consultant | Design",
+    linkedin: "https://www.linkedin.com/in/nicollehazard/",
+    profile_pic: "/team/Nicolle.png",
   },
   {
     name: "Milagros Freitas",
@@ -55,7 +61,7 @@ const teamMembers = [
   },
   {
     name: "Silvia Angulo",
-    title: "Collaborator | UX Research",
+    title: "Consultant | Research",
     linkedin: "https://www.linkedin.com/in/silviaangulogamero/",
     profile_pic: "/team/Silv.png",
   },
