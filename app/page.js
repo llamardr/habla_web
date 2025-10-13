@@ -11,7 +11,7 @@ async function Home() {
   return (
     <main>
       <Navbar></Navbar>
-      <HeroSection></HeroSection>
+      <HeroSection subtitle="Diseñamos rutas de éxito para ti"></HeroSection>
       <UsSection></UsSection>
       <Team></Team>
       <Partners></Partners>
