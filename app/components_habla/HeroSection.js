@@ -53,7 +53,7 @@ const HeroSection = ({ title = null, subtitle, backgroundColor = null }) => {
           )}
         </div>
         <div>
-          <p className="text-white text-2xl md:text-3xl mt-4">{subtitle}</p>
+          <p className="text-white text-2xl md:text-3xl mt-4 font-stacion">{subtitle}</p>
         </div>
       </div>
       {/* Desktop: grid of cases */}
