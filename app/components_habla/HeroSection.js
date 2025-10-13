@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import MiniSuccessCaseCard from './MiniSuccessCaseCard';
 
-const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) => {
+const HeroSection = ({ title = null, subtitle, backgroundColor = null }) => {
   // ⚠️ Temporal: dataset de casos. Reemplázalo por fetch o props más adelante
   const cases = [
     {
@@ -53,18 +53,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
           )}
         </div>
         <div>
-          {subtitle ? (
-            <p className="text-white text-2xl md:text-3xl mt-4 font-stacion">{subtitle}</p>
-          ) : (
-            <Image
-              src="/basado_en_datos.png"
-              alt="Basado en datos. Impulsado por humanos"
-              width={400}
-              height={100}
-              priority
-              className="lg:max-w-[25%] sm:max-w-[20%] md:max-w-[30%] w-full"
-            />
-          )}
+          <p className="text-white text-2xl md:text-3xl mt-4">{subtitle}</p>
         </div>
       </div>
       {/* Desktop: grid of cases */}
