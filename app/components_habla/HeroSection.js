@@ -54,7 +54,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
         </div>
         <div>
           {subtitle ? (
-            <p className="text-white text-2xl md:text-3xl mt-4 font-stacion">{subtitle}</p>
+            <p className="text-white text-4xl sm:text-5xl md:text-6xl mt-4 font-stacion">{subtitle}</p>
           ) : (
             <Image
               src="/basado_en_datos.png"

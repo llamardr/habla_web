@@ -17,7 +17,7 @@ const Community = () => {
               target="_blank"
               className="text-sm mb-4 inline-block opacity-80 relative group"
             >
-              <span className="relative z-10">
+              <span className="relative z-10 text-lg">
                 Unirme a la comunidad &rarr;
               </span>
               <span
@@ -27,7 +27,7 @@ const Community = () => {
             </Link>
           </div>
           <div className="md:w-1/2 md:pl-12 flex items-center">
-            <p className="text-base opacity-80">
+            <p className="text-xl opacity-80">
               Contamos con una comunidad activa y comprometida de personas
               reales dispuestas a compartir sus opiniones y experiencias en
               encuestas, entrevistas y focus groups.
