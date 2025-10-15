@@ -171,7 +171,7 @@ const Partners = () => {
               href="#successcases"
               className="text-sm mb-4 inline-block opacity-80 relative group"
             >
-              <span className="relative z-10">Ver casos de éxito &rarr;</span>
+              <span className="relative z-10 text-lg">Ver casos de éxito &rarr;</span>
               <span
                 className="absolute left-0 bottom-0 w-full h-[2px] bg-black opacity-80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                 aria-hidden="true"
@@ -179,7 +179,7 @@ const Partners = () => {
             </Link>
           </div>
           <div className="md:w-1/2 md:pl-12 flex items-center">
-            <p className="text-base opacity-80">
+            <p className="text-xl opacity-80">
               Con oficinas en Lima y Ciudad de México, hemos trabajado con +20
               empresas ayudándoles a definir la propuesta de valor de sus
               servicios y/o productos y a escalar sus negocios. Nos juntamos
