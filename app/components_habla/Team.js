@@ -12,7 +12,7 @@ const teamMembers = [
   },
   {
     name: "Santiago Burga",
-    title: "Partner | Strategy & Data",
+    title: "Partner | Strategy & Product",
     linkedin: "https://www.linkedin.com/in/santiagoburgabenavides/",
     profile_pic: "/team/Santiago.png",
   },
