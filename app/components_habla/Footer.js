@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FaInstagram, FaFacebook, FaTiktok, FaLinkedin } from 'react-icons/fa';
+import { trackMetaEvent } from "../lib/metaPixel";
 
 const Footer = () => {
   return (
@@ -22,21 +23,58 @@ const Footer = () => {
     </aside>
     <nav>
       <h3 className="footer-title">Contacto y Soporte</h3>
-      <a className="link link-hover" onClick={() => window.open("https://wa.link/qma2r5", "_blank")} style={{cursor: 'pointer'}}>Contáctanos</a>
+      <a
+        className="link link-hover"
+        onClick={() => {
+          trackMetaEvent("Lead", { source: "footer_contacto", channel: "whatsapp" });
+          window.open("https://wa.link/qma2r5", "_blank");
+        }}
+        style={{cursor: 'pointer'}}
+      >
+        Contáctanos
+      </a>
       <a href="/#us" className="link link-hover">Sobre Habla</a>
     </nav>
     <nav>
       <h3 className="footer-title">Redes</h3>
-      <a className="link link-hover flex items-center gap-2" onClick={() => window.open("https://www.instagram.com/hablalatam", "_blank")} style={{cursor: 'pointer'}}>
+      <a
+        className="link link-hover flex items-center gap-2"
+        onClick={() => {
+          trackMetaEvent("Contact", { source: "footer_social", channel: "instagram" });
+          window.open("https://www.instagram.com/hablalatam", "_blank");
+        }}
+        style={{cursor: 'pointer'}}
+      >
         <FaInstagram size={20} /> Instagram
       </a>
-      <a className="link link-hover flex items-center gap-2" onClick={() => window.open("https://www.facebook.com/profile.php?id=61550240902611", "_blank")} style={{cursor: 'pointer'}}>
+      <a
+        className="link link-hover flex items-center gap-2"
+        onClick={() => {
+          trackMetaEvent("Contact", { source: "footer_social", channel: "facebook" });
+          window.open("https://www.facebook.com/profile.php?id=61550240902611", "_blank");
+        }}
+        style={{cursor: 'pointer'}}
+      >
         <FaFacebook size={20} /> Facebook
       </a>
-      <a className="link link-hover flex items-center gap-2" onClick={() => window.open("https://www.tiktok.com/@hablalatam_", "_blank")} style={{cursor: 'pointer'}}>
+      <a
+        className="link link-hover flex items-center gap-2"
+        onClick={() => {
+          trackMetaEvent("Contact", { source: "footer_social", channel: "tiktok" });
+          window.open("https://www.tiktok.com/@hablalatam_", "_blank");
+        }}
+        style={{cursor: 'pointer'}}
+      >
         <FaTiktok size={20} /> TikTok
       </a>
-      <a className="link link-hover flex items-center gap-2" onClick={() => window.open("https://www.linkedin.com/company/habla-latam", "_blank")} style={{cursor: 'pointer'}}>
+      <a
+        className="link link-hover flex items-center gap-2"
+        onClick={() => {
+          trackMetaEvent("Contact", { source: "footer_social", channel: "linkedin" });
+          window.open("https://www.linkedin.com/company/habla-latam", "_blank");
+        }}
+        style={{cursor: 'pointer'}}
+      >
         <FaLinkedin size={20} /> LinkedIn
       </a>
     </nav>

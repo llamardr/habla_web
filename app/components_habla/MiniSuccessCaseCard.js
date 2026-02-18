@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackMetaEvent } from "../lib/metaPixel";
 
 const MiniSuccessCaseCard = ({
   id,
@@ -40,7 +43,16 @@ const MiniSuccessCaseCard = ({
       {/* Bottom: title and button */}
       <div className="absolute bottom-0 left-0 w-full flex flex-col items-start px-5 pb-5">
         <h3 className="text-white text-lg font-bold mb-2 text-left px-0 leading-tight w-full break-words whitespace-normal">{title}</h3>
-        <Link href={href} className="text-white text-sm hover:underline transition-all duration-200">
+        <Link
+          href={href}
+          className="text-white text-sm hover:underline transition-all duration-200"
+          onClick={() =>
+            trackMetaEvent("ViewContent", {
+              source: "mini_success_case_card",
+              content_name: title,
+            })
+          }
+        >
           Ver caso
         </Link>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import { trackMetaEvent } from "../lib/metaPixel";
 
 function lightenColor(color, percent) {
     // Accepts hex color, returns lighter hex color
@@ -37,7 +38,13 @@ const ButtonContacto = ({
                 border: `2px solid ${backgroundColor}`,
                 boxShadow: boxShadow,
             }}
-            onClick={() => window.open("https://wa.link/qma2r5", "_blank")}
+            onClick={() => {
+                trackMetaEvent("Lead", {
+                    source: "button_contacto",
+                    channel: "whatsapp",
+                });
+                window.open("https://wa.link/qma2r5", "_blank");
+            }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >

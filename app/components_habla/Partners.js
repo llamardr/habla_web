@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { trackMetaEvent } from "../lib/metaPixel";
 
 const logos = [
   {
@@ -170,6 +171,12 @@ const Partners = () => {
             <Link
               href="#successcases"
               className="text-sm mb-4 inline-block opacity-80 relative group"
+              onClick={() =>
+                trackMetaEvent("ViewContent", {
+                  source: "partners_section",
+                  content_name: "casos_de_exito",
+                })
+              }
             >
               <span className="relative z-10 text-lg">Ver casos de éxito &rarr;</span>
               <span
