@@ -1,6 +1,7 @@
 import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
@@ -176,6 +177,7 @@ export default function RootLayout({ children }) {
         <div>
           <Toaster />
         </div>
+        <Analytics />
         {children}
       </body>
     </html>
