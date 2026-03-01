@@ -107,6 +107,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   const metaPixelId = "1673789470026632";
+  const linkedinPartnerId = "8697042";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -147,6 +148,36 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" data-theme="light" className="scroll-smooth">
       <body className={`${workSans.className} ${stacion.variable}`}>
+        <Script id="linkedin-pixel" strategy="afterInteractive">
+          {`
+            window._linkedin_partner_id = "${linkedinPartnerId}";
+            window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+            window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+            (function(l) {
+              if (!l) {
+                window.lintrk = function(a, b) {
+                  window.lintrk.q.push([a, b]);
+                };
+                window.lintrk.q = [];
+              }
+              var s = document.getElementsByTagName("script")[0];
+              var b = document.createElement("script");
+              b.type = "text/javascript";
+              b.async = true;
+              b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+              s.parentNode.insertBefore(b, s);
+            })(window.lintrk);
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://px.ads.linkedin.com/collect/?pid=${linkedinPartnerId}&fmt=gif`}
+            alt=""
+          />
+        </noscript>
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
