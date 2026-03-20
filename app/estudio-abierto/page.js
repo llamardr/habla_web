@@ -88,20 +88,20 @@ const schedule = [
     mode: "Presencial",
     time: "4:30PM - 7:00PM",
   },
+  // {
+  //   date: "XX de mayo",
+  //   title: "Webinar: XXXX",
+  //   mode: "Virtual",
+  //   time: "3:00PM - 4:00PM",
+  // },
+  // {
+  //   date: "XX de mayo",
+  //   title: "Webinar: XXXX",
+  //   mode: "Virtual",
+  //   time: "7:00PM - 8:00PM",
+  // },
   {
-    date: "XX de mayo",
-    title: "Webinar: XXXX",
-    mode: "Virtual",
-    time: "3:00PM - 4:00PM",
-  },
-  {
-    date: "XX de mayo",
-    title: "Webinar: XXXX",
-    mode: "Virtual",
-    time: "7:00PM - 8:00PM",
-  },
-  {
-    date: "XX de junio",
+    date: "15 de junio",
     title: "Evento de cierre",
     mode: "Presencial",
     time: "4:30PM - 7:00PM",
@@ -125,7 +125,7 @@ const faqItems = [
   },
   {
     number: "03",
-    accent: "bg-[#C98AD8] text-white",
+    accent: "bg-[#e295e0] text-white",
     question: "¿Qué es el Estudio Abierto?",
     answer:
       "Es una iniciativa colaborativa impulsada por la Universidad de Ingeniería y Tecnología - UTEC y Habla Latam para entender cómo la gestión financiera impacta la vida universitaria. Antes de diseñar soluciones, buscamos validar el problema con evidencia real y múltiples miradas del ecosistema.",
@@ -146,7 +146,7 @@ const faqItems = [
   },
 ];
 
-function RegistrationButton({ label = "¡Regístrate aquí!", className = "" }) {
+function RegistrationButton({ label = "¡REGÍSTRATE AQUÍ!", className = "" }) {
   return (
     <Link
       href={CTA_URL}
@@ -176,8 +176,8 @@ export default function EstudioAbiertoPage() {
                 priority
                 className="w-full max-w-[28rem] sm:max-w-[31rem] lg:max-w-[31rem] mt-0 mb-0 sm:mt-0 sm:mb-0 md:mt-2 md:mb-2"
               />
-              <div className="flex w-full self-start justify-start pb-8 sm:pb-0 md:pb-8">
-                <RegistrationButton label="Registro" />
+              <div className="flex w-full justify-center lg:justify-start pb-8 sm:pb-0 md:pb-8">
+                <RegistrationButton label="¡REGÍSTRATE AQUÍ!" />
               </div>
             </div>
 
@@ -198,7 +198,7 @@ export default function EstudioAbiertoPage() {
       <section className="bg-[#000000] py-10 text-white sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-right">
-            <h2 className="text-[clamp(2rem,6vw,3.5rem)] leading-none tracking-[-0.03em]">
+            <h2 className="text-[clamp(2rem,6vw,3.5rem)] leading-none">
               Más allá del acceso
             </h2>
             <div className="flex justify-end">
@@ -213,11 +213,11 @@ export default function EstudioAbiertoPage() {
 
       <section className="overflow-x-hidden bg-[#006AEF] py-10 text-white sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="min-w-0">
               <EstudioAbiertoIntroCarousel cards={introCards} />
-            </div>              
-            <div className="lg:pl-6">
+            </div>
+            <div className="flex items-center lg:pl-6">
               <p className="whitespace-pre-line text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
                 {"Estudio Abierto, como su nombre lo dice, es un proceso de investigación diseñado especialmente para ser abierto al público relevante. Tomamos un caso importante para la sociedad y abrimos la metodología perfeccionada durante 4 años para poder colaborar juntos en un reto."}
               </p>
@@ -231,7 +231,7 @@ export default function EstudioAbiertoPage() {
 
       <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="max-w-3xl text-[clamp(2rem,6vw,4rem)] leading-[0.95] tracking-[-0.04em]">
+          <h2 className="max-w-3xl text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
             ¿Qué te llevas de participar en Estudio Abierto?
           </h2>
 
@@ -248,7 +248,7 @@ export default function EstudioAbiertoPage() {
                 }`}
               >
                 <div
-                  className={`relative aspect-square overflow-hidden rounded-[2rem] bg-[#006AEF] ${
+                  className={`relative aspect-square overflow-hidden rounded-[2rem] ${
                     benefit.reverse ? "md:order-2" : ""
                   }`}
                 >
@@ -278,7 +278,7 @@ export default function EstudioAbiertoPage() {
 
           <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 bg-[#EAFF7E] py-16 text-black sm:mt-10 sm:py-20">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <p className="font-stacion text-[clamp(1.8rem,4vw,3rem)] leading-[1.02] tracking-[-0.03em]">
+              <p className="font-stacion  text-[clamp(2rem,6vw,4rem)] leading-[1.02] tracking-[-0.03em]">
                 Estudio Abierto es una iniciativa gratuita.
               </p>
               <p className="mt-4 max-w-5xl text-base leading-7 text-black/80 sm:text-lg">
@@ -293,7 +293,7 @@ export default function EstudioAbiertoPage() {
 
       <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[clamp(2rem,6vw,4rem)] leading-[0.95] tracking-[-0.04em]">
+          <h2 className="text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
             Calendario de Fases
           </h2>
 

@@ -12,7 +12,7 @@ const caseStudies = [
     subtitle: "Educación | Noviembre 2025",
     description:
       "En HABLA LATAM hemos realizado más de cinco proyectos con instituciones educativas. Aquí compartimos hallazgos y aprendizajes clave sobre los desafíos y oportunidades que enfrenta hoy el sector.",
-    imageUrl: "/case_studies/ava.jpg",
+    imageUrl: "/case_studies/AVA.MARCO.1.png",
   },
   {
     id: 2,

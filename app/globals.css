@@ -23,3 +23,29 @@ h2 {
 .hands-hero-svg g > path:first-child:hover {
   opacity: 1;
 }
+
+.announcement-marquee {
+  white-space: nowrap;
+}
+
+.announcement-marquee__track {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 2.5rem;
+  padding-left: 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  animation: announcement-scroll 20s linear infinite;
+}
+
+@keyframes announcement-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
+}

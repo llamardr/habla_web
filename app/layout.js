@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
+import AnnouncementBanner from "./components_habla/AnnouncementBanner";
 import "./globals.css";
 
 const workSans = Work_Sans({
@@ -147,7 +148,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es" data-theme="light" className="scroll-smooth">
-      <body className={`${workSans.className} ${stacion.variable}`}>
+      <body className={`${workSans.className} ${stacion.variable} pt-[44px]`}>
+        <AnnouncementBanner />
         <Script id="linkedin-pixel" strategy="afterInteractive">
           {`
             window._linkedin_partner_id = "${linkedinPartnerId}";
