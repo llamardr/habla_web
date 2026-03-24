@@ -7,8 +7,8 @@ import { TEAM_INTRO, TEAM_MEMBERS } from "./teamData";
 
 const INITIAL_COUNT = 3;
 const BATCH_SIZE = 3;
-const ACTION_BUTTON_BG = "#EAFF7E";
-const ACTION_BUTTON_TEXT = "#000000";
+const ACTION_BUTTON_BG = "#2d68e7";
+const ACTION_BUTTON_TEXT = "#FFFFFF";
 
 function lightenColor(color, percent) {
   const num = parseInt(color.replace("#", ""), 16);
@@ -46,7 +46,7 @@ function TeamPortrait({ member }) {
           alt={`Foto de ${member.name}`}
           fill
           sizes="(max-width: 768px) 100vw, 18rem"
-          className="object-contain object-bottom md:object-cover"
+          className="object-contain object-bottom"
         />
       </div>
     );
@@ -134,8 +134,8 @@ function TeamActionButton({ children, onClick, variant = "solid" }) {
       className="btn inline-flex min-w-[10rem] items-center justify-center transition-transform duration-200 ease-in-out hover:scale-105"
       style={{
         backgroundColor: isOutline ? "transparent" : ACTION_BUTTON_BG,
-        color: ACTION_BUTTON_TEXT,
-        border: `2px solid ${isOutline ? "#2C3444" : ACTION_BUTTON_BG}`,
+        color: isOutline ? "black" : ACTION_BUTTON_TEXT,
+        border: `2px solid ${isOutline ? "#2d68e7" : ACTION_BUTTON_BG}`,
         boxShadow,
       }}
       onClick={onClick}

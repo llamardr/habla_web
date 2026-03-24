@@ -37,7 +37,7 @@ export const TEAM_MEMBERS = [
     bio: "Carlos cuenta con más de 13 años de experiencia en investigación de mercados en agencias multinacionales como GfK, Ipsos y Kantar. Es psicólogo social y docente en temas de innovación y liderazgo. En HABLA aporta profundidad analítica, criterio estratégico y una lectura sólida del comportamiento del consumidor.",
     linkedin: null,
     image: "/team/carlosgalvezHABLALATAM.png",
-    accentClass: "bg-[#E8FF66]",
+    accentClass: "bg-[#eeff90]",
   },
   {
     slug: "pierina-ponce",
@@ -46,7 +46,7 @@ export const TEAM_MEMBERS = [
     bio: "Pierina combina visión comercial y de producto, con más de 10 años de experiencia en retail, consumo masivo y fintech. Ha liderado productos y estrategias digitales en Niubiz, Kasnet, Ontop e Izipay. En HABLA aporta lectura estratégica, criterio de producto y foco en aterrizar ideas en soluciones reales.",
     linkedin: "https://www.linkedin.com/in/pierinaponce/",
     image: "/team/PierinaponceHABLALATAM.png",
-    accentClass: "bg-[#E8FF66]",
+    accentClass: "bg-[#eeff90]",
   },
   {
     slug: "sheila-acuna",
@@ -55,7 +55,7 @@ export const TEAM_MEMBERS = [
     bio: "Sheila es especialista en investigación de usuarios, con trayectoria en Scotiabank, Banco de Crédito BCP, Agile Wise, Eureka Research y Lava Innovation. Su fortaleza está en detectar patrones, tensiones y motivaciones profundas detrás del comportamiento. En HABLA ayuda a convertir hallazgos en decisiones que realmente mueven la aguja.",
     linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/",
     image: "/team/sheilaacuñaHABLALATAM.png",
-    accentClass: "bg-[#E8FF66]",
+    accentClass: "bg-[#eeff90]",
   },
   {
     slug: "silvia-angulo",
@@ -64,7 +64,7 @@ export const TEAM_MEMBERS = [
     bio: "Silvia aporta una mirada estratégica construida desde años de trabajo en innovación, research y diseño de servicios. Ha colaborado con Scotiabank, Laureate, Pacífico, UTEC y Continuum HQ. En HABLA suma criterio, profundidad analítica y una fuerte orientación a decisiones accionables.",
     linkedin: "https://www.linkedin.com/in/silviaangulogamero/",
     image: "/team/silviaanguloHABLALATAM.png",
-    accentClass: "bg-[#E8FF66]",
+    accentClass: "bg-[#eeff90]",
   },
   {
     slug: "lady-vargas",
