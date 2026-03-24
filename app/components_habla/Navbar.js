@@ -6,11 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const Navbar = () => {
+const Navbar = ({ forceSolid = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const scrolledOrMenuOpen = isScrolled || menuOpen;
+  const scrolledOrMenuOpen = forceSolid || isScrolled || menuOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
           </div>
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 text-base font-normal">
-            <Link href="/#team" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>EQUIPO</Link>
+            <Link href="/equipo" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>EQUIPO</Link>
             <Link href="/#partners" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>CLIENTES</Link>
             <Link href="/#successcases" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >CASOS DE ÉXITO</Link>
             <Link href="/#community" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >COMUNIDAD</Link>
@@ -58,7 +58,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className={`md:hidden flex flex-col shadow-lg pb-6 px-6 mt-2 ${scrolledOrMenuOpen ? "bg-[rgba(255,255,255,0)]" : "bg-white"}`}>
           <div className="flex flex-col space-y-4 text-black font-medium text-lg py-4">
-            <Link href="/#team" className="hover:underline">EQUIPO</Link>
+            <Link href="/equipo" className="hover:underline">EQUIPO</Link>
             <Link href="/#partners" className="hover:underline">CLIENTES</Link>
             <Link href="/#successcases" className="hover:underline">CASOS DE ÉXITO</Link>
             <Link href="/#community" className="hover:underline">COMUNIDAD</Link>
