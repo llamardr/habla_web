@@ -148,6 +148,12 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es" data-theme="light" className="scroll-smooth">
+      <head>
+        <meta
+          name="facebook-domain-verification"
+          content="ne1euct0rqj4yjw3a3iumx0ta46pql"
+        />
+      </head>
       <body className={`${workSans.className} ${stacion.variable} pt-[44px]`}>
         <AnnouncementBanner />
         <Script id="linkedin-pixel" strategy="afterInteractive">

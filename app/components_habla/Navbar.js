@@ -6,11 +6,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const Navbar = ({ forceSolid = false }) => {
+const Navbar = ({ forceSolid = false, initialTextColor = "light" }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrolledOrMenuOpen = forceSolid || isScrolled || menuOpen;
+  const useDarkInitialText = initialTextColor === "dark";
+  const initialNavTextClass = useDarkInitialText ? "text-black" : "text-white";
+  const initialLogoSrc = useDarkInitialText ? "/isotipo_blue.png" : "/isotipo.png";
+  const initialLinkClass = useDarkInitialText
+    ? "hover:text-black hover:underline"
+    : "hover:text-white hover:underline";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +29,7 @@ const Navbar = ({ forceSolid = false }) => {
   return (
     <nav className={`fixed left-1/2 transform -translate-x-1/2 z-[90] transition-all duration-200 ease-in-out
                     ${scrolledOrMenuOpen ? "top-[44px] lg:top-[60px] w-full lg:w-3/4 lg:rounded-xl bg-[rgba(255,255,255,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg" 
-                              : "text-white top-[44px] w-full rounded-none"}
+                              : `${initialNavTextClass} top-[44px] w-full rounded-none`}
                     `}>
       
       
@@ -32,22 +38,30 @@ const Navbar = ({ forceSolid = false }) => {
           {/* Left: Logo */}
           <div className="flex justify-start pl-4">
             <Link href="/">
-              <Image src={scrolledOrMenuOpen ? "/isotipo_blue.png" : "/isotipo.png"} alt="Logo de Habla - Ir al Inicio" width={30} height={30}/>
+              <Image
+                src={scrolledOrMenuOpen ? "/isotipo_blue.png" : initialLogoSrc}
+                alt="Logo de Habla - Ir al Inicio"
+                width={30}
+                height={30}
+              />
             </Link>
           </div>
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 text-base font-normal">
-            <Link href="/equipo" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>EQUIPO</Link>
-            <Link href="/#partners" className= {scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"}>CLIENTES</Link>
-            <Link href="/#successcases" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >CASOS DE ÉXITO</Link>
-            <Link href="/#community" className={scrolledOrMenuOpen ?  "hover:underline" : "hover:text-white hover:underline"} >COMUNIDAD</Link>
+            <Link href="/equipo" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>EQUIPO</Link>
+            <Link href="/#partners" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CLIENTES</Link>
+            <Link href="/#successcases" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CASOS DE ÉXITO</Link>
+            <Link href="/#community" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>COMUNIDAD</Link>
           </div>
           {/* Contact Button (desktop) */}
           <div className="hidden md:flex">
             <ButtonContacto/>
           </div>
           {/* Hamburger (mobile) */}
-          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            className={`md:hidden ${scrolledOrMenuOpen || useDarkInitialText ? "text-black" : "text-white"}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </button>
         </div>

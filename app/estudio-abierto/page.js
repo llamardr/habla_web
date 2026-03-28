@@ -51,7 +51,7 @@ const introCards = [
   },
   {
     title: "Orientado al futuro",
-    image: "/estudio-abierto/card-orientado-futuro.png",
+    image: "/estudio-abierto/card-orientado-futuro.png", 
     alt: "Equipo colaborando con enfoque prospectivo",
   },
 ];
@@ -162,7 +162,7 @@ function RegistrationButton({ label = "¡REGÍSTRATE AQUÍ!", className = "" }) 
 export default function EstudioAbiertoPage() {
   return (
     <main className="bg-[#F4EEDF] text-black">
-      <Navbar />
+      <Navbar initialTextColor="dark" />
 
       <section className="px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8">
         <div className="mx-auto max-w-6xl">
@@ -218,7 +218,7 @@ export default function EstudioAbiertoPage() {
               <EstudioAbiertoIntroCarousel cards={introCards} />
             </div>
             <div className="flex items-center lg:pl-6">
-              <p className="whitespace-pre-line text-base leading-7 text-white/90 sm:text-lg sm:leading-8">
+              <p className="whitespace-pre-line text-base leading-7 text-white/90 sm:text-lg sm:leading-8 text-center w-full">
                 {"Estudio Abierto, como su nombre lo dice, es un proceso de investigación diseñado especialmente para ser abierto al público relevante. Tomamos un caso importante para la sociedad y abrimos la metodología perfeccionada durante 4 años para poder colaborar juntos en un reto."}
               </p>
             </div>
@@ -325,7 +325,7 @@ export default function EstudioAbiertoPage() {
             <div className="order-1 grid grid-cols-[1.2fr_0.8fr] gap-4 lg:order-2">
               <div className="relative min-h-[340px] overflow-hidden rounded-[2rem] bg-black">
                 <Image
-                  src="/estudio-abierto/calendar-photo-3.png"
+                  src="/estudio-abierto/calendar-photo-3.svg"
                   alt="Equipo revisando documentos en una reunión"
                   fill
                   sizes="(max-width: 1024px) 100vw, 28vw"
@@ -334,7 +334,7 @@ export default function EstudioAbiertoPage() {
               </div>
               <div className="relative min-h-[340px] overflow-hidden rounded-[2rem] bg-black">
                 <Image
-                  src="/estudio-abierto/calendar-photo-2.png"
+                  src="/estudio-abierto/calendar-photo-2.svg"
                   alt="Fachada de UTEC"
                   fill
                   sizes="(max-width: 1024px) 40vw, 18vw"

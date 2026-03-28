@@ -1,4 +1,5 @@
 import Footer from "@/app/components_habla/Footer";
+import BusinessDecisionsSection from "@/app/components_habla/BusinessDecisionsSection";
 import HeroSection from "@/app/components_habla/HeroSection";
 import Navbar from "@/app/components_habla/Navbar";
 import Community from "./components_habla/Community";
@@ -13,7 +14,7 @@ async function Home() {
     <main>
       <Navbar></Navbar>
       <HeroSection subtitle="Diseñamos rutas de éxito para ti"></HeroSection>
-      <UsSection></UsSection>
+      <BusinessDecisionsSection />
       <Team></Team>
       <Partners></Partners>
       <SuccessCases></SuccessCases>

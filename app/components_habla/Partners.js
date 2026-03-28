@@ -187,11 +187,7 @@ const Partners = () => {
           </div>
           <div className="md:w-1/2 md:pl-12 flex items-center">
             <p className="text-xl opacity-80">
-              Con oficinas en Lima y Ciudad de México, hemos trabajado con +20
-              empresas ayudándoles a definir la propuesta de valor de sus
-              servicios y/o productos y a escalar sus negocios. Nos juntamos
-              contigo, definimos el problema a resolver y a través de la
-              investigación planteamos una estrategia que lo resuelva.
+            Trabajamos con organizaciones de distintos segmentos, rubros y tamaños de empresas, desde educación, salud y sector público hasta retail, consumo masivo, tecnología, moda y sostenibilidad — en modelos B2B y B2C.
             </p>
           </div>
         </div>
