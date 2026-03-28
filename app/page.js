@@ -1,3 +1,4 @@
+import BehaviorFocusSection from "@/app/components_habla/BehaviorFocusSection";
 import Footer from "@/app/components_habla/Footer";
 import BusinessDecisionsSection from "@/app/components_habla/BusinessDecisionsSection";
 import HeroSection from "@/app/components_habla/HeroSection";
@@ -17,6 +18,7 @@ async function Home() {
       <BusinessDecisionsSection />
       <Team></Team>
       <Partners></Partners>
+      <BehaviorFocusSection />
       <SuccessCases></SuccessCases>
       <Community></Community>
       <Footer></Footer>
