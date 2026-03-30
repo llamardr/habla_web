@@ -6,7 +6,7 @@ export default function BehaviorFocusSection() {
       <div className="w-full overflow-hidden bg-white">
         <div className="relative z-10 rounded-[2rem] bg-[#006AEF] px-4 pb-10 pt-8 text-white shadow-[0_20px_60px_rgba(0,106,239,0.22)] sm:px-6 sm:pb-12 sm:pt-10 md:rounded-[2.35rem] md:pb-14 md:pt-10 lg:px-8 lg:pb-16 lg:pt-12">
           <div className="mx-auto w-full max-w-6xl px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12">
-            <h2 className="max-w-5xl text-[clamp(2.65rem,7vw,5.4rem)] leading-[0.96] tracking-[-0.04em]">
+            <h2 className="max-w-5xl text-[clamp(2rem,7vw,5.2rem)] leading-[0.98]">
               En Habla, nos enfocamos en lo que las personas {" "}
               <span className="inline-flex rounded-full bg-white px-[0.3em] py-[0.06em] text-[#006AEF]">
                 hacen

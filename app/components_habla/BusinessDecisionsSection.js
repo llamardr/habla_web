@@ -9,7 +9,7 @@ export default function BusinessDecisionsSection() {
 
         <div className="relative rounded-[2rem] bg-[#006AEF] px-4 pb-16 pt-8 text-white sm:px-6 sm:pb-20 sm:pt-10 md:rounded-[2.35rem] md:pb-24 md:pt-10 lg:px-8 lg:pb-28 lg:pt-10">
           <div className="mx-auto w-full max-w-6xl px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12">
-            <h2 className="max-w-5xl text-[clamp(2.7rem,7vw,5.8rem)] leading-[0.92] tracking-[-0.04em] font-normal">
+            <h2 className="max-w-5xl text-[clamp(2rem,7vw,5.2rem)] leading-[0.98]">
               El{" "}
               <span className="inline-flex rounded-full bg-white px-4 py-1 text-[#006aef] font-normal">
                 amor

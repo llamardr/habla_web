@@ -83,7 +83,7 @@ const benefits = [
 
 const schedule = [
   {
-    date: "16 de abril",
+    date: "Jueves 16 de abril",
     title: "Kick-Off & Taller de Hipótesis",
     mode: "Presencial",
     time: "4:30PM - 7:00PM",
@@ -101,7 +101,7 @@ const schedule = [
   //   time: "7:00PM - 8:00PM",
   // },
   {
-    date: "15 de junio",
+    date: "Junio 2026",
     title: "Evento de cierre",
     mode: "Presencial",
     time: "4:30PM - 7:00PM",
@@ -174,9 +174,9 @@ export default function EstudioAbiertoPage() {
                 width={768}
                 height={768}
                 priority
-                className="w-full max-w-[28rem] sm:max-w-[31rem] lg:max-w-[31rem] mt-0 mb-0 sm:mt-0 sm:mb-0 md:mt-2 md:mb-2"
+                className="w-full max-w-[28rem] sm:max-w-[31rem] lg:max-w-[31rem] mt-0 sm:mt-0 sm:mb-0 md:mt-2 md:mb-2"
               />
-              <div className="flex w-full justify-center lg:justify-start pb-8 sm:pb-0 md:pb-8">
+              <div className="mt-6 flex w-full justify-center lg:justify-start pb-8 sm:pb-0 md:pb-8">
                 <RegistrationButton label="¡REGÍSTRATE AQUÍ!" />
               </div>
             </div>
@@ -380,15 +380,15 @@ export default function EstudioAbiertoPage() {
         </div>
       </section>
 
-      <section className="mt-14 bg-[#006aef] pb-0 pt-10 text-white sm:mt-20 sm:pt-14">
+      <section className="mt-14 bg-[#006aef] pb-0 pt-10 text-[#F4EEDF] sm:mt-20 sm:pt-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="max-w-5xl text-[clamp(2rem,7vw,5.2rem)] leading-[0.98] tracking-[-0.05em]">
-            Antes de crear{" "}
+          <h2 className="max-w-5xl text-[clamp(2rem,7vw,5.2rem)] leading-[0.98]">
+            Antes de crear {" "}
             <span className="inline-flex rounded-full bg-[#F4EEDF] px-4 py-1 text-[#006aef]">
-              soluciones
+              soluciones, 
             </span>
-            , queremos entender el{" "}
-            <span className="inline-flex rounded-full border border-white px-4 py-1 text-white">
+             queremos entender el{" "}
+            <span className="inline-flex rounded-full border border-[#F4EEDF] px-4 py-1 text-[#F4EEDF]">
               problema
             </span>{" "}
             y hacerlo juntos.
