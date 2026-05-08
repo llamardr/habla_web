@@ -1,5 +1,5 @@
 export const TEAM_INTRO =
-  "Si la consultoría y la investigación de mercado tradicional tuvieran un hijo Millenial que se cree Centennial, nosotros seríamos el resultado.";
+  "Si la consultoría y la investigación de mercado tradicional tuvieran un hijo, nosotros seríamos el resultado.";
 
 export const TEAM_MEMBERS = [
   {
@@ -98,7 +98,7 @@ export const TEAM_MEMBERS = [
     slug: "nicolle-hazard",
     name: "Nicolle Hazard",
     role: "Advisor | Product Design",
-    bio: "Nicolle diseña productos y servicios pensando en cómo las personas realmente los usan. Tiene experiencia en Skyward.AI, Fintoc, Prende, Dr. Wen y proyectos vinculados a UX y service design. En HABLA aporta estructura, criterio de diseño y foco en crear experiencias simples, claras y funcionales.",
+    bio: "Nicolle diseña productos y servicios pensando en cómo las personas realmente los usan. Tiene experiencia en Skyward.AI, Fintoc, Prendea, Dr. Wen y proyectos vinculados a UX y service design. En HABLA aporta estructura, criterio de diseño y foco en crear experiencias simples, claras y funcionales.",
     linkedin: "https://www.linkedin.com/in/nicollehazard/",
     image: "/team/nicollehazardHABLALATAM.png",
     accentClass: "bg-[#E295E0]",

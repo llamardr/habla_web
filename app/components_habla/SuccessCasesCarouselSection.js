@@ -3,39 +3,43 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { successCaseArticles } from "@/app/lib/successCaseArticles";
 
-const caseStudies = [
-  {
-    id: 1,
-    slug: "educar-hoy-es-acompanar-lo-que-cambia",
-    title: "Educar hoy en día es acompañar lo que cambia",
-    subtitle: "Educación | Noviembre 2025",
-    description:
-      "En HABLA LATAM hemos realizado más de cinco proyectos con instituciones educativas. Aquí compartimos hallazgos y aprendizajes clave sobre los desafíos y oportunidades que enfrenta hoy el sector.",
-    imageUrl: "/case_studies/AVA.MARCO.1.png",
-  },
-  {
-    id: 2,
-    slug: "equipo-alineado-alto-impacto",
-    title: "Un equipo alineado es un equipo de alto impacto",
-    subtitle: "Educación | Diciembre 2025",
-    description:
-      "Cuando realizamos una investigación, es clave hacer una bajada con el equipo que accionará la información. Estos talleres alinean áreas involucradas y convierten hallazgos en decisiones concretas.",
-    imageUrl: "/case_studies/alicorp.jpg",
-  },
-  {
-    id: 3,
-    slug: "disenar-con-evidencia-para-escalar",
-    title: "Diseñar con evidencia para escalar",
-    subtitle: "Energía | Enero 2026",
-    description:
-      "Acompañamos a equipos en la validación de hipótesis de producto y experiencia, priorizando oportunidades con alto potencial de impacto en clientes y negocio.",
-    imageUrl: "/case_studies/qaira.jpg",
-  },
-];
+const placeholderClassNames = {
+  blue: "bg-[#006aef]",
+  black: "bg-black",
+  pink: "bg-[#e58adb]",
+};
 
-const SuccessCasesCarouselSection = () => {
+const ArticlePlaceholder = ({ article }) => (
+  <div
+    className={`flex h-full min-h-[280px] items-end overflow-hidden rounded-2xl ${
+      placeholderClassNames[article.accent] || "bg-[#006aef]"
+    }`}
+  >
+    <div className="relative h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.42),transparent_24%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.22),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.16),rgba(0,0,0,0.18))] p-6">
+      <div className="absolute inset-x-6 top-6 h-40 rounded-2xl border border-white/35 bg-white/15" />
+      <div className="absolute bottom-6 left-6 right-6">
+        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
+          Artículo
+        </span>
+        <p className="mt-2 text-3xl font-bold leading-none text-white">
+          {article.subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const SuccessCasesCarouselSection = ({
+  title = "Conoce nuestros casos de éxito",
+  excludeSlug = "",
+  className = "bg-white",
+}) => {
   const trackRef = useRef(null);
+  const caseStudies = successCaseArticles.filter(
+    (article) => article.slug !== excludeSlug
+  );
 
   const scrollByCard = (direction) => {
     if (!trackRef.current) return;
@@ -49,30 +53,32 @@ const SuccessCasesCarouselSection = () => {
   };
 
   return (
-    <section className="w-full bg-white pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+    <section className={`w-full pt-10 pb-20 px-4 sm:px-6 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-6xl px-4">
         <h2 className="text-[#006aef] text-4xl sm:text-5xl md:text-6xl leading-tight mb-10">
-          Conoce nuestros casos de éxito
+          {title}
         </h2>
 
-        <div className="flex items-center justify-end gap-3 mb-6">
-          <button
-            type="button"
-            onClick={() => scrollByCard("prev")}
-            className="h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] text-xl leading-none hover:bg-[#006aef] hover:text-white transition-colors"
-            aria-label="Ver casos anteriores"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollByCard("next")}
-            className="h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] text-xl leading-none hover:bg-[#006aef] hover:text-white transition-colors"
-            aria-label="Ver más casos"
-          >
-            ›
-          </button>
-        </div>
+        {caseStudies.length > 1 && (
+          <div className="flex items-center justify-end gap-3 mb-6">
+            <button
+              type="button"
+              onClick={() => scrollByCard("prev")}
+              className="h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] text-xl leading-none hover:bg-[#006aef] hover:text-white transition-colors"
+              aria-label="Ver casos anteriores"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByCard("next")}
+              className="h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] text-xl leading-none hover:bg-[#006aef] hover:text-white transition-colors"
+              aria-label="Ver más casos"
+            >
+              ›
+            </button>
+          </div>
+        )}
 
         <div
           ref={trackRef}
@@ -89,7 +95,7 @@ const SuccessCasesCarouselSection = () => {
                   {study.title}
                 </h3>
                 <p className="text-[#b3b8c2] text-md md:text-l leading-tight mb-4">
-                  {study.subtitle}
+                  {study.subtitle} | {study.date}
                 </p>
                 <p className="text-[#1f2937] text-base md:text-l leading-relaxed mb-5">
                   {study.description}
@@ -103,12 +109,16 @@ const SuccessCasesCarouselSection = () => {
               </div>
 
               <div className="order-1 md:order-2 relative min-h-[280px] md:min-h-[380px] overflow-hidden rounded-2xl">
-                <Image
-                  src={study.imageUrl}
-                  alt={`Caso de éxito: ${study.title}`}
-                  fill
-                  className="object-cover"
-                />
+                {study.imageUrl ? (
+                  <Image
+                    src={study.imageUrl}
+                    alt={`Caso de éxito: ${study.title}`}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <ArticlePlaceholder article={study} />
+                )}
               </div>
             </article>
           ))}
