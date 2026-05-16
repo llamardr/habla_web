@@ -116,6 +116,7 @@ export default function ToolkitSection() {
                              200px"
                       style={{ padding: '12px' }}
                       className="object-contain"
+                      unoptimized
                       onLoadingComplete={(img) => {
                         if (!tool.aspectRatio && !ratios[tool.img]) {
                           const r = `${img.naturalWidth} / ${img.naturalHeight}`;

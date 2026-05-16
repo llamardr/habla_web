@@ -38,9 +38,6 @@ const ArticleImagePlaceholder = ({ label, accent = "blue" }) => (
 const ServicesCtaSection = () => (
   <section className="mt-16 border-y border-[#e5e7eb] py-14">
     <div className="mb-10 max-w-4xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#006aef]">
-        ¿Qué hacer ahora?
-      </p>
       <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-[#111827] md:text-5xl">
         Para convertir estos hallazgos en decisiones, en Habla Latam te ayudamos a responder
         preguntas clave:
@@ -89,7 +86,7 @@ const ArticleContent = ({ blocks }) => (
         return (
           <blockquote
             key={`${block.type}-${index}`}
-            className="my-8 border-l-4 border-[#006aef] bg-[#f5f8ff] px-6 py-5 text-xl font-semibold leading-relaxed text-[#111827]"
+            className="my-8 rounded-[var(--rounded-btn)] bg-[#006aef] px-6 py-5 text-xl font-semibold leading-relaxed text-white"
           >
             “{block.text}”
           </blockquote>
@@ -152,16 +149,10 @@ export default function SuccessCaseArticlePage({ params }) {
 
       <article className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
         <header className="max-w-5xl">
-          <Link
-            href="/#successcases"
-            className="mb-8 inline-flex text-sm font-semibold uppercase tracking-[0.22em] text-[#006aef] hover:underline"
-          >
-            Casos de éxito
-          </Link>
-          <h1 className="max-w-5xl text-[clamp(2.8rem,7vw,5.2rem)] font-normal leading-[0.98] tracking-normal text-black">
+          <h1 className="mt-16 max-w-5xl text-[clamp(2.8rem,7vw,5.2rem)] font-normal leading-[0.98] tracking-normal text-black">
             {article.title}
           </h1>
-          <p className="mt-6 text-lg font-normal text-black">
+          <p className="mt-6 text-lg font-normal text-gray-500">
             {article.subtitle} · {article.date} · Por {article.author}
           </p>
         </header>
@@ -187,7 +178,6 @@ export default function SuccessCaseArticlePage({ params }) {
           <ArticleContent blocks={article.content} />
         </div>
 
-        <ServicesCtaSection />
       </article>
 
       <SuccessCasesCarouselSection

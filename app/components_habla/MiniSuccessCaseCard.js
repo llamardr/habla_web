@@ -36,7 +36,7 @@ const MiniSuccessCaseCard = ({
         <div className="flex-1 mx-3 border-t border-white h-0.5" />
         {logo && (
           <div className="w-16 h-10 flex items-center justify-end">
-            <Image src={logo} alt={`Partner: ${title} - Cliente de Habla`} width={64} height={40} className="object-contain" />
+            <Image src={logo} alt={`Partner: ${title} - Cliente de Habla`} width={64} height={40} unoptimized className="object-contain" />
           </div>
         )}
       </div>

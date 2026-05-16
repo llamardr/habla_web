@@ -13,6 +13,7 @@ const Footer = () => {
         alt="Isotipo Habla LATAM"
         width={50}
         height={50}
+        unoptimized
         className="fill-current"
       />
       <p className="mt-3">
@@ -90,6 +91,7 @@ const Footer = () => {
         alt="Libro de reclamaciones" 
         width={230.5*0.5} 
         height={131*0.5}
+        unoptimized
         onClick={() => window.open("https://form.jotform.com/242916429388065", "_blank")}
         style={{cursor: 'pointer'}}
       />

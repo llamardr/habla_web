@@ -8,32 +8,32 @@ import { trackMetaEvent } from "../lib/metaPixel";
 const logos = [
   {
     name: "alicorp",
-    src: "/partners/1-alicorp.png",
+    src: "/partners/alicorp.png",
     link: "https://www.alicorp.com.pe/pe/es",
   },
   {
     name: "granja azul",
-    src: "/partners/2-granja-azul.png",
+    src: "/partners/granja_azul.png",
     link: "https://www.granjaazul.com.pe/",
   },
   {
     name: "silvestre",
-    src: "/partners/4-silvestre.png",
+    src: "/partners/silvestre.png",
     link: "https://www.soysilvestre.pe/",
   },
   {
     name: "maria almenara",
-    src: "/partners/3-maria.png",
+    src: "/partners/maria_almenara.png",
     link: "https://www.mariaalmenara.pe/",
   },
   {
     name: "tortas gaby",
-    src: "/partners/5-tortas-gaby.png",
+    src: "/partners/tortas_gaby.png",
     link: "https://www.tortasgaby.com.pe/",
   },
   {
     name: "fisserum",
-    src: "/partners/8-fisserum.png",
+    src: "/partners/fisserum.png",
     link: "https://fissionlab.com.pe/",
   },
   {
@@ -43,27 +43,27 @@ const logos = [
   },
   {
     name: "amaras",
-    src: "/partners/6-amaras-2.svg",
+    src: "/partners/amaras.png",
     link: "https://amaras.pe/",
   },
   {
-    name: "nicole chang",
-    src: "/partners/7-nicole-chang.png",
+    name: "nicolle chang",
+    src: "/partners/nicolle_chang.png",
     link: "https://www.instagram.com/nicollechangc/",
   },
   {
     name: "fissionlab",
-    src: "/partners/18-fission-lab.png",
+    src: "/partners/fission.png",
     link: "https://fissionlab.com.pe/",
   },
   {
     name: "D&O",
-    src: "/partners/11-d-o.png",
+    src: "/partners/dyo.png",
     link: "https://dyo.com.pe/",
   },
   {
     name: "delascar",
-    src: "/partners/12-delascar.png",
+    src: "/partners/delascar.png",
     link: "https://www.delascar.com/",
   },
   {
@@ -73,32 +73,32 @@ const logos = [
   },
   {
     name: "BCRP",
-    src: "/partners/15-bcrp.png",
+    src: "/partners/bcrp.png",
     link: "https://www.bcrp.gob.pe/",
   },
   {
     name: "smartfit",
-    src: "/partners/13-smartfit.png",
+    src: "/partners/smartfit.png",
     link: "https://www.smartfit.com.pe/",
   },
   {
     name: "coa",
-    src: "/partners/19-coa.png",
+    src: "/partners/coa.png",
     link: "https://www.coa.pe/",
   },
   {
     name: "honda",
-    src: "/partners/20-honda.png",
+    src: "/partners/honda.png",
     link: "https://autos.honda.com.pe/",
   },
   {
     name: "ava",
-    src: "/partners/14-ava.png",
+    src: "/partners/ava.png",
     link: "https://www.ava.pe/",
   },
   {
     name: "qaira",
-    src: "/partners/qaira2.png",
+    src: "/partners/qaira.png",
     link: "https://www.qairadrones.com/",
   },
   {
@@ -108,28 +108,63 @@ const logos = [
   },
   {
     name: "soundcloud",
-    src: "/partners/soundcloud2.png",
+    src: "/partners/soundcloud.png",
     link: "https://soundcloud.com/",
   },
   {
     name: "cien pies",
-    src: "/partners/16-cien-pies.png",
+    src: "/partners/cienpies.png",
     link: "https://cienpies.com.pe/",
   },
   {
     name: "tmgi",
-    src: "/partners/17-tmgi.png",
+    src: "/partners/tmgi.png",
     link: "https://tmgi.com.pe/",
   },
   {
     name: "maple bear",
-    src: "/partners/22-maple-bear.png",
+    src: "/partners/maple_bear.png",
     link: "https://lima.maplebearlatam.com/",
   },
   {
     name: "reims",
-    src: "/partners/21-reims.png",
+    src: "/partners/reims.png",
     link: "https://www.colegioreims.edu.mx/",
+  },
+  {
+    name: "cabify",
+    src: "/partners/cabify.svg",
+    link: "https://cabify.com/pe",
+  },
+  {
+    name: "xertica",
+    src: "/partners/xertica.png",
+    link: "https://www.xertica.ai/",
+  },
+  {
+    name: "elha novias",
+    src: "/partners/elha_novias.png",
+    link: "https://www.elhanovias.com/",
+  },
+  {
+    name: "enerlite",
+    src: "/partners/enerlite.png",
+    link: "https://enerliteperu.com/",
+  },
+  {
+    name: "donna cattiva",
+    src: "/partners/donna_cattiva.png",
+    link: "https://donnacattiva.com/",
+  },
+  {
+    name: "smart hydro",
+    src: "/partners/smart_hydro.png",
+    link: "https://smarthydro.cl/",
+  },
+  {
+    name: "cyber plaza",
+    src: "/partners/cyberplaza.png",
+    link: "https://cyberplaza.com.pe/",
   },
 ];
 
@@ -207,6 +242,7 @@ const Partners = () => {
                 alt={`Partner: ${logo.name} - Cliente de Habla`}
                 width={128}
                 height={128}
+                unoptimized
                 className={`max-w-full max-h-full object-contain transition-opacity duration-700 ${
                   visible[idx] ? "opacity-100" : "opacity-0"
                 }`}

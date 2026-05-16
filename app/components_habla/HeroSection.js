@@ -48,6 +48,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
               width={800}
               height={200}
               priority
+              unoptimized
               className="lg:max-w-[80%] sm:max-w-[100%] w-full"
             />
           )}
@@ -62,6 +63,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
               width={400}
               height={100}
               priority
+              unoptimized
               className="lg:max-w-[25%] sm:max-w-[20%] md:max-w-[30%] w-full"
             />
           )}

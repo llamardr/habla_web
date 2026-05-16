@@ -18,8 +18,8 @@ async function Home() {
       <BusinessDecisionsSection />
       <Team></Team>
       <Partners></Partners>
+      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
       <BehaviorFocusSection />
-      <SuccessCases></SuccessCases>
       <Community></Community>
       <Footer></Footer>
     </main>

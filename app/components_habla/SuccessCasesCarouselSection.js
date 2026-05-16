@@ -55,7 +55,7 @@ const SuccessCasesCarouselSection = ({
   return (
     <section className={`w-full pt-10 pb-20 px-4 sm:px-6 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-[#006aef] text-4xl sm:text-5xl md:text-6xl leading-tight mb-10">
+        <h2 className="text-black text-4xl sm:text-5xl md:text-6xl leading-tight mb-5">
           {title}
         </h2>
 
@@ -90,19 +90,21 @@ const SuccessCasesCarouselSection = ({
               data-case-card
               className="snap-start shrink-0 w-[92%] md:w-[82%] lg:w-[74%] bg-white border border-[#d7dce3] rounded-3xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
             >
-              <div className="order-2 md:order-1">
-                <h3 className="text-[#111827] text-2xl md:text-4xl font-bold leading-tight mb-2">
-                  {study.title}
-                </h3>
-                <p className="text-[#b3b8c2] text-md md:text-l leading-tight mb-4">
-                  {study.subtitle} | {study.date}
-                </p>
-                <p className="text-[#1f2937] text-base md:text-l leading-relaxed mb-5">
-                  {study.description}
-                </p>
+              <div className="order-2 flex h-full flex-col items-start md:order-1">
+                <div>
+                  <h3 className="text-[#111827] text-2xl md:text-4xl font-bold leading-tight mb-2">
+                    {study.title}
+                  </h3>
+                  <p className="text-[#b3b8c2] text-md md:text-l leading-tight mb-4">
+                    {study.subtitle} | {study.date}
+                  </p>
+                  <p className="text-[#1f2937] text-base md:text-l leading-relaxed mb-5">
+                    {study.description}
+                  </p>
+                </div>
                 <Link
                   href={`/casos-de-exito/${study.slug}`}
-                  className="inline-flex items-center rounded-[var(--rounded-btn)] border border-[#006aef] bg-white px-4 py-2 text-base md:text-sm text-[#006aef] hover:bg-[#006aef] hover:text-white duration-200 ease-in-out hover:scale-105"
+                  className="mt-auto inline-flex items-center rounded-[var(--rounded-btn)] border border-[#006aef] bg-[#006aef] px-4 py-2 text-base text-white duration-200 ease-in-out hover:scale-105 hover:bg-[#0057c5] md:text-sm"
                 >
                   LEER MÁS
                 </Link>

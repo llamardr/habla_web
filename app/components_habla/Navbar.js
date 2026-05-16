@@ -28,8 +28,8 @@ const Navbar = ({ forceSolid = false, initialTextColor = "light" }) => {
 
   return (
     <nav className={`fixed left-1/2 transform -translate-x-1/2 z-[90] transition-all duration-200 ease-in-out
-                    ${scrolledOrMenuOpen ? "top-[44px] lg:top-[60px] w-full lg:w-3/4 lg:rounded-xl bg-[rgba(255,255,255,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg" 
-                              : `${initialNavTextClass} top-[44px] w-full rounded-none`}
+                    ${scrolledOrMenuOpen ? "top-0 lg:top-4 w-full lg:w-3/4 lg:rounded-xl bg-[rgba(255,255,255,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg" 
+                              : `${initialNavTextClass} top-0 w-full rounded-none`}
                     `}>
       
       
@@ -43,6 +43,7 @@ const Navbar = ({ forceSolid = false, initialTextColor = "light" }) => {
                 alt="Logo de Habla - Ir al Inicio"
                 width={30}
                 height={30}
+                unoptimized
               />
             </Link>
           </div>

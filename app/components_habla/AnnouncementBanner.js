@@ -3,14 +3,10 @@ import Link from "next/link";
 const getBannerMessage = () => {
   // We'll split by "Regístrate aquí" and wrap it
   const message =
-    "Participa de Estudio Abierto este 16 de abril. Una colaboración de HABLA LATAM y UTEC. Regístrate aquí.";
-  const underline = "Regístrate aquí";
-  const parts = message.split(underline);
+    "Participa de Estudio Abierto. Una colaboración de HABLA LATAM y UTEC.";
   return (
     <>
-      {parts[0]}
-      <u className="underline">{underline}</u>
-      {parts[1]}
+      {message}
     </>
   );
 };

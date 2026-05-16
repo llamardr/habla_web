@@ -35,7 +35,7 @@ export const TEAM_MEMBERS = [
     name: "Carlos Gálvez",
     role: "Collaborator | Market Research",
     bio: "Carlos cuenta con más de 13 años de experiencia en investigación de mercados en agencias multinacionales como GfK, Ipsos y Kantar. Es psicólogo social y docente en temas de innovación y liderazgo. En HABLA aporta profundidad analítica, criterio estratégico y una lectura sólida del comportamiento del consumidor.",
-    linkedin: null,
+    linkedin: "https://www.linkedin.com/in/carlos-javier-g%C3%A1lvez-contreras-7bba734a/",
     image: "/team/carlosgalvezHABLALATAM.png",
     accentClass: "bg-[#eeff90]",
   },
