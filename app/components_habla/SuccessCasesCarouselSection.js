@@ -53,7 +53,10 @@ const SuccessCasesCarouselSection = ({
   };
 
   return (
-    <section className={`w-full pt-10 pb-20 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <section
+      id="successcases"
+      className={`w-full pt-10 pb-20 px-4 sm:px-6 lg:px-8 ${className}`}
+    >
       <div className="mx-auto max-w-6xl px-4">
         <h2 className="text-black text-4xl sm:text-5xl md:text-6xl leading-tight mb-5">
           {title}

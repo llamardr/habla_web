@@ -6,7 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { HiMenu, HiX } from "react-icons/hi";
 
-const Navbar = ({ forceSolid = false, initialTextColor = "light" }) => {
+const Navbar = ({
+  forceSolid = false,
+  hasAnnouncementBanner = false,
+  initialTextColor = "light",
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -17,6 +21,13 @@ const Navbar = ({ forceSolid = false, initialTextColor = "light" }) => {
   const initialLinkClass = useDarkInitialText
     ? "hover:text-black hover:underline"
     : "hover:text-white hover:underline";
+  const navTopClass = hasAnnouncementBanner
+    ? scrolledOrMenuOpen
+      ? "top-[50px] lg:top-[66px]"
+      : "top-[50px]"
+    : scrolledOrMenuOpen
+      ? "top-0 lg:top-4"
+      : "top-0";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +38,9 @@ const Navbar = ({ forceSolid = false, initialTextColor = "light" }) => {
   }, []);
 
   return (
-    <nav className={`fixed left-1/2 transform -translate-x-1/2 z-[90] transition-all duration-200 ease-in-out
-                    ${scrolledOrMenuOpen ? "top-0 lg:top-4 w-full lg:w-3/4 lg:rounded-xl bg-[rgba(255,255,255,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg" 
-                              : `${initialNavTextClass} top-0 w-full rounded-none`}
+    <nav className={`fixed left-1/2 transform -translate-x-1/2 z-[90] transition-all duration-200 ease-in-out ${navTopClass}
+                    ${scrolledOrMenuOpen ? "w-full lg:w-3/4 lg:rounded-xl bg-[rgba(255,255,255,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg" 
+                              : `${initialNavTextClass} w-full rounded-none`}
                     `}>
       
       

@@ -4,7 +4,11 @@ import EstudioAbiertoIntroCarousel from "../components_habla/EstudioAbiertoIntro
 import Footer from "../components_habla/Footer";
 import Navbar from "../components_habla/Navbar";
 
-const CTA_URL = "https://form.jotform.com/260766936064062";
+const CTA_MESSAGE =
+  "Hola Maria Jose, estoy interesado en participar en el cierre de Estudio Abierto";
+const CTA_URL = `https://wa.me/51942868858?text=${encodeURIComponent(
+  CTA_MESSAGE
+)}`;
 
 export const metadata = {
   title: "Estudio Abierto",
