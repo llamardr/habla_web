@@ -63,6 +63,7 @@ const Navbar = ({
             <Link href="/equipo" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>EQUIPO</Link>
             <Link href="/#partners" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CLIENTES</Link>
             <Link href="/#successcases" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CASOS DE ÉXITO</Link>
+            <Link href="/#enfoque" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>ENFOQUE</Link>
             <Link href="/#community" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>COMUNIDAD</Link>
           </div>
           {/* Contact Button (desktop) */}
@@ -87,6 +88,7 @@ const Navbar = ({
             <Link href="/equipo" className="hover:underline">EQUIPO</Link>
             <Link href="/#partners" className="hover:underline">CLIENTES</Link>
             <Link href="/#successcases" className="hover:underline">CASOS DE ÉXITO</Link>
+            <Link href="/#enfoque" className="hover:underline">ENFOQUE</Link>
             <Link href="/#community" className="hover:underline">COMUNIDAD</Link>
           </div>
           <ButtonContacto />

@@ -1,4 +1,5 @@
 import BehaviorFocusSection from "@/app/components_habla/BehaviorFocusSection";
+import EnfoqueSection from "@/app/components_habla/EnfoqueSection";
 import Footer from "@/app/components_habla/Footer";
 import BusinessDecisionsSection from "@/app/components_habla/BusinessDecisionsSection";
 import HeroSection from "@/app/components_habla/HeroSection";
@@ -19,9 +20,10 @@ async function Home() {
       <HeroSection subtitle="Diseñamos rutas de éxito para ti"></HeroSection>
       <BusinessDecisionsSection />
       <Team></Team>
-      <Partners></Partners>
-      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
+      <Partners></Partners>     
       <BehaviorFocusSection />
+      <EnfoqueSection />
+      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
       <Community></Community>
       <Footer></Footer>
     </main>

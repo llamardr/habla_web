@@ -1,46 +1,54 @@
+"use client";
+
 import Image from 'next/image';
-import MiniSuccessCaseCard from './MiniSuccessCaseCard';
+import { useRef } from "react";
+import CompassSVG from "@/public/CompassBursts.svg";
+import useCompassBurstReveal from "./useCompassBurstReveal";
+
+const heroCaseImages = [
+  {
+    id: "soundcloud",
+    src: "/case_studies/soundcloud.png",
+    alt: "Equipo de SoundCloud Mexico durante trabajo de campo",
+    borderColor: "#eaff7e",
+    className: "w-[19vw] min-w-[210px] max-w-[280px] 2xl:max-w-[320px]",
+  },
+  {
+    id: "ava",
+    src: "/case_studies/ava.png",
+    alt: "Equipo revisando prototipos durante el estudio de AVA",
+    borderColor: "#EB8FFE",
+    className:
+      "w-[21vw] min-w-[230px] max-w-[310px] -translate-y-6 2xl:max-w-[350px] 2xl:-translate-y-12",
+  },
+];
 
 const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) => {
-  // ⚠️ Temporal: dataset de casos. Reemplázalo por fetch o props más adelante
-  const cases = [
-    {
-      id: 'soundcloud',
-      title: 'Lanzando SoundCloud México',
-      services: 'GTM Analysis',
-      description: 'Ayudamos a SoundCloud a entrar al mercado mexicano, definiendo la estrategia de lanzamiento y adaptando su servicio al mercado.',
-      imageUrl: '/case_studies/soundcloud.png',
-      borderColor: 'border-[#eaff7e]',
-      aspectRatio: 'aspect-[3/4]',
-      marginClass: 'mt-5',
-      transformClass: 'hover:scale-105 transform translate-x-2',
-      location: 'México',
-      logo: '/partners/soundcloud.png',
-    },
-    {
-      id: 'ava',
-      title: 'Reimaginando Grifos AVA',
-      services: 'Brand Awareness | Brand Perception',
-      description: 'Evaluamos la experiencia AVA en Lima y Arequipa y medimos la percepción de marca frente a sus competidores',
-      imageUrl: '/case_studies/ava.png',
-      borderColor: 'border-[#EB8FFE]',
-      aspectRatio: 'aspect-[3/4]',
-      marginClass: 'mt-10',
-      transformClass: 'hover:scale-105 transform -translate-x-2',
-      location: 'Lima y Arequipa',
-      logo: '/partners/ava.png',
-    }
-  ];
+  const sectionRef = useRef(null);
+
+  useCompassBurstReveal(sectionRef, {
+    offset: ["start start", "end start"],
+  });
+
   return (
     <section
-      className="relative w-full min-h-[100vh] bg-cover bg-center flex flex-col items-stretch  pt-24 gap-12 overflow-visible"
+      ref={sectionRef}
+      className="relative w-full min-h-[100vh] md:min-h-[108vh] lg:min-h-[112vh] bg-cover bg-center flex flex-col items-stretch pt-24 gap-12 overflow-x-clip overflow-y-visible"
       style={{ backgroundColor: backgroundColor || "#006aef" }}
     >
+      <div className="pointer-events-none absolute right-0 bottom-0 z-[3] aspect-square w-[120vw] translate-x-[8%] translate-y-[19%] sm:w-[90vw] md:bottom-[34%] md:w-auto md:h-[72vh] md:translate-y-1/2 lg:h-[82vh]">
+        <CompassSVG
+          aria-hidden="true"
+          focusable="false"
+          className="h-full w-full scale-x-[-1]"
+        />
+      </div>
+
       {/* Main logo and content at the top (columna izquierda) */}
-      <div className="relative z-10 w-full flex flex-col space-y-4 mt-16 px-14">
+      <div className="relative z-10 w-full flex flex-col space-y-3 mt-12 px-8 sm:px-12 md:mt-14 md:px-14">
         <div>
           {title ? (
-            <h1 className="text-white text-7xl md:text-8xl font-bold leading-tight">{title}</h1>
+            <h1 className="text-white text-6xl md:text-7xl font-bold leading-tight">{title}</h1>
           ) : (
             <Image
               src="/main_logo.svg"
@@ -49,13 +57,13 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
               height={200}
               priority
               unoptimized
-              className="lg:max-w-[80%] sm:max-w-[100%] w-full"
+              className="w-full max-w-[18rem] sm:max-w-[34rem] md:max-w-[48rem] lg:max-w-[58rem] xl:max-w-[62rem]"
             />
           )}
         </div>
         <div>
           {subtitle ? (
-            <p className="text-white text-4xl sm:text-5xl md:text-5xl mt-4">{subtitle}</p>
+            <p className="mt-2 max-w-[34rem] text-[2rem] leading-tight text-white sm:text-[2.35rem] md:text-[2.55rem] lg:text-[2.7rem]">{subtitle}</p>
           ) : (
             <Image
               src="/basado_en_datos.png"
@@ -69,28 +77,25 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
           )}
         </div>
       </div>
-      {/* Desktop: grid of cases */}
-      <div className="relative z-10 w-full flex-wrap justify-center md:justify-end gap-12 pb-8 pr-0 md:pr-16 lg:pr-32 hidden md:flex">
-        {cases.map((c) => (
-          <div key={c.id} className="w-[150px] sm:w-[200px] md:w-[240px] lg:w-[300px]">
-            <MiniSuccessCaseCard {...c} />
-          </div>
-        ))}
-      </div>
-      {/* Mobile: horizontal scroll of cases */}
-      <div className="relative z-10 w-full flex md:hidden overflow-x-auto whitespace-nowrap gap-4 pb-8 pr-0">
-        {cases.map((c) => (
-          <div
-            key={c.id}
-            className="inline-block align-top w-[220px] mx-2"
-            style={{ minWidth: 220, maxWidth: 240 }}
-          >
-            <MiniSuccessCaseCard {...c} />
+      <div className="absolute bottom-4 left-[13vw] z-[4] hidden items-end gap-8 md:flex lg:bottom-6 lg:gap-10 2xl:bottom-24 2xl:left-[12vw]">
+        {heroCaseImages.map((item) => (
+          <div key={item.id} className={`relative aspect-[3/4] overflow-hidden rounded-xl ${item.className}`}>
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              sizes="(max-width: 1023px) 28vw, 360px"
+              className="object-cover"
+            />
+            <div
+              className="pointer-events-none absolute inset-0 z-10 rounded-xl border-8"
+              style={{ borderColor: item.borderColor }}
+            />
           </div>
         ))}
       </div>
       {/* —— Corte visual: fondo blanco que cubre la parte baja del Hero —— */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[20%] bg-white hidden md:block"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] hidden h-[34%] bg-white md:block"></div>
     </section>
   );
 };

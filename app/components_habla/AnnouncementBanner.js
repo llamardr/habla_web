@@ -1,11 +1,5 @@
 import Link from "next/link";
 
-const whatsappMessage =
-  "Hola Maria Jose, estoy interesado en participar en el cierre de Estudio Abierto";
-const whatsappHref = `https://wa.me/51942868858?text=${encodeURIComponent(
-  whatsappMessage
-)}`;
-
 const getBannerMessage = () => {
   const message =
     "Participa del cierre de Estudio Abierto este jueves 18 de junio. Una colaboración de HABLA LATAM y UTEC. Conoce más aquí.";
@@ -34,15 +28,6 @@ export default function AnnouncementBanner() {
           <span aria-hidden="true">{getBannerMessage()}</span>
         </div>
       </Link>
-      <a
-        href={whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex h-full shrink-0 items-center justify-center bg-black px-4 text-sm font-semibold text-white transition-colors hover:bg-[#006aef] md:px-6"
-        aria-label="Registrarse por WhatsApp al cierre de Estudio Abierto"
-      >
-        Registrarme
-      </a>
     </div>
   );
 }

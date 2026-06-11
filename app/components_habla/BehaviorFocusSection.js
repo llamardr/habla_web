@@ -28,7 +28,7 @@ export default function BehaviorFocusSection() {
         <div className="relative z-0 -mt-7 overflow-hidden bg-[#F4EEDF] md:-mt-9">
           <div className="relative aspect-[16/5.5] w-full md:aspect-[16/4.35]">
             <Image
-              src="/objects/FotoEnfoque.png"
+              src="/objects/EquipoEnfoque.png"
               alt="Equipo uniendo manos, representando foco en comportamientos reales de clientes y no clientes"
               fill
               sizes="100vw"

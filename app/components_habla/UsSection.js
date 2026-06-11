@@ -1,45 +1,14 @@
 "use client";
 
 import CompassSVG from "@/public/CompassBursts.svg"; // SVGR inline SVG
-import { useScroll } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import ButtonContacto from "./ButtonContacto";
+import useCompassBurstReveal from "./useCompassBurstReveal";
 
 const UsSection = () => {
   const sectionRef = useRef(null);
 
-  // Scroll progress from 0 → 1 as the section enters/leaves viewport
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end end"],
-  });
-
-  // Fade bursts in/out based on scroll
-  useEffect(() => {
-    const svg = sectionRef.current?.querySelector("svg");
-    if (!svg) {
-      console.warn("Compass SVG not found in UsSection");
-      return;
-    }
-
-    const bursts = Array.from(svg.querySelectorAll('[class*="burst"]'));
-    bursts.reverse();
-    bursts.forEach((el) => {
-      el.style.opacity = 0;
-      el.style.transition = "opacity 0.1s ease";
-    });
-
-    const unsubscribe = scrollYProgress.on("change", (v) => {
-      // Show the first burst almost immediately (as soon as progress > 0)
-      let visibleCount = Math.ceil(v * bursts.length);
-      visibleCount = Math.min(Math.max(visibleCount, 0), bursts.length);
-      bursts.forEach((el, idx) => {
-        el.style.opacity = idx < visibleCount ? 1 : 0;
-      });
-    });
-
-    return () => unsubscribe();
-  }, [scrollYProgress]);
+  useCompassBurstReveal(sectionRef);
 
   return (
     <section
