@@ -25,7 +25,7 @@ async function Home() {
       <Partners></Partners>     
       <BehaviorFocusSection />
       <EnfoqueSection />
-      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>ccc
+      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
       <CampoSection />
       <RecruitersSection />
       <CommunityCTASection />

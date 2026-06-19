@@ -3,7 +3,7 @@ import ButtonContacto from "./ButtonContacto";
 
 export default function BusinessDecisionsSection() {
   return (
-    <section className="bg-white py-5 sm:py-10 lg:py-12">
+    <section className="bg-white pb-5 pt-10 sm:py-10 lg:py-12">
       <div className="relative w-full overflow-hidden bg-black">
         <div className="absolute inset-x-0 top-0 h-10 bg-white sm:h-12 md:h-14 lg:h-16" />
 
