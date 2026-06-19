@@ -18,7 +18,7 @@ import UsSection from "./components_habla/UsSection";
 async function Home() {
   return (
     <main>
-      <Navbar hasAnnouncementBanner></Navbar>
+      <Navbar></Navbar>
       <HeroSection subtitle="Diseñamos rutas de éxito para ti"></HeroSection>
       <BusinessDecisionsSection />
       <Team></Team>
