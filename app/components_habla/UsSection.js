@@ -22,7 +22,7 @@ const UsSection = () => {
 
       {/* Text block */}
       <div className="lg:pr-32 w-full md:w-3/5 flex px-4 flex-col">
-        <h1 className="text-black text-4xl sm:text-5xl md:text-6xl">
+        <h1 className="text-black text-5xl md:text-6xl leading-tight">
           HABLA Latam es un estudio especializado en el lanzamiento de nuevos
           productos en Latinoamérica
         </h1>

@@ -5,7 +5,10 @@ import BusinessDecisionsSection from "@/app/components_habla/BusinessDecisionsSe
 import HeroSection from "@/app/components_habla/HeroSection";
 import Navbar from "@/app/components_habla/Navbar";
 import AnnouncementBanner from "./components_habla/AnnouncementBanner";
+import CampoSection from "./components_habla/CampoSection";
 import Community from "./components_habla/Community";
+import CommunityCTASection from "./components_habla/CommunityCTASection";
+import RecruitersSection from "./components_habla/RecruitersSection";
 import Partners from "./components_habla/Partners";
 import SuccessCases from "./components_habla/SuccessCases";
 import SuccessCasesCarouselSection from "./components_habla/SuccessCasesCarouselSection";
@@ -23,8 +26,10 @@ async function Home() {
       <Partners></Partners>     
       <BehaviorFocusSection />
       <EnfoqueSection />
-      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
-      <Community></Community>
+      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>ccc
+      <CampoSection />
+      <RecruitersSection />
+      <CommunityCTASection />
       <Footer></Footer>
     </main>
   );
