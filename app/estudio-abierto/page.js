@@ -1,25 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import EstudioAbiertoIntroCarousel from "../components_habla/EstudioAbiertoIntroCarousel";
+import EstudioAbiertoResultsSection from "../components_habla/EstudioAbiertoResultsSection";
 import Footer from "../components_habla/Footer";
 import Navbar from "../components_habla/Navbar";
+import { getSuccessCaseArticle } from "../lib/successCaseArticles";
 
-const CTA_URL = "https://form.jotform.com/260766936064062";
+const CTA_URL = "#resultados-estudio-abierto";
 
 export const metadata = {
   title: "Estudio Abierto",
   description:
-    "Únete a Estudio Abierto, una iniciativa gratuita de Habla y UTEC para entender las brechas invisibles en la educación financiera de los jóvenes en edad universitaria.",
+    "Conoce los resultados de la primera edición de Estudio Abierto de Habla y UTEC sobre las brechas invisibles en la educación financiera universitaria.",
   openGraph: {
     title: "Estudio Abierto | Habla",
     description:
-      "Participa en este espacio colaborativo y accede a hallazgos sobre educación financiera universitaria.",
+      "Lee los hallazgos y descarga el informe final del primer Estudio Abierto.",
     url: "https://hablalatam.com/estudio-abierto",
   },
   twitter: {
     title: "Estudio Abierto | Habla",
     description:
-      "Una iniciativa colaborativa para entender cómo la gestión financiera impacta la vida universitaria.",
+      "Resultados del primer Estudio Abierto sobre educación financiera universitaria.",
   },
 };
 
@@ -146,12 +148,10 @@ const faqItems = [
   },
 ];
 
-function RegistrationButton({ label = "¡REGÍSTRATE AQUÍ!", className = "" }) {
+function RegistrationButton({ label = "VER RESULTADOS", className = "" }) {
   return (
     <Link
       href={CTA_URL}
-      target="_blank"
-      rel="noreferrer"
       className={`btn border-2 border-[#356AE6] bg-[#356AE6] px-20 text-sm font-semibold text-white no-underline transition-transform duration-200 ease-in-out hover:scale-105 hover:border-[#356AE6] hover:bg-[#356AE6] hover:text-white ${className}`}
     >
       {label}
@@ -160,6 +160,10 @@ function RegistrationButton({ label = "¡REGÍSTRATE AQUÍ!", className = "" }) 
 }
 
 export default function EstudioAbiertoPage() {
+  const estudioAbiertoArticle = getSuccessCaseArticle(
+    "universitario-limeno-dinero-estudio-abierto"
+  );
+
   return (
     <main className="bg-[#F4EEDF] text-black">
       <Navbar initialTextColor="dark" />
@@ -177,7 +181,7 @@ export default function EstudioAbiertoPage() {
                 className="w-full max-w-[28rem] sm:max-w-[31rem] lg:max-w-[31rem] mt-0 sm:mt-0 sm:mb-0 md:mt-2 md:mb-2"
               />
               <div className="mt-6 flex w-full justify-center lg:justify-start pb-8 sm:pb-0 md:pb-8">
-                <RegistrationButton label="¡REGÍSTRATE AQUÍ!" />
+                <RegistrationButton />
               </div>
             </div>
 
@@ -229,69 +233,60 @@ export default function EstudioAbiertoPage() {
 
 
 
-      <section className="py-14 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="max-w-3xl text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
-            ¿Qué te llevas de participar en Estudio Abierto?
-          </h2>
+      {false && (
+        <section className="py-14 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h2 className="max-w-3xl text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
+              ¿Qué te llevas de participar en Estudio Abierto?
+            </h2>
 
-          <div className="mt-8 sm:mt-10">
-            {benefits.map((benefit, idx) => (
-              <article
-                key={benefit.title}
-                className={`grid gap-6 py-8 md:items-center ${
-                  idx < 2 ? "border-b border-black/15 " : ""
-                }${
-                  benefit.reverse
-                    ? "md:grid-cols-[1fr_16.5rem] lg:grid-cols-[1fr_21rem]"
-                    : "md:grid-cols-[11rem_1fr] lg:grid-cols-[14rem_1fr]"
-                }`}
-              >
-                <div
-                  className={`relative aspect-square overflow-hidden rounded-[2rem] ${
-                    benefit.reverse ? "md:order-2" : ""
+            <div className="mt-8 sm:mt-10">
+              {benefits.map((benefit, idx) => (
+                <article
+                  key={benefit.title}
+                  className={`grid gap-6 py-8 md:items-center ${
+                    idx < 2 ? "border-b border-black/15 " : ""
+                  }${
+                    benefit.reverse
+                      ? "md:grid-cols-[1fr_16.5rem] lg:grid-cols-[1fr_21rem]"
+                      : "md:grid-cols-[11rem_1fr] lg:grid-cols-[14rem_1fr]"
                   }`}
                 >
-                  <Image
-                    src={benefit.image}
-                    alt={benefit.alt}
-                    fill
-                    sizes={
-                      benefit.reverse
-                        ? "(max-width: 768px) 45vw, 21rem"
-                        : "(max-width: 768px) 45vw, 14rem"
-                    }
-                    className="object-cover"
-                  />
-                </div>
-                <div className={benefit.reverse ? "md:order-1" : ""}>
-                  <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] sm:text-3xl">
-                    {benefit.title}
-                  </h3>
-                  <p className="mt-4 max-w-3xl text-base leading-7 text-black/80 sm:text-lg">
-                    {benefit.body}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="relative left-1/2 mt-8 w-screen -translate-x-1/2 bg-[#EAFF7E] py-16 text-black sm:mt-10 sm:py-20">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-              <p className="font-stacion  text-[clamp(2rem,6vw,4rem)] leading-[1.02] tracking-[-0.03em]">
-                Estudio Abierto es una iniciativa gratuita.
-              </p>
-              <p className="mt-4 max-w-5xl text-base leading-7 text-black/80 sm:text-lg">
-                Todos los participantes tendrán acceso a los resultados del
-                estudio y no existe ningún compromiso de compartir información
-                sobre la empresa en la que trabajan.
-              </p>
+                  <div
+                    className={`relative aspect-square overflow-hidden rounded-[2rem] ${
+                      benefit.reverse ? "md:order-2" : ""
+                    }`}
+                  >
+                    <Image
+                      src={benefit.image}
+                      alt={benefit.alt}
+                      fill
+                      sizes={
+                        benefit.reverse
+                          ? "(max-width: 768px) 45vw, 21rem"
+                          : "(max-width: 768px) 45vw, 14rem"
+                      }
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className={benefit.reverse ? "md:order-1" : ""}>
+                    <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] sm:text-3xl">
+                      {benefit.title}
+                    </h3>
+                    <p className="mt-4 max-w-3xl text-base leading-7 text-black/80 sm:text-lg">
+                      {benefit.body}
+                    </p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="py-14 sm:py-20">
+      <EstudioAbiertoResultsSection article={estudioAbiertoArticle} />
+
+      {/* <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
             Calendario de Fases
@@ -345,9 +340,9 @@ export default function EstudioAbiertoPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="pb-0 pt-6 sm:pt-10">
+      {/* <section className="pb-0 pt-6 sm:pt-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-[clamp(2.2rem,6vw,4.1rem)] leading-none tracking-[-0.04em]">
             FAQ
@@ -378,7 +373,7 @@ export default function EstudioAbiertoPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="mt-14 bg-[#006aef] pb-0 pt-10 text-[#F4EEDF] sm:mt-20 sm:pt-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

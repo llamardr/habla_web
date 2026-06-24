@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Estudio Abierto Leads
+
+The Estudio Abierto report form posts to `app/api/estudio-abierto-leads/route.js`.
+It appends validated leads to a Google Sheet before allowing the PDF download.
+
+Create a Google Sheet with a tab named `Leads` and these headers in row 1:
+
+```text
+timestamp | nombre | compania | correo | fuente | user_agent
+```
+
+Configure these environment variables locally and in Vercel:
+
+```bash
+ESTUDIO_ABIERTO_SHEET_ID=
+ESTUDIO_ABIERTO_SHEET_NAME=Leads
+GOOGLE_SERVICE_ACCOUNT_EMAIL=
+GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=
+```
+
+Share the target Google Sheet with the service account email as editor. Store
+`GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` with escaped newlines (`\n`) if the hosting
+provider requires a single-line value.

@@ -1,4 +1,7 @@
+import { estudioAbiertoArticle } from "./estudioAbiertoArticle";
+
 export const successCaseArticles = [
+  estudioAbiertoArticle,
   {
     id: 1,
     slug: "el-miedo-no-vende-salud",
