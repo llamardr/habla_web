@@ -5,6 +5,27 @@ export const runtime = "nodejs";
 
 const SHEETS_SCOPE = "https://www.googleapis.com/auth/spreadsheets";
 const SHEET_NAME = process.env.ESTUDIO_ABIERTO_SHEET_NAME || "Leads";
+const LEAD_HEADERS = [
+  "timestamp",
+  "nombre",
+  "compania",
+  "telefono",
+  "correo",
+  "fuente",
+  "user_agent",
+  "rubro",
+  "rol",
+];
+const HEADER_ALIASES = {
+  compania: "compania",
+  "compañia": "compania",
+  "compañía": "compania",
+  company: "compania",
+  email: "correo",
+  name: "nombre",
+  phone: "telefono",
+  role: "rol",
+};
 
 let cachedAccessToken = null;
 let cachedAccessTokenExpiresAt = 0;
@@ -29,6 +50,30 @@ const base64Url = (input) =>
     .replace(/\//g, "_");
 
 const normalizePrivateKey = (privateKey) => privateKey?.replace(/\\n/g, "\n");
+
+const getColumnName = (index) => {
+  let columnName = "";
+  let columnNumber = index + 1;
+
+  while (columnNumber > 0) {
+    const remainder = (columnNumber - 1) % 26;
+    columnName = String.fromCharCode(65 + remainder) + columnName;
+    columnNumber = Math.floor((columnNumber - 1) / 26);
+  }
+
+  return columnName;
+};
+
+const normalizeHeader = (header = "") => {
+  const normalized = header
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "_");
+
+  return HEADER_ALIASES[normalized] || normalized;
+};
 
 const parseServiceAccountJson = () => {
   const rawJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
@@ -183,10 +228,72 @@ const getAccessToken = async (config) => {
   return cachedAccessToken;
 };
 
+const getSheetHeaders = async ({ spreadsheetId }, accessToken) => {
+  const range = encodeURIComponent(`${SHEET_NAME}!1:1`);
+  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}`;
+
+  const response = await fetch(endpoint, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Google Sheets header read failed.");
+  }
+
+  const data = await response.json();
+  const existingHeaders = data.values?.[0] || [];
+  const normalizedExistingHeaders = existingHeaders.map(normalizeHeader);
+  const headers =
+    normalizedExistingHeaders.length > 0 ? normalizedExistingHeaders : LEAD_HEADERS;
+
+  return [
+    ...headers,
+    ...LEAD_HEADERS.filter((header) => !headers.includes(header)),
+  ];
+};
+
+const updateSheetHeaders = async ({ spreadsheetId }, accessToken, headers) => {
+  const lastColumn = getColumnName(headers.length - 1);
+  const range = encodeURIComponent(`${SHEET_NAME}!A1:${lastColumn}1`);
+  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?valueInputOption=RAW`;
+
+  const response = await fetch(endpoint, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      values: [headers],
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Google Sheets header update failed.");
+  }
+};
+
 const appendLeadToSheet = async (lead, request) => {
   const config = getServiceAccountConfig();
   const accessToken = await getAccessToken(config);
-  const range = encodeURIComponent(`${SHEET_NAME}!A:I`);
+  const headers = await getSheetHeaders(config, accessToken);
+  await updateSheetHeaders(config, accessToken, headers);
+
+  const valuesByHeader = {
+    timestamp: new Date().toISOString(),
+    nombre: lead.name.trim(),
+    compania: lead.company.trim(),
+    telefono: lead.phone.trim(),
+    correo: lead.email.trim().toLowerCase(),
+    fuente: "estudio-abierto-informe-final",
+    user_agent: request.headers.get("user-agent") || "",
+    rubro: lead.rubro.trim(),
+    rol: lead.role.trim(),
+  };
+  const lastColumn = getColumnName(headers.length - 1);
+  const range = encodeURIComponent(`${SHEET_NAME}!A:${lastColumn}`);
   const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
 
   const response = await fetch(endpoint, {
@@ -196,19 +303,7 @@ const appendLeadToSheet = async (lead, request) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      values: [
-        [
-          new Date().toISOString(),
-          lead.name.trim(),
-          lead.company.trim(),
-          lead.rubro.trim(),
-          lead.role.trim(),
-          lead.phone.trim(),
-          lead.email.trim().toLowerCase(),
-          "estudio-abierto-informe-final",
-          request.headers.get("user-agent") || "",
-        ],
-      ],
+      values: [headers.map((header) => valuesByHeader[header] || "")],
     }),
   });
 

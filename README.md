@@ -43,7 +43,7 @@ It appends validated leads to a Google Sheet before allowing the PDF download.
 Create a Google Sheet with a tab named `Leads` and these headers in row 1:
 
 ```text
-timestamp | nombre | compania | rubro | rol | telefono | correo | fuente | user_agent
+timestamp | nombre | compania | telefono | correo | fuente | user_agent | rubro | rol
 ```
 
 Configure these environment variables locally and in Vercel:
