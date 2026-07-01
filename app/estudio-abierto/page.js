@@ -1,12 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import EstudioAbiertoIntroCarousel from "../components_habla/EstudioAbiertoIntroCarousel";
 import EstudioAbiertoResultsSection from "../components_habla/EstudioAbiertoResultsSection";
 import Footer from "../components_habla/Footer";
 import Navbar from "../components_habla/Navbar";
 import { getSuccessCaseArticle } from "../lib/successCaseArticles";
-
-const CTA_URL = "#resultados-estudio-abierto";
 
 export const metadata = {
   title: "Estudio Abierto",
@@ -148,17 +145,6 @@ const faqItems = [
   },
 ];
 
-function RegistrationButton({ label = "VER RESULTADOS", className = "" }) {
-  return (
-    <Link
-      href={CTA_URL}
-      className={`btn border-2 border-[#356AE6] bg-[#356AE6] px-20 text-sm font-semibold text-white no-underline transition-transform duration-200 ease-in-out hover:scale-105 hover:border-[#356AE6] hover:bg-[#356AE6] hover:text-white ${className}`}
-    >
-      {label}
-    </Link>
-  );
-}
-
 export default function EstudioAbiertoPage() {
   const estudioAbiertoArticle = getSuccessCaseArticle(
     "universitario-limeno-dinero-estudio-abierto"
@@ -168,36 +154,7 @@ export default function EstudioAbiertoPage() {
     <main className="bg-[#F4EEDF] text-black">
       <Navbar initialTextColor="dark" />
 
-      <section className="px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="flex flex-col items-center lg:items-start space-y-6 sm:space-y-2 md:space-y-1">
-              <Image
-                src="/estudio-abierto/logo.svg"
-                alt="Logo de Estudio Abierto"
-                width={768}
-                height={768}
-                priority
-                className="w-full max-w-[28rem] sm:max-w-[31rem] lg:max-w-[31rem] mt-0 sm:mt-0 sm:mb-0 md:mt-2 md:mb-2"
-              />
-              <div className="mt-6 flex w-full justify-center lg:justify-start pb-8 sm:pb-0 md:pb-8">
-                <RegistrationButton />
-              </div>
-            </div>
-
-            <div className="relative h-full w-full min-h-[320px] lg:min-h-[420px] lg:self-stretch overflow-hidden rounded-[2rem]">
-              <Image
-                src="/estudio-abierto/hero-photo.png"
-                alt="Equipo trabajando alrededor de una mesa"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 100vw"
-                className="object-cover object-top"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <EstudioAbiertoResultsSection article={estudioAbiertoArticle} />
 
       <section className="bg-[#000000] py-10 text-white sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -283,8 +240,6 @@ export default function EstudioAbiertoPage() {
           </div>
         </section>
       )}
-
-      <EstudioAbiertoResultsSection article={estudioAbiertoArticle} />
 
       {/* <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -375,7 +330,7 @@ export default function EstudioAbiertoPage() {
         </div>
       </section> */}
 
-      <section className="mt-14 bg-[#006aef] pb-0 pt-10 text-[#F4EEDF] sm:mt-20 sm:pt-14">
+      <section className="bg-[#006aef] pb-0 pt-10 text-[#F4EEDF] sm:pt-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="max-w-5xl text-[clamp(2rem,7vw,5.2rem)] leading-[0.98]">
             Antes de crear {" "}

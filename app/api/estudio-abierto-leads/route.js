@@ -30,6 +30,18 @@ const base64Url = (input) =>
 
 const normalizePrivateKey = (privateKey) => privateKey?.replace(/\\n/g, "\n");
 
+const parseServiceAccountJson = () => {
+  const rawJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+  if (!rawJson) return null;
+
+  const parsed = JSON.parse(rawJson);
+
+  return {
+    clientEmail: parsed.client_email,
+    privateKey: normalizePrivateKey(parsed.private_key),
+  };
+};
+
 const hasSuspiciousText = (value = "") => {
   const normalized = value.trim().toLowerCase();
   if (normalized.length < 2) return true;
@@ -42,7 +54,34 @@ const validateEmail = (email = "") =>
   /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim()) &&
   !hasSuspiciousText(email.split("@")[0]);
 
-const validateLead = ({ name = "", company = "", email = "" }) => {
+const getPhoneDigits = (phone = "") => phone.replace(/\D/g, "");
+
+const hasSequentialPhoneDigits = (digits) =>
+  "01234567890123456789".includes(digits) ||
+  "98765432109876543210".includes(digits);
+
+const validatePhone = (phone = "") => {
+  const trimmed = phone.trim();
+  const digits = getPhoneDigits(trimmed);
+
+  return (
+    /^[+()\d\s.-]+$/.test(trimmed) &&
+    digits.length >= 8 &&
+    digits.length <= 15 &&
+    !/^(\d)\1+$/.test(digits) &&
+    !hasSequentialPhoneDigits(digits) &&
+    !hasSuspiciousText(trimmed)
+  );
+};
+
+const validateLead = ({
+  name = "",
+  company = "",
+  rubro = "",
+  role = "",
+  phone = "",
+  email = "",
+}) => {
   const errors = {};
 
   if (hasSuspiciousText(name) || name.trim().split(/\s+/).length < 2) {
@@ -51,6 +90,18 @@ const validateLead = ({ name = "", company = "", email = "" }) => {
 
   if (hasSuspiciousText(company)) {
     errors.company = "Ingresa una compañía válida.";
+  }
+
+  if (hasSuspiciousText(rubro)) {
+    errors.rubro = "Ingresa un rubro válido.";
+  }
+
+  if (hasSuspiciousText(role)) {
+    errors.role = "Ingresa un rol válido.";
+  }
+
+  if (!validatePhone(phone)) {
+    errors.phone = "Ingresa un número de teléfono válido.";
   }
 
   if (!validateEmail(email)) {
@@ -62,8 +113,12 @@ const validateLead = ({ name = "", company = "", email = "" }) => {
 
 const getServiceAccountConfig = () => {
   const spreadsheetId = process.env.ESTUDIO_ABIERTO_SHEET_ID;
-  const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
-  const privateKey = normalizePrivateKey(process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY);
+  const serviceAccount = parseServiceAccountJson();
+  const clientEmail =
+    serviceAccount?.clientEmail || process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
+  const privateKey =
+    serviceAccount?.privateKey ||
+    normalizePrivateKey(process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY);
 
   if (!spreadsheetId || !clientEmail || !privateKey) {
     throw new Error("Missing Google Sheets environment variables.");
@@ -131,8 +186,8 @@ const getAccessToken = async (config) => {
 const appendLeadToSheet = async (lead, request) => {
   const config = getServiceAccountConfig();
   const accessToken = await getAccessToken(config);
-  const range = encodeURIComponent(`${SHEET_NAME}!A:F`);
-  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+  const range = encodeURIComponent(`${SHEET_NAME}!A:I`);
+  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
 
   const response = await fetch(endpoint, {
     method: "POST",
@@ -146,6 +201,9 @@ const appendLeadToSheet = async (lead, request) => {
           new Date().toISOString(),
           lead.name.trim(),
           lead.company.trim(),
+          lead.rubro.trim(),
+          lead.role.trim(),
+          lead.phone.trim(),
           lead.email.trim().toLowerCase(),
           "estudio-abierto-informe-final",
           request.headers.get("user-agent") || "",
@@ -165,6 +223,9 @@ export async function POST(request) {
     const lead = {
       name: String(payload.name || ""),
       company: String(payload.company || ""),
+      rubro: String(payload.rubro || ""),
+      role: String(payload.role || payload.rol || ""),
+      phone: String(payload.phone || ""),
       email: String(payload.email || ""),
     };
     const errors = validateLead(lead);

@@ -43,7 +43,7 @@ It appends validated leads to a Google Sheet before allowing the PDF download.
 Create a Google Sheet with a tab named `Leads` and these headers in row 1:
 
 ```text
-timestamp | nombre | compania | correo | fuente | user_agent
+timestamp | nombre | compania | rubro | rol | telefono | correo | fuente | user_agent
 ```
 
 Configure these environment variables locally and in Vercel:
@@ -51,10 +51,20 @@ Configure these environment variables locally and in Vercel:
 ```bash
 ESTUDIO_ABIERTO_SHEET_ID=
 ESTUDIO_ABIERTO_SHEET_NAME=Leads
+GOOGLE_SERVICE_ACCOUNT_JSON=
 GOOGLE_SERVICE_ACCOUNT_EMAIL=
 GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=
 ```
 
-Share the target Google Sheet with the service account email as editor. Store
-`GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` with escaped newlines (`\n`) if the hosting
-provider requires a single-line value.
+Service account requirements:
+
+- Enable the Google Sheets API in the Google Cloud project that owns the service
+  account.
+- Create a service account key. Configure either `GOOGLE_SERVICE_ACCOUNT_JSON`
+  with the full JSON key value, or copy only `client_email` and `private_key`
+  into `GOOGLE_SERVICE_ACCOUNT_EMAIL` and `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY`.
+  Do not commit the JSON key file or a populated `.env` file.
+- Share the target Google Sheet with the service account email as editor.
+- `ESTUDIO_ABIERTO_SHEET_NAME` defaults to `Leads` in the route if unset.
+- Store private keys with escaped newlines (`\n`) if the hosting provider
+  requires a single-line value.

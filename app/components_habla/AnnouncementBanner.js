@@ -10,6 +10,15 @@ const getBannerMessage = () => {
   );
 };
 
+const MarqueeGroup = ({ hidden = false }) => (
+  <div className="announcement-marquee__group" aria-hidden={hidden}>
+    <span>{getBannerMessage()}</span>
+    <span>{getBannerMessage()}</span>
+    <span>{getBannerMessage()}</span>
+    <span>{getBannerMessage()}</span>
+  </div>
+);
+
 export default function AnnouncementBanner() {
   return (
     <div
@@ -23,9 +32,8 @@ export default function AnnouncementBanner() {
         aria-label="Ver resultados del primer Estudio Abierto"
       >
         <div className="announcement-marquee__track">
-          <span>{getBannerMessage()}</span>
-          <span aria-hidden="true">{getBannerMessage()}</span>
-          <span aria-hidden="true">{getBannerMessage()}</span>
+          <MarqueeGroup />
+          <MarqueeGroup hidden />
         </div>
       </Link>
     </div>

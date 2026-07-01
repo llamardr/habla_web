@@ -29,15 +29,23 @@ h2 {
 }
 
 .announcement-marquee__track {
-  display: inline-flex;
-  min-width: max-content;
+  display: flex;
+  width: max-content;
   align-items: center;
-  gap: 2.5rem;
-  padding-left: 2.5rem;
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: -0.02em;
-  animation: announcement-scroll 20s linear infinite;
+  animation: announcement-scroll 24s linear infinite;
+}
+
+.announcement-marquee__group {
+  display: flex;
+  min-width: 100vw;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  gap: 3rem;
+  padding-right: 3rem;
 }
 
 @keyframes announcement-scroll {
@@ -46,6 +54,6 @@ h2 {
   }
 
   to {
-    transform: translateX(-33.333%);
+    transform: translateX(-50%);
   }
 }

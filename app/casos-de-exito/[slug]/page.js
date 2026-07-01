@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import EstudioAbiertoDownloadCard from "@/app/components_habla/EstudioAbiertoDownloadCard";
 import Footer from "@/app/components_habla/Footer";
 import Navbar from "@/app/components_habla/Navbar";
 import SuccessCasesCarouselSection from "@/app/components_habla/SuccessCasesCarouselSection";
@@ -9,6 +10,8 @@ import {
   serviceCtaCards,
   successCaseArticles,
 } from "@/app/lib/successCaseArticles";
+
+const ESTUDIO_ABIERTO_SLUG = "universitario-limeno-dinero-estudio-abierto";
 
 const ctaCardClassNames = {
   blue: "bg-[#006aef] text-white",
@@ -178,13 +181,23 @@ export default function SuccessCaseArticlePage({ params }) {
           <ArticleContent blocks={article.content} />
         </div>
 
+        {article.slug === ESTUDIO_ABIERTO_SLUG && (
+          <section className="mt-14 border-t border-black/10 pt-12">
+            <h2 className="mb-8 text-3xl font-bold leading-tight text-[#111827] md:text-5xl">
+              Descarga el informe con los resultados
+            </h2>
+            <EstudioAbiertoDownloadCard />
+          </section>
+        )}
       </article>
 
-      <SuccessCasesCarouselSection
-        title="Otros artículos"
-        excludeSlug={article.slug}
-        className="bg-[#fbf7ef]"
-      />
+      {article.slug !== ESTUDIO_ABIERTO_SLUG && (
+        <SuccessCasesCarouselSection
+          title="Otros artículos"
+          excludeSlug={article.slug}
+          className="bg-[#fbf7ef]"
+        />
+      )}
 
       <Footer />
     </main>
