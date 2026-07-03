@@ -2,15 +2,200 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply Stacion font to all headings */
-h1,
-h2 {
-  font-family: var(--font-stacion), sans-serif;
+:root {
+  --color-brand-blue: #006aef;
+  --color-brand-beige: #fdf6ea;
+  --color-brand-grey: #9b9b9b;
+  --font-display: var(--font-stacion), sans-serif;
+  --font-brand-sans: var(--font-lunchtype22), sans-serif;
+  --scroll-anchor-offset: 6.5rem;
 }
 
-/* Utility: apply Stacion font to any element */
+html {
+  font-family: var(--font-brand-sans);
+  scroll-padding-top: var(--scroll-anchor-offset);
+}
+
+html:has([data-announcement-banner]) {
+  --scroll-anchor-offset: 9.5rem;
+}
+
+body {
+  font-family: var(--font-brand-sans);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-brand-sans);
+  letter-spacing: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-brand-sans);
+  letter-spacing: 0;
+}
+
 .font-stacion {
-  font-family: var(--font-stacion), sans-serif;
+  font-family: var(--font-display);
+}
+
+.font-brand {
+  font-family: var(--font-brand-sans);
+}
+
+.type-display {
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.type-h2 {
+  color: var(--color-brand-blue);
+  font-family: var(--font-display);
+  font-size: clamp(2.65rem, 5.8vw, 4.0625rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.type-section-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2.65rem, 7vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.type-subheading {
+  color: var(--color-brand-blue);
+  font-family: var(--font-brand-sans);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.type-h3 {
+  color: #000000;
+  font-family: var(--font-brand-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.16;
+}
+
+.type-card-title {
+  color: #000000;
+  font-family: var(--font-brand-sans);
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+
+.type-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.type-overline {
+  color: var(--color-brand-grey);
+  font-family: var(--font-brand-sans);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.type-body {
+  font-family: var(--font-brand-sans);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.type-body-small {
+  font-family: var(--font-brand-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.type-ui {
+  font-family: var(--font-brand-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.type-button,
+.btn {
+  font-family: var(--font-brand-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.type-strong {
+  font-weight: 700;
+}
+
+.type-link {
+  color: var(--color-brand-blue);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-title {
+  font-family: var(--font-brand-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.type-blue {
+  color: var(--color-brand-blue);
+}
+
+.type-black {
+  color: #000000;
+}
+
+.type-white {
+  color: #fdf6ea;
+}
+
+.type-beige {
+  color: var(--color-brand-beige);
+}
+
+.type-muted {
+  color: var(--color-brand-grey);
 }
 
 /* Show burst only on hover */
@@ -32,9 +217,10 @@ h2 {
   display: flex;
   width: max-content;
   align-items: center;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-family: var(--font-brand-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
   animation: announcement-scroll 24s linear infinite;
 }
 

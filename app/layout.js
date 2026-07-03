@@ -1,15 +1,8 @@
-import { Work_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
-
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-work-sans",
-});
 
 const stacion = localFont({
   src: [
@@ -36,6 +29,28 @@ const stacion = localFont({
   ],
   display: "swap",
   variable: "--font-stacion",
+});
+
+const lunchtype22 = localFont({
+  src: [
+    {
+      path: "./fonts/lunchtype22/Lunchtype22-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/lunchtype22/Lunchtype22-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/lunchtype22/Lunchtype22-Medium.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-lunchtype22",
 });
 
 export const metadata = {
@@ -146,14 +161,18 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="es" data-theme="light" className="scroll-smooth">
+    <html
+      lang="es"
+      data-theme="light"
+      className={`${stacion.variable} ${lunchtype22.variable} scroll-smooth`}
+    >
       <head>
         <meta
           name="facebook-domain-verification"
           content="ne1euct0rqj4yjw3a3iumx0ta46pql"
         />
       </head>
-      <body className={`${workSans.className} ${stacion.variable}`}>
+      <body className="antialiased">
         <Script id="linkedin-pixel" strategy="afterInteractive">
           {`
             window._linkedin_partner_id = "${linkedinPartnerId}";

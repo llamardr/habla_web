@@ -17,13 +17,13 @@ const ArticlePlaceholder = ({ article }) => (
       placeholderClassNames[article.accent] || "bg-[#006aef]"
     }`}
   >
-    <div className="relative h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.42),transparent_24%),radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.22),transparent_28%),linear-gradient(135deg,rgba(255,255,255,0.16),rgba(0,0,0,0.18))] p-6">
-      <div className="absolute inset-x-6 top-6 h-40 rounded-2xl border border-white/35 bg-white/15" />
+    <div className="relative h-full w-full bg-[radial-gradient(circle_at_20%_20%,rgba(253,246,234,0.42),transparent_24%),radial-gradient(circle_at_80%_10%,rgba(253,246,234,0.22),transparent_28%),linear-gradient(135deg,rgba(253,246,234,0.16),rgba(0,0,0,0.18))] p-6">
+      <div className="absolute inset-x-6 top-6 h-40 rounded-2xl border border-[#fdf6ea]/35 bg-[#fdf6ea]/15" />
       <div className="absolute bottom-6 left-6 right-6">
-        <span className="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
+        <span className="type-body-small text-[#fdf6ea]/70">
           Artículo
         </span>
-        <p className="mt-2 text-3xl font-bold leading-none text-white">
+        <p className="type-h3 type-white mt-2">
           {article.subtitle}
         </p>
       </div>
@@ -34,7 +34,7 @@ const ArticlePlaceholder = ({ article }) => (
 const SuccessCasesCarouselSection = ({
   title = "Conoce nuestros casos de éxito",
   excludeSlug = "",
-  className = "bg-white",
+  className = "bg-[#fdf6ea]",
 }) => {
   const trackRef = useRef(null);
   const caseStudies = successCaseArticles.filter(
@@ -55,10 +55,10 @@ const SuccessCasesCarouselSection = ({
   return (
     <section
       id="successcases"
-      className={`w-full pt-10 pb-20 px-4 sm:px-6 lg:px-8 ${className}`}
+      className={`w-full py-16 md:py-24 ${className}`}
     >
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-black text-5xl md:text-6xl leading-tight mb-5">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 className="type-h2 type-black mb-5">
           {title}
         </h2>
 
@@ -67,7 +67,7 @@ const SuccessCasesCarouselSection = ({
             <button
               type="button"
               onClick={() => scrollByCard("prev")}
-              className="h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] text-xl leading-none hover:bg-[#006aef] hover:text-white transition-colors"
+              className="type-button h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] hover:bg-[#006aef] hover:text-[#fdf6ea] transition-colors"
               aria-label="Ver casos anteriores"
             >
               ‹
@@ -75,7 +75,7 @@ const SuccessCasesCarouselSection = ({
             <button
               type="button"
               onClick={() => scrollByCard("next")}
-              className="h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] text-xl leading-none hover:bg-[#006aef] hover:text-white transition-colors"
+              className="type-button h-11 w-11 rounded-full border border-[#006aef] text-[#006aef] hover:bg-[#006aef] hover:text-[#fdf6ea] transition-colors"
               aria-label="Ver más casos"
             >
               ›
@@ -91,23 +91,23 @@ const SuccessCasesCarouselSection = ({
             <article
               key={study.id}
               data-case-card
-              className="snap-start shrink-0 w-[92%] md:w-[82%] lg:w-[74%] bg-white border border-[#d7dce3] rounded-3xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
+              className="snap-start shrink-0 w-[92%] md:w-[82%] lg:w-[74%] bg-[#fdf6ea] border border-[#d7dce3] rounded-3xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 shadow-[0_4px_16px_rgba(15,23,42,0.06)]"
             >
               <div className="order-2 flex h-full flex-col items-start md:order-1">
                 <div>
-                  <h3 className="text-[#111827] text-2xl md:text-4xl font-bold leading-tight mb-2">
+                  <h3 className="type-card-title mb-2 text-[#111827]">
                     {study.title}
                   </h3>
-                  <p className="text-[#b3b8c2] text-md md:text-l leading-tight mb-4">
+                  <p className="type-overline mb-4 text-[#b3b8c2]">
                     {study.subtitle} | {study.date}
                   </p>
-                  <p className="text-[#1f2937] text-base md:text-l leading-relaxed mb-5">
+                  <p className="type-body mb-5 text-[#1f2937]">
                     {study.description}
                   </p>
                 </div>
                 <Link
                   href={`/casos-de-exito/${study.slug}`}
-                  className="mt-auto inline-flex items-center rounded-[var(--rounded-btn)] border border-[#006aef] bg-[#006aef] px-4 py-2 text-base text-white duration-200 ease-in-out hover:scale-105 hover:bg-[#0057c5] md:text-sm"
+                  className="type-button mt-auto inline-flex items-center rounded-[var(--rounded-btn)] border border-[#006aef] bg-[#006aef] px-4 py-2 text-[#fdf6ea] duration-200 ease-in-out hover:scale-105 hover:bg-[#006aef]"
                 >
                   LEER MÁS
                 </Link>

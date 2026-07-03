@@ -126,6 +126,7 @@ const validateLead = ({
   role = "",
   phone = "",
   email = "",
+  termsAccepted = false,
 }) => {
   const errors = {};
 
@@ -151,6 +152,11 @@ const validateLead = ({
 
   if (!validateEmail(email)) {
     errors.email = "Ingresa un correo válido.";
+  }
+
+  if (!termsAccepted) {
+    errors.termsAccepted =
+      "Debes aceptar los términos y la política de privacidad.";
   }
 
   return errors;
@@ -322,6 +328,7 @@ export async function POST(request) {
       role: String(payload.role || payload.rol || ""),
       phone: String(payload.phone || ""),
       email: String(payload.email || ""),
+      termsAccepted: payload.termsAccepted === true,
     };
     const errors = validateLead(lead);
 

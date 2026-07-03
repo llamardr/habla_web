@@ -39,10 +39,10 @@ const HeroSectionServicios = () => {
     <>
       <section className="relative isolate flex items-end min-h-screen w-full bg-[#EB8FFE] overflow-hidden px-4">
         {/* —— Texto principal —— */}
-        <h1 className="font-bold text-black leading-[89%] max-w-[20ch] text-[32px] sm:text-[clamp(3rem,10vw,6rem)] z-10 pb-16 pt-8">
+        <h1 className="type-display type-black max-w-[20ch] z-10 pb-16 pt-8">
           Para los que<br />
           quieren crecer<br />
-          <span className="font-normal italic">
+          <span className="type-display-italic">
             {PHRASES[idx].substring(0, char)}
             <span className="animate-pulse">|</span>
           </span><br />

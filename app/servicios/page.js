@@ -84,7 +84,7 @@ export default function ServiciosPage() {
     <main>
       <Navbar />
       <HeroSectionServicios />
-      <section className="bg-white py-10">
+      <section className="bg-[#fdf6ea] py-10">
         <div className="max-w-6xl mx-auto px-4">
           <ProcessSectionServicios />
           <ToolkitSection />

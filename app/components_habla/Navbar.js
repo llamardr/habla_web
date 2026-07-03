@@ -16,11 +16,11 @@ const Navbar = ({
 
   const scrolledOrMenuOpen = forceSolid || isScrolled || menuOpen;
   const useDarkInitialText = initialTextColor === "dark";
-  const initialNavTextClass = useDarkInitialText ? "text-black" : "text-white";
+  const initialNavTextClass = useDarkInitialText ? "text-black" : "text-[#fdf6ea]";
   const initialLogoSrc = useDarkInitialText ? "/isotipo_blue.png" : "/isotipo.png";
   const initialLinkClass = useDarkInitialText
     ? "hover:text-black hover:underline"
-    : "hover:text-white hover:underline";
+    : "hover:text-[#fdf6ea] hover:underline";
   const navTopClass = hasAnnouncementBanner
     ? scrolledOrMenuOpen
       ? "top-[50px] lg:top-[66px]"
@@ -39,7 +39,7 @@ const Navbar = ({
 
   return (
     <nav className={`fixed left-1/2 transform -translate-x-1/2 z-[90] transition-all duration-200 ease-in-out ${navTopClass}
-                    ${scrolledOrMenuOpen ? "w-full lg:w-3/4 lg:rounded-xl bg-[rgba(255,255,255,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg" 
+                    ${scrolledOrMenuOpen ? "w-full lg:w-3/4 lg:rounded-xl bg-[rgba(253,246,234,0.8)] border border-[rgba(180,180,180,0.3)] backdrop-blur-lg shadow-lg"
                               : `${initialNavTextClass} w-full rounded-none`}
                     `}>
       
@@ -59,12 +59,12 @@ const Navbar = ({
             </Link>
           </div>
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 text-base font-normal">
+          <div className="type-ui hidden md:flex space-x-8">
             <Link href="/equipo" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>EQUIPO</Link>
             <Link href="/#partners" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CLIENTES</Link>
             <Link href="/#successcases" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CASOS DE ÉXITO</Link>
             <Link href="/#enfoque" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>ENFOQUE</Link>
-            <Link href="/#community" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>COMUNIDAD</Link>
+            <Link href="/#campo" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>COMUNIDAD</Link>
           </div>
           {/* Contact Button (desktop) */}
           <div className="hidden md:flex">
@@ -72,7 +72,7 @@ const Navbar = ({
           </div>
           {/* Hamburger (mobile) */}
           <button
-            className={`md:hidden ${scrolledOrMenuOpen || useDarkInitialText ? "text-black" : "text-white"}`}
+            className={`md:hidden ${scrolledOrMenuOpen || useDarkInitialText ? "text-black" : "text-[#fdf6ea]"}`}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
@@ -83,13 +83,13 @@ const Navbar = ({
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className={`md:hidden flex flex-col shadow-lg pb-6 px-6 mt-2 ${scrolledOrMenuOpen ? "bg-[rgba(255,255,255,0)]" : "bg-white"}`}>
-          <div className="flex flex-col space-y-4 text-black font-medium text-lg py-4">
+        <div className={`md:hidden flex flex-col shadow-lg pb-6 px-6 mt-2 ${scrolledOrMenuOpen ? "bg-[rgba(253,246,234,0)]" : "bg-[#fdf6ea]"}`}>
+          <div className="type-ui flex flex-col space-y-4 py-4 text-black">
             <Link href="/equipo" className="hover:underline">EQUIPO</Link>
             <Link href="/#partners" className="hover:underline">CLIENTES</Link>
             <Link href="/#successcases" className="hover:underline">CASOS DE ÉXITO</Link>
             <Link href="/#enfoque" className="hover:underline">ENFOQUE</Link>
-            <Link href="/#community" className="hover:underline">COMUNIDAD</Link>
+            <Link href="/#campo" className="hover:underline">COMUNIDAD</Link>
           </div>
           <ButtonContacto />
         </div>

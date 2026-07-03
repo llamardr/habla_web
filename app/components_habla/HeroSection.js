@@ -48,7 +48,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
       <div className="relative z-10 w-full flex flex-col space-y-3 mt-12 px-8 sm:px-12 md:mt-14 md:px-14">
         <div>
           {title ? (
-            <h1 className="text-white text-6xl md:text-7xl font-bold leading-tight">{title}</h1>
+            <h1 className="type-display type-beige">{title}</h1>
           ) : (
             <Image
               src="/main_logo.svg"
@@ -63,7 +63,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
         </div>
         <div>
           {subtitle ? (
-            <p className="mt-2 max-w-[34rem] text-[2rem] leading-tight text-white sm:text-[2.35rem] md:text-[2.55rem] lg:text-[2.7rem]">{subtitle}</p>
+            <p className="type-subheading type-beige mt-2 max-w-[34rem]">{subtitle}</p>
           ) : (
             <Image
               src="/basado_en_datos.png"
@@ -95,7 +95,7 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
         ))}
       </div>
       {/* —— Corte visual: fondo blanco que cubre la parte baja del Hero —— */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] hidden h-[34%] bg-white md:block"></div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] hidden h-[34%] bg-[#fdf6ea] md:block"></div>
     </section>
   );
 };

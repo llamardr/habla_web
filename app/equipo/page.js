@@ -21,7 +21,7 @@ export const metadata = {
 
 export default function EquipoPage() {
   return (
-    <main className="bg-[#f6f0e5]">
+    <main className="bg-[#fdf6ea]">
       <Navbar forceSolid />
       <TeamShowcase mode="page"/>
       <Footer />

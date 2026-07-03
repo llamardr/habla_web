@@ -16,23 +16,23 @@ const CARDS = [
     alt: "Mano sosteniendo una lupa",
     href: LINKS.investigacionesActivas,
     cta: "PARTICIPAR AHORA",
-    cardClass: "bg-[#006AEF] text-white",
-    buttonColors: { backgroundColor: "#006AEF", color: "#FFFFFF" },
+    cardClass: "bg-[#006aef] text-[#fdf6ea]",
+    buttonColors: { backgroundColor: "#006aef", color: "#fdf6ea" },
   },
   {
     title: "Postula al equipo de Reclutamiento",
     body: (
       <>
         Se parte del equipo de Habla Latam{" "}
-        <span className="font-semibold">#EnCampo</span>
+        <span className="type-strong">#EnCampo</span>
       </>
     ),
     image: "/comunidad/postula-reclutamiento-v2.webp",
     alt: "Megáfono en blanco y negro",
     href: LINKS.postulaReclutamiento,
     cta: "POSTULAR AL EQUIPO",
-    cardClass: "bg-black text-white",
-    buttonColors: { backgroundColor: "#000000", color: "#FFFFFF" },
+    cardClass: "bg-black text-[#fdf6ea]",
+    buttonColors: { backgroundColor: "#000000", color: "#fdf6ea" },
   },
   {
     title: "Únete al grupo de WhatsApp y entérate de lo nuevo primero.",
@@ -47,16 +47,20 @@ const CARDS = [
 ];
 
 function CommunityCard({ card }) {
+  const titleColorClass = card.cardClass.includes("text-[#fdf6ea]")
+    ? "type-white"
+    : "type-black";
+
   return (
     <div className="flex flex-col gap-4">
       <div
         className={`flex flex-1 flex-col overflow-hidden rounded-[1.75rem] p-6 sm:p-7 ${card.cardClass}`}
       >
-        <h3 className="text-xl font-semibold leading-snug sm:text-2xl">
+        <h3 className={`type-h3 ${titleColorClass}`}>
           {card.title}
         </h3>
         {card.body && (
-          <p className="mt-3 text-base leading-relaxed opacity-90">
+          <p className="type-body mt-3 opacity-90">
             {card.body}
           </p>
         )}
@@ -91,10 +95,10 @@ export default function CommunityCTASection() {
   return (
     <section
       id="se-parte-de-la-comunidad"
-      className="w-full scroll-mt-36 bg-white py-16 md:py-24"
+      className="w-full bg-[#fdf6ea] py-16 md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="max-w-2xl text-5xl leading-tight text-[#006AEF] md:text-6xl">
+        <h2 className="type-h2 max-w-2xl">
           Se parte de nuestra comunidad
         </h2>
 

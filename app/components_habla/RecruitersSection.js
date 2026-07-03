@@ -39,7 +39,7 @@ function ArrowButton({ direction, onClick }) {
       aria-label={
         isNext ? "Ver más reclutadores" : "Ver reclutadores anteriores"
       }
-      className="hidden h-11 w-11 shrink-0 rounded-full border border-[#006aef] text-xl leading-none text-[#006aef] transition-colors hover:bg-[#006aef] hover:text-white md:inline-block"
+      className="type-button hidden h-11 w-11 shrink-0 rounded-full border border-[#006aef] text-[#006aef] transition-colors hover:bg-[#006aef] hover:text-[#fdf6ea] md:inline-block"
     >
       {isNext ? "›" : "‹"}
     </button>
@@ -62,15 +62,15 @@ export default function RecruitersSection() {
   return (
     <section
       id="reclutadores"
-      className="w-full scroll-mt-36 bg-white py-16 md:py-24"
+      className="w-full bg-[#fdf6ea] py-16 md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <h2 className="max-w-3xl text-5xl leading-tight text-[#006AEF] md:text-6xl">
+            <h2 className="type-h2 max-w-3xl">
               ¿Quiénes están detrás de cada reclutamiento?
             </h2>
-            <p className="mt-5 max-w-2xl text-lg text-black/75 sm:text-xl">
+            <p className="type-body mt-5 max-w-2xl text-black/75">
               Más de 10 personas activando perfiles bajo un brief específico
               para cada proyecto.
             </p>
@@ -105,13 +105,13 @@ export default function RecruitersSection() {
                   className="object-contain"
                 />
               </div>
-              <figcaption className="text-center text-sm font-semibold leading-tight text-black sm:text-base">
+              <figcaption className="type-body-small type-strong text-center text-black">
                 {recruiter.name}
               </figcaption>
             </figure>
           ))}
         </div>
-        <p className="mt-2 text-sm text-black/50 md:hidden">
+        <p className="type-body-small mt-2 text-black/50 md:hidden">
           Desliza para conocer al equipo &rarr;
         </p>
       </div>

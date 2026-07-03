@@ -57,6 +57,7 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
     role: "",
     phone: "",
     email: "",
+    termsAccepted: false,
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,6 +71,18 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
     setErrors((current) => ({
       ...current,
       [field]: "",
+      form: "",
+    }));
+  };
+
+  const updateTermsAccepted = (event) => {
+    setFormValues((current) => ({
+      ...current,
+      termsAccepted: event.target.checked,
+    }));
+    setErrors((current) => ({
+      ...current,
+      termsAccepted: "",
       form: "",
     }));
   };
@@ -102,6 +115,11 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
 
     if (!validateEmail(formValues.email)) {
       nextErrors.email = "Ingresa un correo válido.";
+    }
+
+    if (!formValues.termsAccepted) {
+      nextErrors.termsAccepted =
+        "Debes aceptar los términos y la política de privacidad.";
     }
 
     setErrors(nextErrors);
@@ -156,12 +174,12 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
   };
 
   const cardStateClassName = hasDownloaded
-    ? "border-transparent bg-[#eaf2ff] text-center shadow-[0_8px_24px_rgba(0,106,239,0.08)]"
-    : "border-black/10 bg-white text-left shadow-[0_8px_24px_rgba(0,0,0,0.06)]";
+    ? "border-transparent bg-[#006aef] text-center text-[#fdf6ea] shadow-[0_8px_24px_rgba(0,106,239,0.08)]"
+    : "border-black/10 bg-[#fdf6ea] text-left text-black shadow-[0_8px_24px_rgba(0,0,0,0.06)]";
 
   return (
     <div
-      className={`rounded-[2rem] border p-6 text-black transition-all duration-500 ease-out sm:p-8 ${cardStateClassName} ${className}`}
+      className={`rounded-[2rem] border p-6 transition-all duration-500 ease-out sm:p-8 ${cardStateClassName} ${className}`}
     >
       <div className="flex justify-center overflow-visible rounded-[1.5rem] bg-transparent py-2 text-black">
         <Image
@@ -176,10 +194,10 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
 
       {hasDownloaded ? (
         <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center px-2 py-8 text-center sm:py-10">
-          <h5 className="text-2xl font-semibold leading-tight text-black sm:text-3xl">
+          <h5 className="type-h3">
             Tu informe se ha descargado
           </h5>
-          <p className="mt-4 max-w-xl text-center text-sm leading-6 text-black/70 sm:text-base sm:leading-7">
+          <p className="type-body mt-4 max-w-xl text-center text-[#fdf6ea]/85">
             Ya registramos tus datos. Si el archivo no se abrió
             automáticamente, puedes descargarlo nuevamente sin enviar otro
             formulario.
@@ -187,7 +205,7 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
           <button
             type="button"
             onClick={downloadReport}
-            className="btn mt-6 w-full max-w-md border-2 border-[#006aef] bg-[#006aef] px-6 text-sm font-semibold text-white transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#006aef] hover:bg-[#006aef]"
+            className="btn type-button mt-6 w-full max-w-md border-2 border-[#fdf6ea] bg-[#fdf6ea] px-6 text-[#006aef] transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#fdf6ea] hover:bg-[#fdf6ea]"
           >
             DESCARGAR DE NUEVO
           </button>
@@ -196,7 +214,7 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
         <form className="mt-7 space-y-4" onSubmit={handleSubmit} noValidate>
           <div>
             <label
-              className="text-sm font-medium text-black/75"
+              className="type-ui text-black/75"
               htmlFor="download-name"
             >
               Nombre y apellido
@@ -206,17 +224,17 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
               type="text"
               value={formValues.name}
               onChange={updateField("name")}
-              className="mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none focus:border-[#006aef]"
+              className="type-ui mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-[#fdf6ea] px-4 py-3 text-black outline-none focus:border-[#006aef]"
               autoComplete="name"
             />
             {errors.name && (
-              <p className="mt-2 text-sm text-red-600">{errors.name}</p>
+              <p className="type-body-small mt-2 text-red-600">{errors.name}</p>
             )}
           </div>
 
           <div>
             <label
-              className="text-sm font-medium text-black/75"
+              className="type-ui text-black/75"
               htmlFor="download-company"
             >
               Compañía
@@ -226,17 +244,17 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
               type="text"
               value={formValues.company}
               onChange={updateField("company")}
-              className="mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none focus:border-[#006aef]"
+              className="type-ui mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-[#fdf6ea] px-4 py-3 text-black outline-none focus:border-[#006aef]"
               autoComplete="organization"
             />
             {errors.company && (
-              <p className="mt-2 text-sm text-red-600">{errors.company}</p>
+              <p className="type-body-small mt-2 text-red-600">{errors.company}</p>
             )}
           </div>
 
           <div>
             <label
-              className="text-sm font-medium text-black/75"
+              className="type-ui text-black/75"
               htmlFor="download-rubro"
             >
               Rubro
@@ -246,17 +264,17 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
               type="text"
               value={formValues.rubro}
               onChange={updateField("rubro")}
-              className="mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none focus:border-[#006aef]"
+              className="type-ui mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-[#fdf6ea] px-4 py-3 text-black outline-none focus:border-[#006aef]"
               autoComplete="off"
             />
             {errors.rubro && (
-              <p className="mt-2 text-sm text-red-600">{errors.rubro}</p>
+              <p className="type-body-small mt-2 text-red-600">{errors.rubro}</p>
             )}
           </div>
 
           <div>
             <label
-              className="text-sm font-medium text-black/75"
+              className="type-ui text-black/75"
               htmlFor="download-role"
             >
               Rol
@@ -266,17 +284,17 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
               type="text"
               value={formValues.role}
               onChange={updateField("role")}
-              className="mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none focus:border-[#006aef]"
+              className="type-ui mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-[#fdf6ea] px-4 py-3 text-black outline-none focus:border-[#006aef]"
               autoComplete="organization-title"
             />
             {errors.role && (
-              <p className="mt-2 text-sm text-red-600">{errors.role}</p>
+              <p className="type-body-small mt-2 text-red-600">{errors.role}</p>
             )}
           </div>
 
           <div>
             <label
-              className="text-sm font-medium text-black/75"
+              className="type-ui text-black/75"
               htmlFor="download-phone"
             >
               Teléfono
@@ -286,18 +304,18 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
               type="tel"
               value={formValues.phone}
               onChange={updateField("phone")}
-              className="mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none focus:border-[#006aef]"
+              className="type-ui mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-[#fdf6ea] px-4 py-3 text-black outline-none focus:border-[#006aef]"
               autoComplete="tel"
               inputMode="tel"
             />
             {errors.phone && (
-              <p className="mt-2 text-sm text-red-600">{errors.phone}</p>
+              <p className="type-body-small mt-2 text-red-600">{errors.phone}</p>
             )}
           </div>
 
           <div>
             <label
-              className="text-sm font-medium text-black/75"
+              className="type-ui text-black/75"
               htmlFor="download-email"
             >
               Correo
@@ -307,20 +325,62 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
               type="email"
               value={formValues.email}
               onChange={updateField("email")}
-              className="mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-white px-4 py-3 text-sm text-black outline-none focus:border-[#006aef]"
+              className="type-ui mt-2 w-full rounded-[var(--rounded-btn)] border border-black/15 bg-[#fdf6ea] px-4 py-3 text-black outline-none focus:border-[#006aef]"
               autoComplete="email"
             />
             {errors.email && (
-              <p className="mt-2 text-sm text-red-600">{errors.email}</p>
+              <p className="type-body-small mt-2 text-red-600">{errors.email}</p>
             )}
           </div>
 
-          {errors.form && <p className="text-sm text-red-600">{errors.form}</p>}
+          <div>
+            <label
+              className="type-body-small flex items-start gap-3 text-black/75"
+              htmlFor="download-terms"
+            >
+              <input
+                id="download-terms"
+                type="checkbox"
+                checked={formValues.termsAccepted}
+                onChange={updateTermsAccepted}
+                className="mt-1 h-4 w-4 shrink-0 accent-[#006aef]"
+                required
+              />
+              <span>
+                Al hacer click en &ldquo;Enviar&rdquo; est&aacute;s aceptando
+                los{" "}
+                <a
+                  href="https://docs.google.com/document/d/1cABUK1ozAwzBLrNOh1mhlE5taRmkpwnPDoe7bYC3lhY/edit?tab=t.0#heading=h.v572f46y7ns2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="type-link"
+                >
+                  T&eacute;rminos y Condiciones
+                </a>{" "}
+                y la{" "}
+                <a
+                  href="https://docs.google.com/document/d/1rdoQGLYoBwZbu6Amga5cVC34AU6xfwmhQpQo3S3XRT4/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="type-link"
+                >
+                  Pol&iacute;tica de Privacidad.
+                </a>
+              </span>
+            </label>
+            {errors.termsAccepted && (
+              <p className="type-body-small mt-2 text-red-600">
+                {errors.termsAccepted}
+              </p>
+            )}
+          </div>
+
+          {errors.form && <p className="type-body-small text-red-600">{errors.form}</p>}
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn mt-2 w-full border-2 border-[#006aef] bg-[#006aef] px-6 text-sm font-semibold text-white transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#006aef] hover:bg-[#006aef] disabled:cursor-not-allowed disabled:opacity-70"
+            className="btn type-button mt-2 w-full border-2 border-[#006aef] bg-[#006aef] px-6 text-[#fdf6ea] transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#006aef] hover:bg-[#006aef] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? "REGISTRANDO..." : "DESCARGAR INFORME PDF FINAL"}
           </button>

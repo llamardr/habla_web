@@ -43,12 +43,12 @@ const ProcessSectionServicios = () => {
       <div className="mx-auto max-w-6xl mt-8 mb-10 px-4">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-10 md:mb-12">
         <div className="md:w-1/2 mb-2 md:mb-0">
-          <h2 className="text-black text-5xl md:text-6xl mb-2 md:mb-6 leading-tight pb-2 md:pb-4">
+          <h2 className="type-h2 type-black mb-2 pb-2 md:mb-6 md:pb-4">
              ¿Cómo trabajamos?
           </h2>
         </div>
         <div className="md:w-1/2 md:pl-12 flex items-center">
-          <p className="text-black text-base opacity-80">
+          <p className="type-body text-black opacity-80">
             Durante los primeros dos meses nos encargamos de levantar toda la información posible del mercado y tus clientes para definir qué problemas solucionar y cómo. Durante el tercer mes ejecutamos experimentos que ayuden a validar que es el camino correcto. Si deseas, podemos trabajar juntos por más tiempo liderando las actividades que queden por hacer. 
           </p>
         </div>
@@ -58,14 +58,14 @@ const ProcessSectionServicios = () => {
           {milestones.map((milestone, index) => (
             <div
               key={index}
-              className="bg-[#fcf8f3] rounded-lg transition-all duration-500 ease-in-out flex flex-col justify-between items-start relative overflow-hidden"
+              className="bg-[#fdf6ea] rounded-lg transition-all duration-500 ease-in-out flex flex-col justify-between items-start relative overflow-hidden"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
               style={{ position: 'relative' }}
             >
               <div className="p-6 flex flex-col items-start relative min-h-[220px] w-full">
-                <span className="text-[#9c8c79] text-lg">{milestone.number}</span>
-                <h4 className="text-xl font-bold mt-4 mb-2 min-h-[56px] text-left">{milestone.title}</h4>
+                <span className="type-overline text-[#9c8c79]">{milestone.number}</span>
+                <h4 className="type-h3 mt-4 mb-2 min-h-[56px] text-left">{milestone.title}</h4>
                 {/* Imagen y texto superpuestos para transición suave */}
                 <div className="w-full flex flex-col items-end relative min-h-[192px]">
                   <div
@@ -80,13 +80,13 @@ const ProcessSectionServicios = () => {
                       priority
                       unoptimized
                     />
-                    <span className="mt-2 text-xs text-gray-500 italic">Leer más</span>
+                    <span className="type-body-small mt-2 text-gray-500 italic">Leer más</span>
                   </div>
                   <div
                     className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}
                   >
                     <div className="p-6 pt-0">
-                      <p className="text-black text-sm text-left">
+                      <p className="type-body-small text-left text-black">
                         {milestone.description}
                       </p>
                     </div>
@@ -101,4 +101,4 @@ const ProcessSectionServicios = () => {
   );
 };
 
-export default ProcessSectionServicios; 
+export default ProcessSectionServicios;

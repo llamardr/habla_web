@@ -10,7 +10,7 @@ const enfoqueCards = [
       "¿Hay evidencia real de que la propuesta de negocio encaja con el mercado?",
     ],
     image: "/enfoque/product-market-fit.png",
-    backgroundColor: "#006AEF",
+    backgroundColor: "#006aef",
   },
   {
     id: "propuesta-valor",
@@ -43,7 +43,7 @@ const enfoqueCards = [
       "¿Se está construyendo lealtad o solo transacciones no relacionadas?",
     ],
     image: "/enfoque/retencion.png",
-    backgroundColor: "#006AEF",
+    backgroundColor: "#006aef",
   },
   {
     id: "go-to-market",
@@ -72,13 +72,13 @@ const enfoqueCards = [
 
 export default function EnfoqueSection() {
   return (
-    <section id="enfoque" className="w-full bg-white py-16 md:py-24">
-      <div className="mx-auto w-full max-w-6xl px-4">
+    <section id="enfoque" className="w-full bg-[#fdf6ea] py-16 md:py-24">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-start md:gap-14">
-          <h2 className="mb-8 shrink-0 text-5xl leading-tight text-[#006AEF] md:mb-0 md:text-6xl">
+          <h2 className="type-h2 mb-8 shrink-0 md:mb-0">
             Enfoque
           </h2>
-          <p className="flex-1 text-xl text-[#006AEF] md:pt-2">
+          <p className="type-subheading flex-1 md:pt-2">
             Identificamos un reto concreto a resolver con la investigación.
             Dependiendo del momento y contexto en el que se encuentre tu
             negocio, te presentamos un proyecto personalizado que abarque
@@ -99,15 +99,15 @@ export default function EnfoqueSection() {
                 />
               </div>
               <div
-                className="flex flex-1 flex-col px-6 pb-9 pt-7 text-white"
+                className="flex flex-1 flex-col px-6 pb-9 pt-7 text-[#fdf6ea]"
                 style={{ backgroundColor: card.backgroundColor }}
               >
-                <h3 className="text-2xl font-semibold leading-tight">
+                <h3 className="type-h3 type-white">
                   {card.title}
                 </h3>
-                <ul className="mt-5 divide-y divide-white/15">
+                <ul className="mt-5 divide-y divide-[#fdf6ea]/15">
                   {card.questions.map((question) => (
-                    <li key={question} className="py-3 first:pt-0 last:pb-0 text-[0.95rem] leading-6 opacity-85">
+                    <li key={question} className="type-body-small py-3 first:pt-0 last:pb-0 opacity-85">
                       {question}
                     </li>
                   ))}

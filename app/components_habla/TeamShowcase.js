@@ -7,8 +7,8 @@ import { TEAM_INTRO, TEAM_MEMBERS } from "./teamData";
 
 const INITIAL_COUNT = 3;
 const BATCH_SIZE = 3;
-const ACTION_BUTTON_BG = "#2d68e7";
-const ACTION_BUTTON_TEXT = "#FFFFFF";
+const ACTION_BUTTON_BG = "#006aef";
+const ACTION_BUTTON_TEXT = "#fdf6ea";
 
 function lightenColor(color, percent) {
   const num = parseInt(color.replace("#", ""), 16);
@@ -58,7 +58,7 @@ function TeamPortrait({ member }) {
       aria-hidden="true"
     >
       <div className="px-6 pb-6">
-        <span className="inline-flex h-16 w-16 items-center justify-center bg-black text-xl font-semibold text-white">
+        <span className="type-h3 type-white inline-flex h-16 w-16 items-center justify-center bg-black">
           {getInitials(member.name)}
         </span>
       </div>
@@ -69,7 +69,7 @@ function TeamPortrait({ member }) {
 function LinkedinBadge({ member }) {
   if (!member.linkedin) {
     return (
-      <div className="inline-flex items-center rounded-full border border-black/10 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-black/35">
+      <div className="type-body-small inline-flex items-center rounded-full border border-black/10 px-3 py-1 text-black/35">
         Perfil pronto
       </div>
     );
@@ -81,7 +81,7 @@ function LinkedinBadge({ member }) {
       target="_blank"
       rel="noreferrer"
       aria-label={`LinkedIn de ${member.name}`}
-      className="group inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-[#2f3136] transition-transform duration-200 hover:-translate-y-0.5 hover:text-[#0077b5]"
+      className="group inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-[#2f3136] transition-transform duration-200 hover:-translate-y-0.5 hover:text-[#006aef]"
     >
       <FaLinkedin className="text-[2.15rem] leading-none" />
     </a>
@@ -90,17 +90,17 @@ function LinkedinBadge({ member }) {
 
 function TeamCard({ member }) {
   return (
-    <article className="group overflow-hidden rounded-xl  border-black/10 border-[0.5px]  bg-white/85 backdrop-blur-sm transition-transform duration-300 md:grid md:grid-cols-[13.5rem_minmax(0,1fr)] md:items-stretch">
+    <article className="group overflow-hidden rounded-xl  border-black/10 border-[0.5px]  bg-[#fdf6ea]/85 backdrop-blur-sm transition-transform duration-300 md:grid md:grid-cols-[13.5rem_minmax(0,1fr)] md:items-stretch">
       <TeamPortrait member={member} />
 
       <div className="min-w-0 p-5 sm:p-6">
         <div className="flex flex-col gap-4">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 md:gap-4">
             <div className="min-w-0">
-            <p className="overflow-hidden text-ellipsis whitespace-nowrap text-[0.58rem] font-medium uppercase tracking-[0.14em] text-black/40 sm:text-[0.68rem] sm:tracking-[0.18em] md:text-[0.72rem] md:tracking-[0.2em]">
+            <p className="type-overline overflow-hidden text-ellipsis whitespace-nowrap text-black/40">
               {member.role}
             </p>
-            <h3 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-black sm:text-[2rem]">
+            <h3 className="type-h3 mt-2">
               {member.name}
             </h3>
           </div>
@@ -110,7 +110,7 @@ function TeamCard({ member }) {
           </div>
         </div>
 
-          <p className="max-w-4xl text-sm leading-6 text-black/72 sm:text-[0.98rem] sm:leading-7">
+          <p className="type-body max-w-4xl text-black/72">
             {member.bio}
           </p>
         </div>
@@ -135,7 +135,7 @@ function TeamActionButton({ children, onClick, variant = "solid" }) {
       style={{
         backgroundColor: isOutline ? "transparent" : ACTION_BUTTON_BG,
         color: isOutline ? "black" : ACTION_BUTTON_TEXT,
-        border: `2px solid ${isOutline ? "#2d68e7" : ACTION_BUTTON_BG}`,
+        border: `2px solid ${isOutline ? "#006aef" : ACTION_BUTTON_BG}`,
         boxShadow,
       }}
       onClick={onClick}
@@ -162,15 +162,15 @@ export default function TeamShowcase({ mode = "section" }) {
     <section
       id={isPage ? undefined : "team"}
       className={`${
-        isPage ? "pb-20 pt-32 md:pt-40 lg:pt-44" : "py-20 md:py-28"
-      } bg-[#ffffff] text-black`}
+        isPage ? "pb-20 pt-32 md:pt-40 lg:pt-44" : "py-16 md:py-24"
+      } bg-[#fdf6ea] text-black`}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 pb-10 md:grid-cols-[minmax(0,17rem)_1fr] md:items-end md:gap-10">
-            <h2 className="text-[#006AEF] text-5xl md:text-6xl leading-tight">
+            <h2 className="type-h2">
             Equipo
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-[#006AEF] max-w-2xl">
+            <p className="type-subheading max-w-2xl">
             {TEAM_INTRO}
           </p>
         </div>

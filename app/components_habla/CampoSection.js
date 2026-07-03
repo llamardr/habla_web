@@ -10,14 +10,14 @@ const RESPONSIBILITIES = [
 
 export default function CampoSection() {
   return (
-    <section id="campo" className="w-full scroll-mt-36">
-      <div className="bg-[#006AEF]">
-        <div className="mx-auto grid max-w-6xl px-4 pt-10 text-white sm:px-6 md:grid-cols-[minmax(0,18rem)_1fr] md:pt-14 lg:px-8">
+    <section id="campo" className="w-full">
+      <div className="bg-[#006aef]">
+        <div className="mx-auto grid max-w-6xl px-4 pt-10 text-[#fdf6ea] sm:px-6 md:grid-cols-[minmax(0,18rem)_1fr] md:pt-14 lg:px-8">
           <div className="flex items-center py-6 md:py-8">
-            <h2 className="text-5xl leading-tight md:text-6xl">Campo</h2>
+            <h2 className="type-h2 type-beige">Campo</h2>
           </div>
           <div className="flex items-center py-6 md:py-8 md:pl-8">
-            <p className="max-w-2xl text-base leading-relaxed sm:text-lg">
+            <p className="type-body max-w-2xl">
               En Habla Latam tenemos una estructura propia de reclutamiento,
               validación y coordinación que garantiza precisión en cada perfil.
             </p>
@@ -25,13 +25,13 @@ export default function CampoSection() {
         </div>
 
         <div className="mx-auto grid max-w-6xl px-4 sm:px-6 lg:px-8 lg:grid-cols-[minmax(0,38rem)_1fr]">
-          <div className="flex flex-col justify-center gap-6 py-10 text-[#F6ECD9] lg:min-h-[34rem] lg:py-16 lg:pl-16">
-            <p className="max-w-xl text-lg leading-relaxed sm:text-xl">
+          <div className="flex flex-col justify-center gap-6 py-10 text-[#fdf6ea] lg:min-h-[34rem] lg:py-16 lg:pl-16">
+            <p className="type-body max-w-xl">
               Habla en Campo está liderado por Patricio y Lady, responsables de
               diseñar, activar y supervisar todo el sistema de levantamiento de
               información.
             </p>
-            <p className="max-w-xl text-lg leading-relaxed sm:text-xl">
+            <p className="type-body max-w-xl">
               Desde la definición de perfiles hasta la validación final de
               participantes, cada filtro pasa por esta coordinación.
             </p>
@@ -60,14 +60,14 @@ export default function CampoSection() {
 
       <div className="bg-black">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-12 lg:px-8">
-          <p className="text-2xl font-semibold text-[#F6ECD9] sm:text-3xl">
+          <p className="type-h3 type-beige">
             Se encargan de
           </p>
-          <ul className="mt-6 divide-y divide-white/25 md:mt-8 md:grid md:grid-cols-5 md:divide-x md:divide-y-0">
+          <ul className="mt-6 divide-y divide-[#fdf6ea]/25 md:mt-8 md:grid md:grid-cols-5 md:divide-x md:divide-y-0">
             {RESPONSIBILITIES.map((item) => (
               <li
                 key={item}
-                className="py-4 text-[0.95rem] leading-snug text-white md:px-5 md:py-2 md:first:pl-0"
+                className="type-body-small py-4 text-[#fdf6ea] md:px-5 md:py-2 md:first:pl-0"
               >
                 {item}
               </li>

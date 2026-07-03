@@ -24,9 +24,9 @@ async function Home() {
       <BusinessDecisionsSection />
       <Team></Team>
       <Partners></Partners>     
+      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
       <BehaviorFocusSection />
       <EnfoqueSection />
-      <SuccessCasesCarouselSection></SuccessCasesCarouselSection>
       <CampoSection />
       <RecruitersSection />
       <CommunityCTASection />

@@ -22,6 +22,7 @@ const MarqueeGroup = ({ hidden = false }) => (
 export default function AnnouncementBanner() {
   return (
     <div
+      data-announcement-banner
       className="fixed inset-x-0 top-0 z-[110] flex h-[50px] overflow-hidden bg-[#e295e0] text-black"
       role="region"
       aria-label="Resultados del primer Estudio Abierto"

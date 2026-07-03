@@ -6,7 +6,7 @@ import { trackMetaEvent } from "../lib/metaPixel";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-[#006aef] text-white p-10 w-full">
+    <footer className="footer bg-[#006aef] text-[#fdf6ea] p-10 w-full">
     <aside>
       <Image
         src="/isotipo.png"

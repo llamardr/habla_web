@@ -25,8 +25,8 @@ const SuccessCaseCard = ({
     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none"></div>
     {/* Top info: location, line, logo */}
     <div className="absolute top-0 left-0 w-full flex items-center justify-between px-6 pt-5 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <span className="text-white text-sm font-light">{location}</span>
-      <div className="flex-1 mx-3 border-t border-white h-0.5" />
+      <span className="type-body-small text-[#fdf6ea]">{location}</span>
+      <div className="flex-1 mx-3 border-t border-[#fdf6ea] h-0.5" />
       {logo && (
         <div className="w-16 h-10 flex items-center justify-end">
           <Image src={logo} alt="logo" width={64} height={40} unoptimized className="object-contain" />
@@ -35,9 +35,9 @@ const SuccessCaseCard = ({
     </div>
     {/* Overlay content */}
     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end items-start p-6 text-left z-20">
-      <h3 className="text-white text-2xl font-bold mb-2 leading-[0.9]">{title}</h3>
-      <p className="text-white text-xs mb-4 font-light">{services}</p>
-      <p className="text-white text-xs font-normal">{description}</p>
+      <h3 className="type-card-title type-white mb-2">{title}</h3>
+      <p className="type-body-small mb-4 text-[#fdf6ea]">{services}</p>
+      <p className="type-body-small text-[#fdf6ea]">{description}</p>
     </div>
   </div>
 );

@@ -110,21 +110,21 @@ const schedule = [
 const faqItems = [
   {
     number: "01",
-    accent: "bg-[#356AE6] text-white",
+    accent: "bg-[#006aef] text-[#fdf6ea]",
     question: "¿Tiene un costo?",
     answer:
       "No. La participación y acceso a resultados del estudio y en los eventos es completamente gratuita. Es un espacio de aprendizaje compartido y construcción colaborativa.",
   },
   {
     number: "02",
-    accent: "bg-black text-white",
+    accent: "bg-black text-[#fdf6ea]",
     question: "¿Quiénes pueden participar?",
     answer:
       "Actores del ecosistema financiero y educativo: banca tradicional, fintechs, sector público, instituciones educativas, ONGs, fundaciones, empresas con esquemas de financiamiento y pasarelas de pago interesadas en comprender mejor el segmento universitario.",
   },
   {
     number: "03",
-    accent: "bg-[#e295e0] text-white",
+    accent: "bg-[#e295e0] text-[#fdf6ea]",
     question: "¿Qué es el Estudio Abierto?",
     answer:
       "Es una iniciativa colaborativa impulsada por la Universidad de Ingeniería y Tecnología - UTEC y Habla Latam para entender cómo la gestión financiera impacta la vida universitaria. Antes de diseñar soluciones, buscamos validar el problema con evidencia real y múltiples miradas del ecosistema.",
@@ -138,7 +138,7 @@ const faqItems = [
   },
   {
     number: "05",
-    accent: "bg-black text-white",
+    accent: "bg-black text-[#fdf6ea]",
     question: "¿Cómo se compartirán los resultados del estudio?",
     answer:
       "Los principales hallazgos se presentarán en el evento de cierre, donde se expondrá el análisis completo y se realizará un espacio de conversación e ideación basado en la evidencia recopilada. Adicionalmente, las personas y empresas que participen en los eventos presenciales recibirán el reporte consolidado del estudio con los hallazgos cualitativos y cuantitativos.",
@@ -151,19 +151,19 @@ export default function EstudioAbiertoPage() {
   );
 
   return (
-    <main className="bg-[#F4EEDF] text-black">
+    <main className="bg-[#fdf6ea] text-black">
       <Navbar initialTextColor="dark" />
 
       <EstudioAbiertoResultsSection article={estudioAbiertoArticle} />
 
-      <section className="bg-[#000000] py-10 text-white sm:py-14">
+      <section className="bg-[#000000] py-10 text-[#fdf6ea] sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-right">
-            <h2 className="text-[clamp(2rem,6vw,3.5rem)] leading-none">
+            <h2 className="type-h2 type-beige">
               Más allá del acceso
             </h2>
             <div className="flex justify-end">
-              <p className="w-3/4 mt-4 text-[clamp(1.05rem,2.6vw,1.6rem)] leading-snug text-white/90 text-right">
+              <p className="type-subheading type-beige w-3/4 mt-4 text-right">
                 Las brechas invisibles en la educación financiera de los jóvenes en edad
                 universitaria
               </p>
@@ -172,14 +172,14 @@ export default function EstudioAbiertoPage() {
         </div>
       </section>
 
-      <section className="overflow-x-hidden bg-[#006AEF] py-10 text-white sm:py-14">
+      <section className="overflow-x-hidden bg-[#006aef] py-10 text-[#fdf6ea] sm:py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="min-w-0">
               <EstudioAbiertoIntroCarousel cards={introCards} />
             </div>
             <div className="flex items-center lg:pl-6">
-              <p className="whitespace-pre-line text-base leading-7 text-white/90 sm:text-lg sm:leading-8 text-center w-full">
+              <p className="type-body whitespace-pre-line text-center w-full text-[#fdf6ea]/90">
                 {"Estudio Abierto, como su nombre lo dice, es un proceso de investigación diseñado especialmente para ser abierto al público relevante. Tomamos un caso importante para la sociedad y abrimos la metodología perfeccionada durante 4 años para poder colaborar juntos en un reto."}
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function EstudioAbiertoPage() {
       {false && (
         <section className="py-14 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="max-w-3xl text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
+            <h2 className="type-h2 max-w-3xl">
               ¿Qué te llevas de participar en Estudio Abierto?
             </h2>
 
@@ -227,10 +227,10 @@ export default function EstudioAbiertoPage() {
                     />
                   </div>
                   <div className={benefit.reverse ? "md:order-1" : ""}>
-                    <h3 className="text-2xl font-semibold leading-tight tracking-[-0.03em] sm:text-3xl">
+                    <h3 className="type-h3">
                       {benefit.title}
                     </h3>
-                    <p className="mt-4 max-w-3xl text-base leading-7 text-black/80 sm:text-lg">
+                    <p className="type-body mt-4 max-w-3xl text-black/80">
                       {benefit.body}
                     </p>
                   </div>
@@ -243,7 +243,7 @@ export default function EstudioAbiertoPage() {
 
       {/* <section className="py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[clamp(2rem,6vw,4rem)] leading-[0.95]">
+          <h2 className="type-h2">
             Calendario de Fases
           </h2>
 
@@ -255,13 +255,13 @@ export default function EstudioAbiertoPage() {
                     key={`${item.date}-${item.title}-${item.time}`}
                     className="grid gap-2 border-b border-black/20 py-4 sm:grid-cols-[7.5rem_1fr_auto]"
                   >
-                    <p className="text-sm font-medium uppercase tracking-[0.12em] text-black/65">
+                    <p className="type-body-small text-black/65">
                       {item.date}
                     </p>
-                    <h3 className="text-2xl leading-none tracking-[-0.04em] sm:text-[2rem]">
+                    <h3 className="type-h3">
                       {item.title}
                     </h3>
-                    <div className="text-sm font-medium text-black/70 sm:text-right">
+                    <div className="type-body-small text-black/70 sm:text-right">
                       <p>{item.mode}</p>
                       <p>{item.time}</p>
                     </div>
@@ -299,11 +299,11 @@ export default function EstudioAbiertoPage() {
 
       {/* <section className="pb-0 pt-6 sm:pt-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-[clamp(2.2rem,6vw,4.1rem)] leading-none tracking-[-0.04em]">
+          <h2 className="type-h2">
             FAQ
           </h2>
 
-          <div className="mt-8 overflow-hidden rounded-[2rem] border border-black/10 bg-white/40">
+          <div className="mt-8 overflow-hidden rounded-[2rem] border border-black/10 bg-[#fdf6ea]/40">
             {faqItems.map((item, index) => (
               <article
                 key={item.number}
@@ -312,15 +312,15 @@ export default function EstudioAbiertoPage() {
                 }`}
               >
                 <div
-                  className={`flex min-h-16 items-center justify-center rounded-2xl text-2xl font-semibold font-display ${item.accent}`}
+                  className={`type-h3 flex min-h-16 items-center justify-center rounded-2xl ${item.accent}`}
                 >
                   {item.number}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold leading-tight tracking-[-0.02em] sm:text-xl">
+                  <h3 className="type-h3">
                     {item.question}
                   </h3>
-                  <p className="mt-2 text-sm leading-7 text-black/80 sm:text-base">
+                  <p className="type-body-small mt-2 text-black/80">
                     {item.answer}
                   </p>
                 </div>
@@ -330,15 +330,15 @@ export default function EstudioAbiertoPage() {
         </div>
       </section> */}
 
-      <section className="bg-[#006aef] pb-0 pt-10 text-[#F4EEDF] sm:pt-14">
+      <section className="bg-[#006aef] pb-0 pt-10 text-[#fdf6ea] sm:pt-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="max-w-5xl text-[clamp(2rem,7vw,5.2rem)] leading-[0.98]">
+          <h2 className="type-section-statement type-beige max-w-5xl">
             Antes de crear {" "}
-            <span className="inline-flex rounded-full bg-[#F4EEDF] px-4 py-1 text-[#006aef]">
+            <span className="inline-flex rounded-full bg-[#fdf6ea] px-4 py-1 text-[#006aef]">
               soluciones, 
             </span>
              queremos entender el{" "}
-            <span className="inline-flex rounded-full border border-[#F4EEDF] px-4 py-1 text-[#F4EEDF]">
+            <span className="inline-flex rounded-full border border-[#fdf6ea] px-4 py-1 text-[#fdf6ea]">
               problema
             </span>{" "}
             y hacerlo juntos.

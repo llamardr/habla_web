@@ -196,16 +196,16 @@ const Partners = () => {
   }, []);
 
   return (
-    <section id="partners" className="pt-32 pb-28 w-full">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="partners" className="w-full bg-[#fdf6ea] py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-5xl md:text-6xl mb-6 leading-tight pb-4">
+            <h2 className="type-h2 type-black mb-6 pb-4">
               Nuestros clientes se convierten <br /> en partners
             </h2>
             <Link
               href="#successcases"
-              className="text-sm mb-4 inline-block opacity-80 relative group"
+              className="type-ui mb-4 inline-block opacity-80 relative group"
               onClick={() =>
                 trackMetaEvent("ViewContent", {
                   source: "partners_section",
@@ -213,7 +213,7 @@ const Partners = () => {
                 })
               }
             >
-              <span className="relative z-10 text-lg">Ver casos de éxito &rarr;</span>
+              <span className="relative z-10">Ver casos de éxito &rarr;</span>
               <span
                 className="absolute left-0 bottom-0 w-full h-[2px] bg-black opacity-80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
                 aria-hidden="true"
@@ -221,7 +221,7 @@ const Partners = () => {
             </Link>
           </div>
           <div className="md:w-1/2 md:pl-12 flex items-center">
-            <p className="text-xl opacity-80">
+            <p className="type-body opacity-80">
             Trabajamos con organizaciones de distintos segmentos, rubros y tamaños de empresas, desde educación, salud y sector público hasta retail, consumo masivo, tecnología, moda y sostenibilidad — en modelos B2B y B2C.
             </p>
           </div>

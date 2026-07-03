@@ -10,7 +10,7 @@ export const TEAM_MEMBERS = [
     linkedin:
       "https://www.linkedin.com/in/anais-freitas-el%C3%A9spuru-54375073/",
     image: "/team/anaisfreitasHABLALATAM.png",
-    accentClass: "bg-[#006AEF]",
+    accentClass: "bg-[#006aef]",
   },
   {
     slug: "patricio-yrigoyen",
@@ -19,7 +19,7 @@ export const TEAM_MEMBERS = [
     bio: "Patricio trabaja en la intersección entre datos, operaciones y experiencia de usuario. Ha liderado equipos y resuelto problemas complejos en Rappi, Taxi Beat y Aceros Arequipa. En HABLA traduce métricas, fricciones y dinámicas operativas en decisiones claras y oportunidades de impacto real.",
     linkedin: "https://www.linkedin.com/in/patricio-yrigoyen/",
     image: "/team/patricioyrigoyenHABLALATAM.png",
-    accentClass: "bg-[#006AEF]",
+    accentClass: "bg-[#006aef]",
   },
   {
     slug: "santiago-burga",
@@ -28,7 +28,7 @@ export const TEAM_MEMBERS = [
     bio: "Santiago combina producto, tecnología y diseño con una fuerte orientación a ejecución. Ha trabajado en iVisa.com y Rappi liderando iniciativas de desarrollo y optimización de experiencias digitales. Ingeniero Industrial por la UTEC y MMM en Kellogg, hoy lidera la implementación de IA dentro de los procesos operativos de HABLA.",
     linkedin: "https://www.linkedin.com/in/santiagoburgabenavides/",
     image: "/team/santiagoburgaHABLALATAM.png",
-    accentClass: "bg-[#006AEF]",
+    accentClass: "bg-[#006aef]",
   },
   {
     slug: "carlos-galvez",

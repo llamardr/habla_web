@@ -163,7 +163,7 @@ const SuccessCases = () => {
       <div className="mx-auto max-w-6xl mt-8 mb-10 px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start pb-4 mb-12">
           <div className="md:w-1/2">
-            <h2 className="text-black text-5xl md:text-6xl leading-tight">
+            <h2 className="type-h2 type-black">
               Casos de éxito
             </h2>
           </div>
@@ -191,7 +191,7 @@ const SuccessCases = () => {
         <div className="flex justify-center mt-6 lg:hidden">
           {cases.length > 3 && (
             <button
-              className="text-[#006aef] text-sm mb-4 inline-block opacity-80 relative group px-6 py-2 rounded-full bg-white transition-colors"
+              className="type-button mb-4 inline-block rounded-full bg-[#fdf6ea] px-6 py-2 text-[#006aef] opacity-80 transition-colors"
               onClick={() => setShowAll((prev) => !prev)}
             >
               <span className="relative z-10">

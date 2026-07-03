@@ -9,15 +9,15 @@ const Community = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-5xl md:text-6xl mb-6 leading-tight pb-4">
+            <h2 className="type-h2 type-black mb-6 pb-4">
               Comunidad Habla
             </h2>
             <Link
               href="https://chat.whatsapp.com/IECQLcG7PSdKmQ5H3SYJv3"
               target="_blank"
-              className="text-sm mb-4 inline-block opacity-80 relative group"
+              className="type-ui mb-4 inline-block opacity-80 relative group"
             >
-              <span className="relative z-10 text-lg">
+              <span className="relative z-10">
                 Unirme a la comunidad &rarr;
               </span>
               <span
@@ -27,7 +27,7 @@ const Community = () => {
             </Link>
           </div>
           <div className="md:w-1/2 md:pl-12 flex items-center">
-            <p className="text-xl opacity-80">
+            <p className="type-body opacity-80">
               Contamos con una comunidad activa y comprometida de personas
               reales dispuestas a compartir sus opiniones y experiencias en
               encuestas, entrevistas y focus groups.

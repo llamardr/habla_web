@@ -119,15 +119,15 @@ export default function EstudioAbiertoIntroCarousel({ cards }) {
                 className="object-cover"
               />
             </div>
-            <p className="px-1 pb-2 pt-4 text-center text-sm leading-tight tracking-[-0.03em]">
+            <p className="type-body-small px-1 pb-2 pt-4 text-center">
               {card.title}
             </p>
           </article>
         ))}
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-8 bg-gradient-to-r from-[#006AEF] to-transparent sm:block" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-8 bg-gradient-to-l from-[#006AEF] to-transparent sm:block" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-8 bg-gradient-to-r from-[#006aef] to-transparent sm:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-8 bg-gradient-to-l from-[#006aef] to-transparent sm:block" />
     </div>
   );
 }

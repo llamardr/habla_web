@@ -58,18 +58,18 @@ export default function ToolkitSection() {
   const minHeight = Math.ceil(maxTools / COLS_DESKTOP) * CARD_EST;
 
   return (
-    <section className="bg-white py-5">
+    <section className="bg-[#fdf6ea] py-5">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-8">
         {/* Menú lateral */}
         <div className="flex flex-col w-full md:w-2/5 items-start gap-4 mb-8 md:mb-0">
-          <span className="text-base sm:text-lg md:text-xl text-[#006aef] max-w-full block">
+          <span className="type-subheading max-w-full block">
             Nuestras herramientas
           </span>
           {toolkitData.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setSelected(cat.key)}
-              className={`transition-all text-left text-black text-3xl sm:text-4xl md:text-5xl leading-tight ${
+              className={`type-h2 type-black transition-all text-left ${
                 selected === cat.key ? '' : 'opacity-40'
               } hover:text-[#006aef]`}
               style={{ lineHeight: 1.1 }}
