@@ -198,11 +198,9 @@ const Partners = () => {
   return (
     <section id="partners" className="w-full bg-[#fdf6ea] py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="type-h2 type-black mb-6 pb-4">
-              Nuestros clientes se convierten <br /> en partners
-            </h2>
+        <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+          <div className="md:w-2/5 mb-6 md:mb-0">
+            <h2 className="type-h2 mb-6">Clientes</h2>
             <Link
               href="#successcases"
               className="type-ui mb-4 inline-block opacity-80 relative group"
@@ -220,8 +218,8 @@ const Partners = () => {
               />
             </Link>
           </div>
-          <div className="md:w-1/2 md:pl-12 flex items-center">
-            <p className="type-body opacity-80">
+          <div className="md:w-3/5 md:pl-8 md:border-l-2 md:border-[var(--color-brand-blue)] flex items-center">
+            <p className="type-body text-[var(--color-brand-blue)] opacity-90">
             Trabajamos con organizaciones de distintos segmentos, rubros y tamaños de empresas, desde educación, salud y sector público hasta retail, consumo masivo, tecnología, moda y sostenibilidad — en modelos B2B y B2C.
             </p>
           </div>

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { TEAM_INTRO, TEAM_MEMBERS } from "./teamData";
 
-const INITIAL_COUNT = 3;
+const INITIAL_COUNT = 6;
 const BATCH_SIZE = 3;
 const ACTION_BUTTON_BG = "#006aef";
 const ACTION_BUTTON_TEXT = "#fdf6ea";
