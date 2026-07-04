@@ -17,7 +17,7 @@ export default function CampoSection() {
             <h2 className="type-h2 type-beige">Campo</h2>
           </div>
           <div className="flex items-center py-6 md:py-8 md:pl-8">
-            <p className="type-body max-w-2xl">
+            <p className="type-subheading type-beige max-w-2xl">
               En Habla Latam tenemos una estructura propia de reclutamiento,
               validación y coordinación que garantiza precisión en cada perfil.
             </p>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import ArticleBackButton from "@/app/components_habla/ArticleBackButton";
 import EstudioAbiertoDownloadCard from "@/app/components_habla/EstudioAbiertoDownloadCard";
 import Footer from "@/app/components_habla/Footer";
 import Navbar from "@/app/components_habla/Navbar";
@@ -152,7 +152,10 @@ export default function SuccessCaseArticlePage({ params }) {
 
       <article className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
         <header className="max-w-5xl">
-          <h1 className="type-display type-black mt-16 max-w-5xl">
+          <div className="mt-16">
+            <ArticleBackButton />
+          </div>
+          <h1 className="type-display type-black mt-8 max-w-5xl">
             {article.title}
           </h1>
           <p className="type-overline mt-6">

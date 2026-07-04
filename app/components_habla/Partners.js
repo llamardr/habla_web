@@ -218,8 +218,8 @@ const Partners = () => {
               />
             </Link>
           </div>
-          <div className="md:w-3/5 md:pl-8 md:border-l-2 md:border-[var(--color-brand-blue)] flex items-center">
-            <p className="type-body text-[var(--color-brand-blue)] opacity-90">
+          <div className="md:w-3/5 md:pl-8 flex items-center">
+            <p className="type-subheading text-[var(--color-brand-blue)] opacity-90">
             Trabajamos con organizaciones de distintos segmentos, rubros y tamaños de empresas, desde educación, salud y sector público hasta retail, consumo masivo, tecnología, moda y sostenibilidad — en modelos B2B y B2C.
             </p>
           </div>

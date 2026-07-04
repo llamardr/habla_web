@@ -10,14 +10,12 @@ const heroCaseImages = [
     id: "soundcloud",
     src: "/case_studies/soundcloud.png",
     alt: "Equipo de SoundCloud Mexico durante trabajo de campo",
-    borderColor: "#eaff7e",
     className: "w-[19vw] min-w-[210px] max-w-[280px] 2xl:max-w-[320px]",
   },
   {
     id: "ava",
     src: "/case_studies/ava.png",
     alt: "Equipo revisando prototipos durante el estudio de AVA",
-    borderColor: "#EB8FFE",
     className:
       "w-[21vw] min-w-[230px] max-w-[310px] -translate-y-6 2xl:max-w-[350px] 2xl:-translate-y-12",
   },
@@ -86,10 +84,6 @@ const HeroSection = ({ title = null, subtitle = null, backgroundColor = null }) 
               fill
               sizes="(max-width: 1023px) 28vw, 360px"
               className="object-cover"
-            />
-            <div
-              className="pointer-events-none absolute inset-0 z-10 rounded-xl border-8"
-              style={{ borderColor: item.borderColor }}
             />
           </div>
         ))}
