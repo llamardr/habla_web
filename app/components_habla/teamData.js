@@ -49,15 +49,6 @@ export const TEAM_MEMBERS = [
     accentClass: "bg-[#eeff90]",
   },
   {
-    slug: "sheila-acuna",
-    name: "Sheila Acuña",
-    role: "Collaborator | UX Research",
-    bio: "Sheila es especialista en investigación de usuarios, con trayectoria en Scotiabank, Banco de Crédito BCP, Agile Wise, Eureka Research y Lava Innovation. Su fortaleza está en detectar patrones, tensiones y motivaciones profundas detrás del comportamiento. En HABLA ayuda a convertir hallazgos en decisiones que realmente mueven la aguja.",
-    linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/",
-    image: "/team/sheilaacunaHABLALATAM.png",
-    accentClass: "bg-[#eeff90]",
-  },
-  {
     slug: "silvia-angulo",
     name: "Silvia Angulo",
     role: "Collaborator | UX Research",
@@ -102,5 +93,14 @@ export const TEAM_MEMBERS = [
     linkedin: "https://www.linkedin.com/in/nicollehazard/",
     image: "/team/nicollehazardHABLALATAM.png",
     accentClass: "bg-[#E295E0]",
+  },
+  {
+    slug: "sheila-acuna",
+    name: "Sheila Acuña",
+    role: "Collaborator | UX Research",
+    bio: "Sheila es especialista en investigación de usuarios, con trayectoria en Scotiabank, Banco de Crédito BCP, Agile Wise, Eureka Research y Lava Innovation. Su fortaleza está en detectar patrones, tensiones y motivaciones profundas detrás del comportamiento. En HABLA ayuda a convertir hallazgos en decisiones que realmente mueven la aguja.",
+    linkedin: "https://www.linkedin.com/in/sheila-acu%C3%B1a-obreg%C3%B3n/",
+    image: "/team/sheilaacunaHABLALATAM.png",
+    accentClass: "bg-[#eeff90]",
   },
 ];
