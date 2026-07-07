@@ -121,6 +121,7 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const googleAnalyticsId = "G-BXN3RRLT1J";
   const metaPixelId = "1673789470026632";
   const linkedinPartnerId = "8697042";
   const jsonLd = {
@@ -173,6 +174,18 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
         <Script id="linkedin-pixel" strategy="afterInteractive">
           {`
             window._linkedin_partner_id = "${linkedinPartnerId}";
