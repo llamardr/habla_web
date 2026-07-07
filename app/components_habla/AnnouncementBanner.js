@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 const getBannerMessage = () => {
   const message =
@@ -31,6 +34,14 @@ export default function AnnouncementBanner() {
         href="/estudio-abierto"
         className="announcement-marquee flex h-full min-w-0 flex-1 items-center overflow-hidden"
         aria-label="Ver resultados del primer Estudio Abierto"
+        onClick={() =>
+          trackGAEvent("select_content", {
+            source: "announcement_banner",
+            content_type: "promotion",
+            item_name: "resultados_estudio_abierto",
+            link_url: "/estudio-abierto",
+          })
+        }
       >
         <div className="announcement-marquee__track">
           <MarqueeGroup />

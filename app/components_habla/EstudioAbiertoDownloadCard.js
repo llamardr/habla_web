@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 const REPORT_URL = "/estudio-abierto/informe-final-estudio-abierto.pdf";
 
@@ -126,7 +127,14 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
     return Object.keys(nextErrors).length === 0;
   };
 
-  const downloadReport = () => {
+  const downloadReport = (source = "estudio_abierto_download_card") => {
+    trackGAEvent("file_download", {
+      source,
+      file_name: "informe-final-estudio-abierto.pdf",
+      file_extension: "pdf",
+      link_url: REPORT_URL,
+    });
+
     const downloadLink = document.createElement("a");
     downloadLink.href = REPORT_URL;
     downloadLink.download = "informe-final-estudio-abierto.pdf";
@@ -162,7 +170,13 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
         return;
       }
 
-      downloadReport();
+      trackGAEvent("generate_lead", {
+        source: "estudio_abierto_download_form",
+        method: "form",
+        form_name: "estudio_abierto_informe_final",
+        lead_type: "report_download",
+      });
+      downloadReport("estudio_abierto_form_success");
       setHasDownloaded(true);
     } catch (error) {
       setErrors({
@@ -204,7 +218,7 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
           </p>
           <button
             type="button"
-            onClick={downloadReport}
+            onClick={() => downloadReport("estudio_abierto_redownload")}
             className="btn type-button mt-6 w-full max-w-md border-2 border-[#fdf6ea] bg-[#fdf6ea] px-6 text-[#006aef] transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#fdf6ea] hover:bg-[#fdf6ea]"
           >
             DESCARGAR DE NUEVO
@@ -354,6 +368,15 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="type-link"
+                  onClick={() =>
+                    trackGAEvent("outbound_click", {
+                      source: "estudio_abierto_download_form",
+                      channel: "google_docs",
+                      item_name: "terminos_y_condiciones",
+                      link_url:
+                        "https://docs.google.com/document/d/1cABUK1ozAwzBLrNOh1mhlE5taRmkpwnPDoe7bYC3lhY/edit?tab=t.0#heading=h.v572f46y7ns2",
+                    })
+                  }
                 >
                   T&eacute;rminos y Condiciones
                 </a>{" "}
@@ -363,6 +386,15 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="type-link"
+                  onClick={() =>
+                    trackGAEvent("outbound_click", {
+                      source: "estudio_abierto_download_form",
+                      channel: "google_docs",
+                      item_name: "politica_de_privacidad",
+                      link_url:
+                        "https://docs.google.com/document/d/1rdoQGLYoBwZbu6Amga5cVC34AU6xfwmhQpQo3S3XRT4/edit?tab=t.0",
+                    })
+                  }
                 >
                   Pol&iacute;tica de Privacidad.
                 </a>

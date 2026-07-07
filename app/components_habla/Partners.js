@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { trackGAEvent } from "../lib/googleAnalytics";
 import { trackMetaEvent } from "../lib/metaPixel";
 
 const logos = [
@@ -204,12 +205,18 @@ const Partners = () => {
             <Link
               href="#successcases"
               className="type-ui mb-4 inline-block opacity-80 relative group"
-              onClick={() =>
+              onClick={() => {
+                trackGAEvent("select_content", {
+                  source: "partners_section",
+                  content_type: "section_link",
+                  item_name: "casos_de_exito",
+                  link_url: "#successcases",
+                });
                 trackMetaEvent("ViewContent", {
                   source: "partners_section",
                   content_name: "casos_de_exito",
-                })
-              }
+                });
+              }}
             >
               <span className="relative z-10">Ver casos de éxito &rarr;</span>
               <span
@@ -233,6 +240,13 @@ const Partners = () => {
               rel="noopener noreferrer"
               ref={(el) => (logoRefs.current[idx] = el)}
               data-idx={idx}
+              onClick={() =>
+                trackGAEvent("outbound_click", {
+                  source: "partners_logo",
+                  item_name: logo.name,
+                  link_url: logo.link,
+                })
+              }
               className="flex items-center justify-center h-12 w-20 sm:h-20 sm:w-32 cursor-pointer hover:opacity-70 transition-opacity duration-300"
             >
               <Image

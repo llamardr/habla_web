@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 const LINKS = {
   investigacionesActivas: "https://chat.whatsapp.com/IECQLcG7PSdKmQ5H3SYJv3",
@@ -50,6 +53,19 @@ function CommunityCard({ card }) {
   const titleColorClass = card.cardClass.includes("text-[#fdf6ea]")
     ? "type-white"
     : "type-black";
+  const isRecruitmentLead = card.href.includes("wa.me");
+
+  const trackCardClick = () => {
+    const eventName = isRecruitmentLead ? "generate_lead" : "select_content";
+    trackGAEvent(eventName, {
+      source: "community_cta_section",
+      method: isRecruitmentLead ? "whatsapp" : "external_link",
+      content_type: "community_cta",
+      item_name: card.title,
+      link_url: card.href,
+      lead_type: isRecruitmentLead ? "recruitment" : undefined,
+    });
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -78,6 +94,7 @@ function CommunityCard({ card }) {
         href={card.href}
         target={card.href.startsWith("http") ? "_blank" : undefined}
         rel={card.href.startsWith("http") ? "noreferrer" : undefined}
+        onClick={trackCardClick}
         className="btn w-full transition-transform duration-200 ease-in-out hover:scale-105"
         style={{
           backgroundColor: card.buttonColors.backgroundColor,

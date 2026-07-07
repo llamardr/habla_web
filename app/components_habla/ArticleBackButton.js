@@ -2,11 +2,18 @@
 
 import { useRouter } from "next/navigation";
 import { HiArrowLeft } from "react-icons/hi";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 export default function ArticleBackButton() {
   const router = useRouter();
 
   const handleClick = () => {
+    trackGAEvent("select_content", {
+      source: "article_back_button",
+      content_type: "navigation_button",
+      item_name: "atras",
+    });
+
     const referrer = document.referrer ? new URL(document.referrer) : null;
     const cameFromHabla = referrer?.origin === window.location.origin;
     const hasClientNavigation = Number(window.history.state?.idx) > 0;

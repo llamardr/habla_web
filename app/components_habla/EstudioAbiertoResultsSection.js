@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import EstudioAbiertoDownloadCard from "./EstudioAbiertoDownloadCard";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 export default function EstudioAbiertoResultsSection({ article }) {
   return (
@@ -40,6 +43,15 @@ export default function EstudioAbiertoResultsSection({ article }) {
               <Link
                 href={`/casos-de-exito/${article.slug}`}
                 className="type-button mt-6 inline-flex items-center rounded-[var(--rounded-btn)] border-2 border-[#006aef] bg-[#006aef] px-5 py-3 text-[#fdf6ea] no-underline transition-transform duration-200 ease-in-out hover:scale-105"
+                onClick={() =>
+                  trackGAEvent("select_content", {
+                    source: "estudio_abierto_results_section",
+                    content_type: "article",
+                    item_name: article.title,
+                    item_id: article.slug,
+                    link_url: `/casos-de-exito/${article.slug}`,
+                  })
+                }
               >
                 LEER ARTÍCULO
               </Link>

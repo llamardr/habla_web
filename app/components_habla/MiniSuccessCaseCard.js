@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackGAEvent } from "../lib/googleAnalytics";
 import { trackMetaEvent } from "../lib/metaPixel";
 
 const MiniSuccessCaseCard = ({
@@ -46,12 +47,18 @@ const MiniSuccessCaseCard = ({
         <Link
           href={href}
           className="type-body-small text-[#fdf6ea] transition-all duration-200 hover:underline"
-          onClick={() =>
+          onClick={() => {
+            trackGAEvent("select_content", {
+              source: "mini_success_case_card",
+              content_type: "success_case",
+              item_name: title,
+              link_url: href,
+            });
             trackMetaEvent("ViewContent", {
               source: "mini_success_case_card",
               content_name: title,
-            })
-          }
+            });
+          }}
         >
           Ver caso
         </Link>

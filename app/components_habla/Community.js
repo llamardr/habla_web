@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 const Community = () => {
   return (
@@ -16,6 +17,14 @@ const Community = () => {
               href="https://chat.whatsapp.com/IECQLcG7PSdKmQ5H3SYJv3"
               target="_blank"
               className="type-ui mb-4 inline-block opacity-80 relative group"
+              onClick={() =>
+                trackGAEvent("select_content", {
+                  source: "community_section",
+                  content_type: "community_link",
+                  item_name: "unirme_a_la_comunidad",
+                  link_url: "https://chat.whatsapp.com/IECQLcG7PSdKmQ5H3SYJv3",
+                })
+              }
             >
               <span className="relative z-10">
                 Unirme a la comunidad &rarr;

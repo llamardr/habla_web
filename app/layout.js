@@ -2,6 +2,8 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
+import AnalyticsAttributionTracker from "./components_habla/AnalyticsAttributionTracker";
+import { GA_MEASUREMENT_ID } from "./lib/googleAnalytics";
 import "./globals.css";
 
 const stacion = localFont({
@@ -121,7 +123,6 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  const googleAnalyticsId = "G-BXN3RRLT1J";
   const metaPixelId = "1673789470026632";
   const linkedinPartnerId = "8697042";
   const jsonLd = {
@@ -175,15 +176,15 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased">
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}');
+            window.gtag = function gtag(){window.dataLayer.push(arguments);}
+            window.gtag('js', new Date());
+            window.gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
         <Script id="linkedin-pixel" strategy="afterInteractive">
@@ -246,6 +247,7 @@ export default function RootLayout({ children }) {
         <div>
           <Toaster />
         </div>
+        <AnalyticsAttributionTracker />
         <Analytics />
         {children}
       </body>

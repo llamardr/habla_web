@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { trackGAEvent } from "@/app/lib/googleAnalytics";
 import { successCaseArticles } from "@/app/lib/successCaseArticles";
 
 const placeholderClassNames = {
@@ -108,6 +109,15 @@ const SuccessCasesCarouselSection = ({
                 <Link
                   href={`/casos-de-exito/${study.slug}`}
                   className="type-button mt-auto inline-flex items-center rounded-[var(--rounded-btn)] border border-[#006aef] bg-[#006aef] px-4 py-2 text-[#fdf6ea] duration-200 ease-in-out hover:scale-105 hover:bg-[#006aef]"
+                  onClick={() =>
+                    trackGAEvent("select_content", {
+                      source: "success_cases_carousel",
+                      content_type: "success_case",
+                      item_name: study.title,
+                      item_id: study.slug,
+                      link_url: `/casos-de-exito/${study.slug}`,
+                    })
+                  }
                 >
                   LEER MÁS
                 </Link>

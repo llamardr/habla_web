@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
+import { trackGAEvent } from "../lib/googleAnalytics";
 import { TEAM_INTRO, TEAM_MEMBERS } from "./teamData";
 
 const INITIAL_COUNT = 6;
@@ -81,6 +82,13 @@ function LinkedinBadge({ member }) {
       target="_blank"
       rel="noreferrer"
       aria-label={`LinkedIn de ${member.name}`}
+      onClick={() =>
+        trackGAEvent("outbound_click", {
+          source: "team_linkedin",
+          item_name: member.name,
+          link_url: member.linkedin,
+        })
+      }
       className="group inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg text-[#2f3136] transition-transform duration-200 hover:-translate-y-0.5 hover:text-[#006aef]"
     >
       <FaLinkedin className="text-[2.15rem] leading-none" />
@@ -186,7 +194,14 @@ export default function TeamShowcase({ mode = "section" }) {
             {canCollapse && (
               <TeamActionButton
                 variant="outline"
-                onClick={() => setVisibleCount(INITIAL_COUNT)}
+                onClick={() => {
+                  trackGAEvent("select_content", {
+                    source: "team_showcase",
+                    content_type: "team_list",
+                    item_name: "ver_menos",
+                  });
+                  setVisibleCount(INITIAL_COUNT);
+                }}
               >
                 VER MENOS
               </TeamActionButton>
@@ -194,11 +209,16 @@ export default function TeamShowcase({ mode = "section" }) {
 
             {hasMore && (
               <TeamActionButton
-                onClick={() =>
+                onClick={() => {
+                  trackGAEvent("select_content", {
+                    source: "team_showcase",
+                    content_type: "team_list",
+                    item_name: "ver_mas",
+                  });
                   setVisibleCount((current) =>
                     Math.min(current + BATCH_SIZE, TEAM_MEMBERS.length),
-                  )
-                }
+                  );
+                }}
               >
                 VER MÁS
               </TeamActionButton>

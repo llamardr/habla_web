@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import { trackGAEvent } from "../lib/googleAnalytics";
 import { trackMetaEvent } from "../lib/metaPixel";
 
 function lightenColor(color, percent) {
@@ -39,6 +40,11 @@ const ButtonContacto = ({
                 boxShadow: boxShadow,
             }}
             onClick={() => {
+                trackGAEvent("generate_lead", {
+                    source: "button_contacto",
+                    method: "whatsapp",
+                    lead_type: "contact",
+                });
                 trackMetaEvent("Lead", {
                     source: "button_contacto",
                     channel: "whatsapp",

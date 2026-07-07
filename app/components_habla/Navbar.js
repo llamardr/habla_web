@@ -5,6 +5,7 @@ import ButtonContacto from "./ButtonContacto";
 import Image from "next/image";
 import Link from "next/link";
 import { HiMenu, HiX } from "react-icons/hi";
+import { trackGAEvent } from "../lib/googleAnalytics";
 
 const Navbar = ({
   forceSolid = false,
@@ -29,6 +30,15 @@ const Navbar = ({
       ? "top-0 lg:top-4"
       : "top-0";
 
+  const trackNavClick = (itemName, href) => {
+    trackGAEvent("select_content", {
+      source: "navbar",
+      content_type: "navigation_link",
+      item_name: itemName,
+      link_url: href,
+    });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
@@ -48,7 +58,7 @@ const Navbar = ({
         <div className="flex items-center justify-between px-4 py-2 md:px-10">
           {/* Left: Logo */}
           <div className="flex justify-start pl-4">
-            <Link href="/">
+            <Link href="/" onClick={() => trackNavClick("logo", "/")}>
               <Image
                 src={scrolledOrMenuOpen ? "/isotipo_blue.png" : initialLogoSrc}
                 alt="Logo de Habla - Ir al Inicio"
@@ -60,11 +70,11 @@ const Navbar = ({
           </div>
           {/* Desktop Menu */}
           <div className="type-ui hidden md:flex space-x-8">
-            <Link href="/equipo" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>EQUIPO</Link>
-            <Link href="/#partners" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CLIENTES</Link>
-            <Link href="/#successcases" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CASOS DE ÉXITO</Link>
-            <Link href="/#enfoque" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>ENFOQUE</Link>
-            <Link href="/#campo" className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>COMUNIDAD</Link>
+            <Link href="/equipo" onClick={() => trackNavClick("equipo", "/equipo")} className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>EQUIPO</Link>
+            <Link href="/#partners" onClick={() => trackNavClick("clientes", "/#partners")} className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CLIENTES</Link>
+            <Link href="/#successcases" onClick={() => trackNavClick("casos_de_exito", "/#successcases")} className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>CASOS DE ÉXITO</Link>
+            <Link href="/#enfoque" onClick={() => trackNavClick("enfoque", "/#enfoque")} className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>ENFOQUE</Link>
+            <Link href="/#campo" onClick={() => trackNavClick("comunidad", "/#campo")} className={scrolledOrMenuOpen ? "hover:underline" : initialLinkClass}>COMUNIDAD</Link>
           </div>
           {/* Contact Button (desktop) */}
           <div className="hidden md:flex">
@@ -73,7 +83,14 @@ const Navbar = ({
           {/* Hamburger (mobile) */}
           <button
             className={`md:hidden ${scrolledOrMenuOpen || useDarkInitialText ? "text-black" : "text-[#fdf6ea]"}`}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              trackGAEvent("select_content", {
+                source: "navbar",
+                content_type: "mobile_menu",
+                item_name: menuOpen ? "close_menu" : "open_menu",
+              });
+              setMenuOpen(!menuOpen);
+            }}
           >
             {menuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </button>
@@ -85,11 +102,11 @@ const Navbar = ({
       {menuOpen && (
         <div className={`md:hidden flex flex-col shadow-lg pb-6 px-6 mt-2 ${scrolledOrMenuOpen ? "bg-[rgba(253,246,234,0)]" : "bg-[#fdf6ea]"}`}>
           <div className="type-ui flex flex-col space-y-4 py-4 text-black">
-            <Link href="/equipo" className="hover:underline">EQUIPO</Link>
-            <Link href="/#partners" className="hover:underline">CLIENTES</Link>
-            <Link href="/#successcases" className="hover:underline">CASOS DE ÉXITO</Link>
-            <Link href="/#enfoque" className="hover:underline">ENFOQUE</Link>
-            <Link href="/#campo" className="hover:underline">COMUNIDAD</Link>
+            <Link href="/equipo" onClick={() => trackNavClick("equipo", "/equipo")} className="hover:underline">EQUIPO</Link>
+            <Link href="/#partners" onClick={() => trackNavClick("clientes", "/#partners")} className="hover:underline">CLIENTES</Link>
+            <Link href="/#successcases" onClick={() => trackNavClick("casos_de_exito", "/#successcases")} className="hover:underline">CASOS DE ÉXITO</Link>
+            <Link href="/#enfoque" onClick={() => trackNavClick("enfoque", "/#enfoque")} className="hover:underline">ENFOQUE</Link>
+            <Link href="/#campo" onClick={() => trackNavClick("comunidad", "/#campo")} className="hover:underline">COMUNIDAD</Link>
           </div>
           <ButtonContacto />
         </div>
