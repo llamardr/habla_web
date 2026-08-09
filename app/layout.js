@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "react-hot-toast";
 import AnalyticsAttributionTracker from "./components_habla/AnalyticsAttributionTracker";
 import { GA_MEASUREMENT_ID } from "./lib/googleAnalytics";
@@ -249,6 +250,7 @@ export default function RootLayout({ children }) {
         </div>
         <AnalyticsAttributionTracker />
         <Analytics />
+        <SpeedInsights />
         {children}
       </body>
     </html>
