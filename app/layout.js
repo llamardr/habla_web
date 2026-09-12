@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
 import AnalyticsAttributionTracker from "./components_habla/AnalyticsAttributionTracker";
 import { GA_MEASUREMENT_ID } from "./lib/googleAnalytics";
+import { SITE_URL, siteUrl } from "./lib/site";
 import "./globals.css";
 
 const stacion = localFont({
@@ -56,7 +57,7 @@ const lunchtype22 = localFont({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://hablalatam.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Habla - Diseñamos rutas de éxito para ti",
     template: "%s | Habla",
@@ -83,7 +84,7 @@ export const metadata = {
     title: "Habla - Diseñamos rutas de éxito para ti",
     description:
       "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona.",
-    url: "https://hablalatam.com",
+    url: siteUrl(),
     siteName: "Habla",
     images: [
       {
@@ -131,8 +132,8 @@ export default function RootLayout({ children }) {
     name: "Habla - Estudio especializado",
     description:
       "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona. ",
-    url: "https://hablalatam.com",
-    logo: "https://hablalatam.com/main_logo.svg",
+    url: siteUrl(),
+    logo: siteUrl("/main_logo.svg"),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+51 934 132 700",

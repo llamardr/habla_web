@@ -15,6 +15,10 @@ import SuccessCasesCarouselSection from "./components_habla/SuccessCasesCarousel
 import Team from "./components_habla/Team";
 import UsSection from "./components_habla/UsSection";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 async function Home() {
   return (
     <main>

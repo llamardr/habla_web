@@ -126,10 +126,11 @@ export function generateMetadata({ params }) {
   return {
     title: article.title,
     description: article.description,
+    alternates: { canonical: `/casos-de-exito/${article.slug}` },
     openGraph: {
       title: article.title,
       description: article.description,
-      url: `https://hablalatam.com/casos-de-exito/${article.slug}`,
+      url: `/casos-de-exito/${article.slug}`,
       type: "article",
     },
     twitter: {

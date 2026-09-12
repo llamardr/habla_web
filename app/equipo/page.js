@@ -3,6 +3,7 @@ import Navbar from "../components_habla/Navbar";
 import TeamShowcase from "../components_habla/TeamShowcase";
 
 export const metadata = {
+  alternates: { canonical: "/equipo" },
   title: "Equipo",
   description:
     "Conoce al equipo de HABLA y a las personas que conectan estrategia, research, producto, operaciones y diseño.",
@@ -10,7 +11,7 @@ export const metadata = {
     title: "Equipo | Habla",
     description:
       "Conoce al equipo de HABLA y a las personas que conectan estrategia, research, producto, operaciones y diseño.",
-    url: "https://hablalatam.com/equipo",
+    url: "/equipo",
   },
   twitter: {
     title: "Equipo | Habla",

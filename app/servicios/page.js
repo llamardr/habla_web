@@ -5,12 +5,13 @@ import Footer from "../components_habla/Footer";
 import ToolkitSection from "../components_habla/ToolkitSection";
 
 export const metadata = {
+  alternates: { canonical: "/servicios" },
   title: 'Servicios de Consultoría Estratégica',
   description: 'Servicios especializados: Strategic Innovation, Service Design, Operational Excellence, GTM Strategy, y desarrollo de MVPs. Transformamos tu negocio con datos.',
   openGraph: {
     title: 'Servicios - Habla LATAM',
     description: 'Descubre nuestros servicios de consultoría estratégica basada en datos',
-    url: 'https://habla.pe/servicios',
+    url: '/servicios',
   },
   twitter: {
     title: 'Servicios - Habla LATAM',

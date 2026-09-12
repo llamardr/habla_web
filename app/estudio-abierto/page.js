@@ -6,6 +6,7 @@ import Navbar from "../components_habla/Navbar";
 import { getSuccessCaseArticle } from "../lib/successCaseArticles";
 
 export const metadata = {
+  alternates: { canonical: "/estudio-abierto" },
   title: "Estudio Abierto",
   description:
     "Conoce los resultados de la primera edición de Estudio Abierto de Habla y UTEC sobre las brechas invisibles en la educación financiera universitaria.",
@@ -13,7 +14,7 @@ export const metadata = {
     title: "Estudio Abierto | Habla",
     description:
       "Lee los hallazgos y descarga el informe final del primer Estudio Abierto.",
-    url: "https://hablalatam.com/estudio-abierto",
+    url: "/estudio-abierto",
   },
   twitter: {
     title: "Estudio Abierto | Habla",

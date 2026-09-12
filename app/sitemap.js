@@ -1,9 +1,9 @@
-export default async function sitemap() {
-  const baseUrl = "https://hablalatam.com";
+import { successCaseArticles } from "./lib/successCaseArticles";
+import { siteUrl } from "./lib/site";
 
+export default function sitemap() {
   const routes = ["/", "/servicios", "/estudio-abierto", "/equipo"].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
+    url: siteUrl(route),
     changeFrequency: route === "/" ? "weekly" : "monthly",
     priority:
       route === "/"
@@ -15,5 +15,12 @@ export default async function sitemap() {
             : 0.8,
   }));
 
-  return routes;
+  const articles = successCaseArticles.map((article) => ({
+    url: siteUrl(`/casos-de-exito/${article.slug}`),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  // Add lastModified only when a reliable content revision date is available.
+  return [...routes, ...articles];
 }

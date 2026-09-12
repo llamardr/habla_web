@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Sitemap: https://hablalatam.com/sitemap.xml
+Sitemap: https://www.hablalatam.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
