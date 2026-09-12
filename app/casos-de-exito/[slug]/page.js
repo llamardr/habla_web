@@ -3,8 +3,11 @@ import { notFound } from "next/navigation";
 import ArticleBackButton from "@/app/components_habla/ArticleBackButton";
 import EstudioAbiertoDownloadCard from "@/app/components_habla/EstudioAbiertoDownloadCard";
 import Footer from "@/app/components_habla/Footer";
+import JsonLd from "@/app/components_habla/JsonLd";
 import Navbar from "@/app/components_habla/Navbar";
 import SuccessCasesCarouselSection from "@/app/components_habla/SuccessCasesCarouselSection";
+import { articleSchema, breadcrumbSchema } from "@/app/lib/schema";
+import { siteUrl } from "@/app/lib/site";
 import {
   getSuccessCaseArticle,
   serviceCtaCards,
@@ -147,8 +150,18 @@ export default function SuccessCaseArticlePage({ params }) {
     notFound();
   }
 
+  const breadcrumb = breadcrumbSchema([
+    { name: "Inicio", url: siteUrl("/") },
+    { name: "Casos de éxito", url: siteUrl("/#casos-de-exito") },
+    {
+      name: article.title,
+      url: siteUrl(`/casos-de-exito/${article.slug}`),
+    },
+  ]);
+
   return (
     <main className="bg-[#fdf6ea]">
+      <JsonLd data={[articleSchema(article), breadcrumb]} />
       <Navbar initialTextColor="dark" />
 
       <article className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
@@ -160,7 +173,13 @@ export default function SuccessCaseArticlePage({ params }) {
             {article.title}
           </h1>
           <p className="type-overline mt-6">
-            {article.subtitle} · {article.date} · Por {article.author}
+            {article.subtitle} ·{" "}
+            {article.datePublished ? (
+              <time dateTime={article.datePublished}>{article.date}</time>
+            ) : (
+              article.date
+            )}{" "}
+            · Por {article.author}
           </p>
         </header>
 

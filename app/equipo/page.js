@@ -1,6 +1,8 @@
 import Footer from "../components_habla/Footer";
+import JsonLd from "../components_habla/JsonLd";
 import Navbar from "../components_habla/Navbar";
 import TeamShowcase from "../components_habla/TeamShowcase";
+import { teamSchema } from "../lib/schema";
 
 export const metadata = {
   alternates: { canonical: "/equipo" },
@@ -23,6 +25,7 @@ export const metadata = {
 export default function EquipoPage() {
   return (
     <main className="bg-[#fdf6ea]">
+      <JsonLd data={teamSchema()} />
       <Navbar forceSolid />
       <TeamShowcase mode="page"/>
       <Footer />

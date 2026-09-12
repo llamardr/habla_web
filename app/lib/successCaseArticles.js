@@ -8,6 +8,7 @@ export const successCaseArticles = [
     title: "El miedo no vende salud (o al menos no tan bien como crees)",
     subtitle: "Salud",
     date: "Mayo 2026",
+    datePublished: "2026-05-01",
     author: "Habla Latam",
     description:
       "El driver real de decisión en salud no siempre es el miedo al deterioro. Muchas veces es la aspiración, la información y la confianza.",
@@ -24,6 +25,10 @@ export const successCaseArticles = [
         text: "El problema es que no siempre mueve en la dirección correcta.",
       },
       {
+        type: "heading",
+        text: "En una clínica odontológica, la aspiración le gana al miedo",
+      },
+      {
         type: "paragraph",
         text: "Cuando investigamos el comportamiento de pacientes en una clínica odontológica con más de 30 años en el mercado peruano, encontramos algo que contradice el manual estándar del sector: el driver real de decisión no es el miedo al deterioro. Es la aspiración.",
       },
@@ -32,8 +37,16 @@ export const successCaseArticles = [
         text: "Las personas cuidan sus dientes porque quieren verse bien. Porque sus dientes son su carta de presentación en una entrevista de trabajo o en una primera cita. Porque no quieren envejecer mal. Porque su autoestima depende, más de lo que admiten, de lo que ven en el espejo. La salud bucal no es un fin en sí mismo: es un habilitador de vida personal y profesional.",
       },
       {
+        type: "heading",
+        text: "En skincare, la información reemplaza al miedo",
+      },
+      {
         type: "paragraph",
         text: "Lo mismo encontramos al investigar el mercado del skincare dermatológico. El estándar de la industria ha sido comunicar riesgo: manchas, envejecimiento, cáncer de piel. Pero el perfil que más crece no responde al miedo, responde a la información. La consumidora que hemos llamado “la estudiosa del skincare” no compra por miedo a enfermarse. Compra porque entiende lo que hace cada ingrediente y quiere resultados concretos. Cuando hay información de calidad, el miedo deja de ser necesario.",
+      },
+      {
+        type: "heading",
+        text: "Cómo se vende en salud: confianza antes que miedo",
       },
       {
         type: "paragraph",
@@ -56,6 +69,10 @@ export const successCaseArticles = [
         text: "El miedo genera una primera reacción, pero raramente genera confianza. Y en salud, donde el ticket es alto, el proceso es incómodo y la decisión es personal, la confianza es lo único que convierte.",
       },
       {
+        type: "heading",
+        text: "La lección: pregúntate qué aspira realmente tu paciente",
+      },
+      {
         type: "paragraph",
         text: "La lección para cualquier negocio en el sector salud es la misma: antes de preguntarte cómo comunicas el riesgo, pregúntate qué aspira realmente tu paciente. La respuesta casi siempre es más poderosa que cualquier advertencia.",
       },
@@ -71,6 +88,7 @@ export const successCaseArticles = [
     title: "Adopción Digital: El problema no está dentro de tu app. Está alrededor.",
     subtitle: "Producto digital",
     date: "Mayo 2026",
+    datePublished: "2026-05-01",
     author: "Habla Latam",
     description:
       "Tres productos digitales, tres industrias y un mismo patrón: el contexto que rodea al producto puede importar más que el producto mismo.",
@@ -139,6 +157,7 @@ export const successCaseArticles = [
       "¿Qué es la investigación aplicada y por qué no es lo mismo que la investigación de mercado tradicional?",
     subtitle: "Investigación aplicada",
     date: "Mayo 2026",
+    datePublished: "2026-05-01",
     author: "Habla Latam",
     description:
       "La investigación aplicada no termina en un informe: convierte el comportamiento real del consumidor en rutas de acción para decisiones de negocio.",

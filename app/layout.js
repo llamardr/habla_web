@@ -3,7 +3,9 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "react-hot-toast";
 import AnalyticsAttributionTracker from "./components_habla/AnalyticsAttributionTracker";
+import JsonLd from "./components_habla/JsonLd";
 import { GA_MEASUREMENT_ID } from "./lib/googleAnalytics";
+import { organizationSchema } from "./lib/schema";
 import { SITE_URL, siteUrl } from "./lib/site";
 import "./globals.css";
 
@@ -126,42 +128,6 @@ export const viewport = {
 export default function RootLayout({ children }) {
   const metaPixelId = "1673789470026632";
   const linkedinPartnerId = "8697042";
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Habla - Estudio especializado",
-    description:
-      "HABLA LatAm es un estudio especializado en el lanzamiento de nuevos productos en Latinoamérica. Somos un grupo de profesionales que traduce data de usuarios, negocios, mercados, redes y demás para traer claridad que funciona. ",
-    url: siteUrl(),
-    logo: siteUrl("/main_logo.svg"),
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+51 934 132 700",
-      areaServed: ["PE", "MX", "LATAM"],
-      availableLanguage: ["Spanish", "English"],
-    },
-    address: [
-      {
-        "@type": "PostalAddress",
-        addressCountry: "PE",
-        addressRegion: "Lima",
-        addressLocality: "Lima",
-      },
-      {
-        "@type": "PostalAddress",
-        addressCountry: "MX",
-        addressRegion: "Ciudad de México",
-        addressLocality: "Ciudad de México",
-      },
-    ],
-    services: [
-      "Strategic Innovation",
-      "Service Design",
-      "Operational Excellence",
-      "GTM Strategy",
-      "MVP Development",
-    ],
-  };
 
   return (
     <html
@@ -241,10 +207,7 @@ export default function RootLayout({ children }) {
             alt=""
           />
         </noscript>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={organizationSchema()} />
         <div>
           <Toaster />
         </div>

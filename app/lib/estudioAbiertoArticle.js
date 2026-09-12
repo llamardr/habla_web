@@ -4,6 +4,7 @@ export const estudioAbiertoArticle = {
   title: "El universitario limeño y el dinero: la historia que los números no contaban",
   subtitle: "Educación financiera",
   date: "Junio 2026",
+  datePublished: "2026-06-18",
   author: "Habla Latam",
   description:
     "La primera edición de Estudio Abierto revela cómo los universitarios limeños se relacionan con el dinero, qué instituciones quedan fuera del problema y por qué la educación financiera real ocurre en la cancha.",
