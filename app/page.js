@@ -8,6 +8,7 @@ import AnnouncementBanner from "./components_habla/AnnouncementBanner";
 import CampoSection from "./components_habla/CampoSection";
 import Community from "./components_habla/Community";
 import CommunityCTASection from "./components_habla/CommunityCTASection";
+import FaqSection from "./components_habla/FaqSection";
 import RecruitersSection from "./components_habla/RecruitersSection";
 import Partners from "./components_habla/Partners";
 import SuccessCases from "./components_habla/SuccessCases";
@@ -34,6 +35,7 @@ async function Home() {
       <CampoSection />
       <RecruitersSection />
       <CommunityCTASection />
+      <FaqSection />
       <Footer></Footer>
     </main>
   );

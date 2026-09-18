@@ -40,15 +40,6 @@ export const TEAM_MEMBERS = [
     accentClass: "bg-[#eeff90]",
   },
   {
-    slug: "pierina-ponce",
-    name: "Pierina Ponce",
-    role: "Collaborator | Product Manager",
-    bio: "Pierina combina visión comercial y de producto, con más de 10 años de experiencia en retail, consumo masivo y fintech. Ha liderado productos y estrategias digitales en Niubiz, Kasnet, Ontop e Izipay. En HABLA aporta lectura estratégica, criterio de producto y foco en aterrizar ideas en soluciones reales.",
-    linkedin: "https://www.linkedin.com/in/pierinaponce/",
-    image: "/team/PierinaponceHABLALATAM.png",
-    accentClass: "bg-[#eeff90]",
-  },
-  {
     slug: "silvia-angulo",
     name: "Silvia Angulo",
     role: "Collaborator | UX Research",

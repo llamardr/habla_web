@@ -152,7 +152,7 @@ export default function SuccessCaseArticlePage({ params }) {
 
   const breadcrumb = breadcrumbSchema([
     { name: "Inicio", url: siteUrl("/") },
-    { name: "Casos de éxito", url: siteUrl("/#casos-de-exito") },
+    { name: "Casos de éxito", url: siteUrl("/#successcases") },
     {
       name: article.title,
       url: siteUrl(`/casos-de-exito/${article.slug}`),

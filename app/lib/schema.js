@@ -156,6 +156,23 @@ export function breadcrumbSchema(items) {
   };
 }
 
+export function faqSchema(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: Array.isArray(item.answer)
+          ? item.answer.join("\n\n")
+          : item.answer,
+      },
+    })),
+  };
+}
+
 export function teamSchema() {
   return TEAM_MEMBERS.map((member) => ({
     "@context": "https://schema.org",
