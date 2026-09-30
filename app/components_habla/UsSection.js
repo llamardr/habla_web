@@ -31,7 +31,7 @@ const UsSection = () => {
           el que se encuentra tu negocio.
         </p>
         <div className="w-40 mb-20 sm:mb-0 md:mb-20">
-          <ButtonContacto backgroundColor="#006aef" color="#fdf6ea" />
+          <ButtonContacto placement="us_section" backgroundColor="#006aef" color="#fdf6ea" />
         </div>
       </div>
     </section>

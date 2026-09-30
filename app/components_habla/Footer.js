@@ -36,10 +36,17 @@ const Footer = () => {
       <a
         className="link link-hover"
         onClick={() => {
+          trackGAEvent("contact_click", {
+            source: "footer_contacto",
+            contact_placement: "footer",
+            method: "whatsapp",
+            link_url: "https://wa.link/qma2r5",
+          });
           trackGAEvent("generate_lead", {
             source: "footer_contacto",
             method: "whatsapp",
             lead_type: "contact",
+            contact_placement: "footer",
           });
           trackMetaEvent("Lead", { source: "footer_contacto", channel: "whatsapp" });
           window.open("https://wa.link/qma2r5", "_blank");

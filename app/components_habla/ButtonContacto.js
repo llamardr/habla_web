@@ -26,7 +26,8 @@ function lightenColor(color, percent) {
 
 const ButtonContacto = ({
     backgroundColor = "#eaff7e",
-    color = "#000000"
+    color = "#000000",
+    placement = "unspecified"
 }) => {
     const [hovered, setHovered] = useState(false);
     const [open, setOpen] = useState(false);
@@ -64,11 +65,32 @@ const ButtonContacto = ({
         border: `2px solid ${backgroundColor}`,
     };
 
+    const handleContactToggle = () => {
+        if (!open) {
+            trackGAEvent("contact_open", {
+                source: "button_contacto",
+                contact_placement: placement,
+            });
+        }
+        setOpen(!open);
+    };
+
+    const trackContactClick = (method, url) => {
+        trackGAEvent("contact_click", {
+            source: "button_contacto",
+            contact_placement: placement,
+            method,
+            link_url: url,
+        });
+    };
+
     const handleWhatsappClick = () => {
+        trackContactClick("whatsapp", WHATSAPP_URL);
         trackGAEvent("generate_lead", {
             source: "button_contacto",
             method: "whatsapp",
             lead_type: "contact",
+            contact_placement: placement,
         });
         trackMetaEvent("Lead", {
             source: "button_contacto",
@@ -79,10 +101,12 @@ const ButtonContacto = ({
     };
 
     const handleCalendarClick = () => {
+        trackContactClick("schedule_call", CALENDAR_URL);
         trackGAEvent("generate_lead", {
             source: "button_contacto",
             method: "schedule_call",
             lead_type: "contact",
+            contact_placement: placement,
         });
         trackMetaEvent("Lead", {
             source: "button_contacto",
@@ -102,7 +126,7 @@ const ButtonContacto = ({
                     border: `2px solid ${backgroundColor}`,
                     boxShadow: boxShadow,
                 }}
-                onClick={() => setOpen((prev) => !prev)}
+                onClick={handleContactToggle}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 aria-haspopup="true"

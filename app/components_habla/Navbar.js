@@ -78,7 +78,7 @@ const Navbar = ({
           </div>
           {/* Contact Button (desktop) */}
           <div className="hidden md:flex">
-            <ButtonContacto/>
+            <ButtonContacto placement="navbar_desktop" />
           </div>
           {/* Hamburger (mobile) */}
           <button
@@ -108,7 +108,7 @@ const Navbar = ({
             <Link href="/#enfoque" onClick={() => trackNavClick("enfoque", "/#enfoque")} className="hover:underline">ENFOQUE</Link>
             <Link href="/#campo" onClick={() => trackNavClick("comunidad", "/#campo")} className="hover:underline">COMUNIDAD</Link>
           </div>
-          <ButtonContacto />
+          <ButtonContacto placement="navbar_mobile" />
         </div>
       )}
 

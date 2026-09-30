@@ -43,7 +43,7 @@ export default function BusinessDecisionsSection() {
 
             <div className="mt-7 sm:mt-8">
               <div className="w-fit min-w-[11rem]">
-                <ButtonContacto backgroundColor="#fdf6ea" color="#000000" />
+                <ButtonContacto placement="business_decisions" backgroundColor="#fdf6ea" color="#000000" />
               </div>
             </div>
           </div>

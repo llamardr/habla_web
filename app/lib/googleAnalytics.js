@@ -122,5 +122,9 @@ export function trackGAEvent(eventName, params = {}) {
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(["event", eventName, eventParams]);
+  // Match the Google tag command queue even before its script is ready.
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag("event", eventName, eventParams);
 }
