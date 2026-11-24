@@ -40,6 +40,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 The Estudio Abierto report form posts to `app/api/estudio-abierto-leads/route.js`.
 It appends validated leads to a Google Sheet before allowing the PDF download.
 
+The IA edition lives at `/casos-de-exito/uso-ia-limenos-estudio-abierto`.
+The former `/estudio-abierto/ia` page redirects permanently to that article.
+After registration, visitors can
+open the PDF report in a new tab or download it.
+Report assets and source names are configured in `app/lib/estudioAbiertoReports.js`.
+Both editions use the existing sheet: IA leads have `fuente=estudio-abierto-ia`;
+education keeps `fuente=estudio-abierto-informe-final`. No new environment variables
+or sheet columns are required. The static report URLs remain public, like the
+existing PDF.
+
+Run the isolated lead-flow checks (no live Google Sheets writes) with:
+
+```bash
+node --test tests/estudio-abierto-leads.test.cjs
+```
+
 Create a Google Sheet with a tab named `Leads` and these headers in row 1:
 
 ```text

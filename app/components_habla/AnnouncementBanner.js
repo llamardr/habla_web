@@ -5,7 +5,7 @@ import { trackGAEvent } from "../lib/googleAnalytics";
 
 const getBannerMessage = () => {
   const message =
-    "Mira los resultados del primer Estudio Abierto de Habla LATAM aquí.";
+    "¿Cómo usan la IA los limeños? Descubre los resultados de nuestro nuevo Estudio Abierto.";
   return (
     <>
       {message}
@@ -28,18 +28,18 @@ export default function AnnouncementBanner() {
       data-announcement-banner
       className="fixed inset-x-0 top-0 z-[110] flex h-[50px] overflow-hidden bg-[#e295e0] text-black"
       role="region"
-      aria-label="Resultados del primer Estudio Abierto"
+      aria-label="Nuevo Estudio Abierto sobre el uso de IA de los limeños"
     >
       <Link
-        href="/estudio-abierto"
+        href="/casos-de-exito/uso-ia-limenos-estudio-abierto"
         className="announcement-marquee flex h-full min-w-0 flex-1 items-center overflow-hidden"
-        aria-label="Ver resultados del primer Estudio Abierto"
+        aria-label="Ver resultados sobre el uso de IA de los limeños"
         onClick={() =>
           trackGAEvent("select_content", {
             source: "announcement_banner",
             content_type: "promotion",
-            item_name: "resultados_estudio_abierto",
-            link_url: "/estudio-abierto",
+            item_name: "resultados_estudio_abierto_ia",
+            link_url: "/casos-de-exito/uso-ia-limenos-estudio-abierto",
           })
         }
       >

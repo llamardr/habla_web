@@ -1,6 +1,8 @@
 import { estudioAbiertoArticle } from "./estudioAbiertoArticle";
+import { estudioAbiertoIaArticle } from "./estudioAbiertoIaArticle";
 
 export const successCaseArticles = [
+  estudioAbiertoIaArticle,
   estudioAbiertoArticle,
   {
     id: 1,

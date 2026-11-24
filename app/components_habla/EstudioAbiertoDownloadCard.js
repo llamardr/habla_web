@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { trackGAEvent } from "../lib/googleAnalytics";
-
-const REPORT_URL = "/estudio-abierto/informe-final-estudio-abierto.pdf";
+import { estudioAbiertoReports } from "../lib/estudioAbiertoReports";
 
 const blockedTerms = [
   "asdf",
@@ -50,7 +49,11 @@ const validatePhone = (phone) => {
   );
 };
 
-export default function EstudioAbiertoDownloadCard({ className = "" }) {
+export default function EstudioAbiertoDownloadCard({ className = "", reportId = "educacion" }) {
+  const report = estudioAbiertoReports[reportId] || estudioAbiertoReports.educacion;
+  const isIaReport = reportId === "ia";
+  const successRef = useRef(null);
+  const submittingRef = useRef(false);
   const [formValues, setFormValues] = useState({
     name: "",
     company: "",
@@ -63,6 +66,10 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasDownloaded, setHasDownloaded] = useState(false);
+
+  useEffect(() => {
+    if (hasDownloaded) successRef.current?.focus();
+  }, [hasDownloaded]);
 
   const updateField = (field) => (event) => {
     setFormValues((current) => ({
@@ -130,14 +137,15 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
   const downloadReport = (source = "estudio_abierto_download_card") => {
     trackGAEvent("file_download", {
       source,
-      file_name: "informe-final-estudio-abierto.pdf",
-      file_extension: "pdf",
-      link_url: REPORT_URL,
+      file_name: report.fileName,
+      file_extension: report.extension,
+      study: reportId,
+      link_url: report.url,
     });
 
     const downloadLink = document.createElement("a");
-    downloadLink.href = REPORT_URL;
-    downloadLink.download = "informe-final-estudio-abierto.pdf";
+    downloadLink.href = report.url;
+    downloadLink.download = report.fileName;
     document.body.appendChild(downloadLink);
     downloadLink.click();
     downloadLink.remove();
@@ -146,8 +154,9 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!validateForm()) return;
+    if (submittingRef.current || !validateForm()) return;
 
+    submittingRef.current = true;
     setIsSubmitting(true);
     setErrors({});
 
@@ -157,7 +166,7 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formValues),
+        body: JSON.stringify({ ...formValues, study: reportId }),
       });
       const result = await response.json();
 
@@ -173,16 +182,18 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
       trackGAEvent("generate_lead", {
         source: "estudio_abierto_download_form",
         method: "form",
-        form_name: "estudio_abierto_informe_final",
+        form_name: report.formName,
+        study: reportId,
         lead_type: "report_download",
       });
-      downloadReport("estudio_abierto_form_success");
+      if (!isIaReport) downloadReport("estudio_abierto_form_success");
       setHasDownloaded(true);
     } catch (error) {
       setErrors({
         form: "No pudimos registrar tus datos. Intenta nuevamente.",
       });
     } finally {
+      submittingRef.current = false;
       setIsSubmitting(false);
     }
   };
@@ -197,35 +208,42 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
     >
       <div className="flex justify-center overflow-visible rounded-[1.5rem] bg-transparent py-2 text-black">
         <Image
-          src="/estudio-abierto/ea-results-cover-new.png"
-          alt="Portada del informe final de Estudio Abierto"
-          width={1130}
-          height={663}
+          src={report.cover}
+          alt={report.coverAlt}
+          width={isIaReport ? 1080 : 1130}
+          height={isIaReport ? 1350 : 663}
           sizes="(max-width: 640px) 70vw, 33vw"
-          className="h-auto w-1/3 min-w-[12rem] max-w-[24rem]"
+          className={isIaReport ? "h-48 w-full rounded-2xl object-cover object-[50%_45%]" : "h-auto w-1/3 min-w-[12rem] max-w-[24rem]"}
         />
       </div>
 
       {hasDownloaded ? (
-        <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center px-2 py-8 text-center sm:py-10">
-          <h5 className="type-h3">
-            Tu informe se ha descargado
-          </h5>
+        <div ref={successRef} tabIndex={-1} role="status" className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center px-2 py-8 text-center outline-none sm:py-10">
+          <h3 className="type-h3 type-beige">
+            {isIaReport ? "Tu informe está listo para explorar" : "Tu informe se ha descargado"}
+          </h3>
           <p className="type-body mt-4 max-w-xl text-center text-[#fdf6ea]/85">
-            Ya registramos tus datos. Si el archivo no se abrió
-            automáticamente, puedes descargarlo nuevamente sin enviar otro
-            formulario.
+            {isIaReport ? "Ya registramos tus datos. Explora las 14 láminas en tu navegador o guarda una copia para volver a los hallazgos cuando quieras." : "Ya registramos tus datos. Si el archivo no se abrió automáticamente, puedes descargarlo nuevamente sin enviar otro formulario."}
           </p>
+          {isIaReport && (
+            <a href={report.url} target="_blank" rel="noopener noreferrer"
+              onClick={() => trackGAEvent("view_report", { study: reportId, link_url: report.url, source: "estudio_abierto_form_success" })}
+              className="btn type-button mt-6 h-auto min-h-12 w-full max-w-md border-2 border-[#fdf6ea] bg-[#fdf6ea] px-6 py-3 text-[#006aef] hover:border-[#fdf6ea] hover:bg-[#fdf6ea]">
+              ABRIR INFORME ↗
+            </a>
+          )}
           <button
             type="button"
             onClick={() => downloadReport("estudio_abierto_redownload")}
             className="btn type-button mt-6 w-full max-w-md border-2 border-[#fdf6ea] bg-[#fdf6ea] px-6 text-[#006aef] transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#fdf6ea] hover:bg-[#fdf6ea]"
           >
-            DESCARGAR DE NUEVO
+            {isIaReport ? "DESCARGAR PDF ↓" : "DESCARGAR DE NUEVO"}
           </button>
+          {isIaReport && <p className="type-body-small mt-4 text-[#fdf6ea]/85">Se abre en una pestaña nueva. El archivo descargado también se abre con tu navegador.</p>}
         </div>
       ) : (
         <form className="mt-7 space-y-4" onSubmit={handleSubmit} noValidate>
+          {isIaReport && <div className="pb-3"><p className="type-overline !text-[#006aef]">Informe PDF · 14 láminas</p><h3 className="type-h3 mt-3">Los limeños y la IA</h3><p className="type-body-small mt-3 text-black/70">Completa tus datos para abrir el informe completo y descargarlo en PDF.</p></div>}
           <div>
             <label
               className="type-ui text-black/75"
@@ -361,8 +379,7 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
                 required
               />
               <span>
-                Al hacer click en &ldquo;Enviar&rdquo; est&aacute;s aceptando
-                los{" "}
+                Al enviar tus datos aceptas los{" "}
                 <a
                   href="https://docs.google.com/document/d/1cABUK1ozAwzBLrNOh1mhlE5taRmkpwnPDoe7bYC3lhY/edit?tab=t.0#heading=h.v572f46y7ns2"
                   target="_blank"
@@ -407,14 +424,14 @@ export default function EstudioAbiertoDownloadCard({ className = "" }) {
             )}
           </div>
 
-          {errors.form && <p className="type-body-small text-red-600">{errors.form}</p>}
+          {errors.form && <p role="alert" className="type-body-small text-red-600">{errors.form}</p>}
 
           <button
             type="submit"
             disabled={isSubmitting}
             className="btn type-button mt-2 w-full border-2 border-[#006aef] bg-[#006aef] px-6 text-[#fdf6ea] transition-transform duration-200 ease-in-out hover:scale-[1.02] hover:border-[#006aef] hover:bg-[#006aef] disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {isSubmitting ? "REGISTRANDO..." : "DESCARGAR INFORME PDF FINAL"}
+            {isSubmitting ? "REGISTRANDO..." : isIaReport ? "ACCEDER AL INFORME →" : "DESCARGAR INFORME PDF FINAL"}
           </button>
         </form>
       )}

@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import { NextResponse } from "next/server";
+import { estudioAbiertoReports } from "@/app/lib/estudioAbiertoReports";
 
 export const runtime = "nodejs";
 
@@ -293,7 +294,7 @@ const appendLeadToSheet = async (lead, request) => {
     compania: lead.company.trim(),
     telefono: lead.phone.trim(),
     correo: lead.email.trim().toLowerCase(),
-    fuente: "estudio-abierto-informe-final",
+    fuente: estudioAbiertoReports[lead.study].source,
     user_agent: request.headers.get("user-agent") || "",
     rubro: lead.rubro.trim(),
     rol: lead.role.trim(),
@@ -321,7 +322,12 @@ const appendLeadToSheet = async (lead, request) => {
 export async function POST(request) {
   try {
     const payload = await request.json();
+    const study = payload.study ?? "educacion";
+    if (!Object.prototype.hasOwnProperty.call(estudioAbiertoReports, study)) {
+      return NextResponse.json({ ok: false, errors: { form: "Estudio no válido." } }, { status: 400 });
+    }
     const lead = {
+      study,
       name: String(payload.name || ""),
       company: String(payload.company || ""),
       rubro: String(payload.rubro || ""),

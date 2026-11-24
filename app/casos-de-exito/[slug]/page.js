@@ -135,10 +135,13 @@ export function generateMetadata({ params }) {
       description: article.description,
       url: `/casos-de-exito/${article.slug}`,
       type: "article",
+      ...(article.imageUrl ? { images: [{ url: article.imageUrl, alt: article.title }] } : {}),
     },
     twitter: {
+      card: "summary_large_image",
       title: article.title,
       description: article.description,
+      ...(article.imageUrl ? { images: [article.imageUrl] } : {}),
     },
   };
 }
@@ -181,6 +184,7 @@ export default function SuccessCaseArticlePage({ params }) {
             )}{" "}
             · Por {article.author}
           </p>
+          {article.reportId && <a href="#informe" className="type-button mt-6 inline-flex rounded-full bg-[#006aef] px-6 py-3 text-[#fdf6ea]">EXPLORAR EL INFORME COMPLETO ↓</a>}
         </header>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_1.35fr] lg:items-start">
@@ -204,12 +208,12 @@ export default function SuccessCaseArticlePage({ params }) {
           <ArticleContent blocks={article.content} />
         </div>
 
-        {article.slug === ESTUDIO_ABIERTO_SLUG && (
-          <section className="mt-14 border-t border-black/10 pt-12">
+        {(article.slug === ESTUDIO_ABIERTO_SLUG || article.reportId) && (
+          <section id="informe" className="mt-14 scroll-mt-32 border-t border-black/10 pt-12">
             <h2 className="type-h2 type-black mb-8">
-              Descarga el informe con los resultados
+              {article.reportId === "ia" ? "Explora los resultados en el informe PDF" : "Descarga el informe con los resultados"}
             </h2>
-            <EstudioAbiertoDownloadCard />
+            <EstudioAbiertoDownloadCard reportId={article.reportId || "educacion"} />
           </section>
         )}
       </article>

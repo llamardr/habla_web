@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import EstudioAbiertoIntroCarousel from "../components_habla/EstudioAbiertoIntroCarousel";
 import EstudioAbiertoResultsSection from "../components_habla/EstudioAbiertoResultsSection";
 import Footer from "../components_habla/Footer";
@@ -154,6 +155,13 @@ export default function EstudioAbiertoPage() {
   return (
     <main className="bg-[#fdf6ea] text-black">
       <Navbar initialTextColor="dark" />
+
+      <div className="mx-auto max-w-6xl px-4 pt-36 sm:px-6">
+        <Link href="/casos-de-exito/uso-ia-limenos-estudio-abierto" className="flex flex-col justify-between gap-3 rounded-2xl bg-[#006aef] p-6 text-[#fdf6ea] sm:flex-row sm:items-center">
+          <span><span className="type-overline !text-[#ebff7d]">Nuevo Estudio Abierto</span><span className="type-h3 type-beige mt-2 block">¿Cómo usan la IA los limeños?</span></span>
+          <span className="type-button">VER RESULTADOS ↗</span>
+        </Link>
+      </div>
 
       <EstudioAbiertoResultsSection article={estudioAbiertoArticle} />
 
